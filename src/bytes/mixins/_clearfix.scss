@@ -1,0 +1,29 @@
+/// Helper for clearing floats, to be used on containing elements
+/// @author Azin Asili
+/// @access public
+/// @link http://cssmojo.com/latest_new_clearfix_so_far/
+/// @output Clear, content, and display
+/// @example scss
+///   .foo {
+///     @include clearfix();
+///   }
+/// @example css
+///   .foo::after {
+///     clear: both;
+///     content: '';
+///     display: table;
+///   }
+@mixin clearfix() {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+/// Alias for `clearfix()` mixin
+/// @alias clearfix()
+/// @require {mixin} clearfix - Helper for clearing floats, to be used on containing elements
+@mixin cf() {
+  @include clearfix();
+}

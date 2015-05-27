@@ -1,0 +1,540 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Bytes Sass library - v0.2.0</title><link rel="stylesheet" href="assets/css/main.css"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Bytes Sass library - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>Lightweight Sass library to make development easy</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title">Bytes Sass library - 0.2.0</h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-function"><a href="#undefined-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="animate" data-type="function"><a href="#function-animate">animate</a></li><li class="sidebar__item sassdoc__item" data-name="color" data-type="function"><a href="#function-color">color</a></li><li class="sidebar__item sassdoc__item" data-name="_brightness" data-type="function"><a href="#function-_brightness">_brightness</a></li><li class="sidebar__item sassdoc__item" data-name="dynamic-color" data-type="function"><a href="#function-dynamic-color">dynamic-color</a></li><li class="sidebar__item sassdoc__item" data-name="get" data-type="function"><a href="#function-get">get</a></li><li class="sidebar__item sassdoc__item" data-name="path" data-type="function"><a href="#function-path">path</a></li><li class="sidebar__item sassdoc__item" data-name="_convert-to-em" data-type="function"><a href="#function-_convert-to-em">_convert-to-em</a></li><li class="sidebar__item sassdoc__item" data-name="em" data-type="function"><a href="#function-em">em</a></li><li class="sidebar__item sassdoc__item" data-name="_convert-to-rem" data-type="function"><a href="#function-_convert-to-rem">_convert-to-rem</a></li><li class="sidebar__item sassdoc__item" data-name="rem" data-type="function"><a href="#function-rem">rem</a></li><li class="sidebar__item sassdoc__item" data-name="shade" data-type="function"><a href="#function-shade">shade</a></li><li class="sidebar__item sassdoc__item" data-name="_strip-unit" data-type="function"><a href="#function-_strip-unit">_strip-unit</a></li><li class="sidebar__item sassdoc__item" data-name="tint" data-type="function"><a href="#function-tint">tint</a></li><li class="sidebar__item sassdoc__item" data-name="transparent" data-type="function"><a href="#function-transparent">transparent</a></li><li class="sidebar__item sassdoc__item" data-name="z" data-type="function"><a href="#function-z">z</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="center" data-type="mixin"><a href="#mixin-center">center</a></li><li class="sidebar__item sassdoc__item" data-name="circle" data-type="mixin"><a href="#mixin-circle">circle</a></li><li class="sidebar__item sassdoc__item" data-name="clearfix" data-type="mixin"><a href="#mixin-clearfix">clearfix</a></li><li class="sidebar__item sassdoc__item" data-name="cf" data-type="mixin"><a href="#mixin-cf">cf</a></li><li class="sidebar__item sassdoc__item" data-name="font-face" data-type="mixin"><a href="#mixin-font-face">font-face</a></li><li class="sidebar__item sassdoc__item" data-name="hide-text" data-type="mixin"><a href="#mixin-hide-text">hide-text</a></li><li class="sidebar__item sassdoc__item" data-name="hidpi" data-type="mixin"><a href="#mixin-hidpi">hidpi</a></li><li class="sidebar__item sassdoc__item" data-name="list-unstyled" data-type="mixin"><a href="#mixin-list-unstyled">list-unstyled</a></li><li class="sidebar__item sassdoc__item" data-name="opacity" data-type="mixin"><a href="#mixin-opacity">opacity</a></li><li class="sidebar__item sassdoc__item" data-name="paper-depth" data-type="mixin"><a href="#mixin-paper-depth">paper-depth</a></li><li class="sidebar__item sassdoc__item" data-name="paper-ripple" data-type="mixin"><a href="#mixin-paper-ripple">paper-ripple</a></li><li class="sidebar__item sassdoc__item" data-name="placeholder" data-type="mixin"><a href="#mixin-placeholder">placeholder</a></li><li class="sidebar__item sassdoc__item" data-name="em" data-type="mixin"><a href="#mixin-em">em</a></li><li class="sidebar__item sassdoc__item" data-name="rem" data-type="mixin"><a href="#mixin-rem">rem</a></li><li class="sidebar__item sassdoc__item" data-name="screen-size" data-type="mixin"><a href="#mixin-screen-size">screen-size</a></li><li class="sidebar__item sassdoc__item" data-name="ss" data-type="mixin"><a href="#mixin-ss">ss</a></li><li class="sidebar__item sassdoc__item" data-name="set" data-type="mixin"><a href="#mixin-set">set</a></li><li class="sidebar__item sassdoc__item" data-name="triangle" data-type="mixin"><a href="#mixin-triangle">triangle</a></li><li class="sidebar__item sassdoc__item" data-name="truncate" data-type="mixin"><a href="#mixin-truncate">truncate</a></li><li class="sidebar__item sassdoc__item" data-name="word-wrap" data-type="mixin"><a href="#mixin-word-wrap">word-wrap</a></li><li class="sidebar__item sassdoc__item" data-name="z" data-type="mixin"><a href="#mixin-z">z</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="function-animate"><h3 class="item__heading"><a class="item__name" href="#function-animate">animate</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function animate($property: all, $duration: .4s, $easing: cubic-bezier(.4, 0, .2, 1), $delay: null) { 
+  @if unitless($duration) or $delay != null and unitless($delay) {
+    @warn &#39;Please specify a timing unit for `$duration` or `$delay` in `animate()`&#39;;
+  }
+  @return $property $duration $easing $delay;
+ }" data-collapsed="@function animate($property: all, $duration: .4s, $easing: cubic-bezier(.4, 0, .2, 1), $delay: null) { ... }"><code>@function animate($property: all, $duration: .4s, $easing: cubic-bezier(.4, 0, .2, 1), $delay: null) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Default animation for transitions</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$property</code></th><td data-label="desc"><p>CSS property to transition</p></td><td data-label="type"><code>Property</code></td><td data-label="default"><code>all</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$duration</code></th><td data-label="desc"><p>Length of transition</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>.4s</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$easing</code></th><td data-label="desc"><p>Easing function for transition</p></td><td data-label="type"><code>Function</code></td><td data-label="default"><code>cubic-bezier(.4, 0, .2, 1)</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$delay</code></th><td data-label="desc"><p>Transition delay</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>null</code></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Value</code> &mdash;<p>Values to transition</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    transition: animate(background);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    transition: background .4s cubic-bezier(.4, 0, .2, 1);
+  }</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>Warning when $duration does not have a unit</p></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-color"><h3 class="item__heading"><a class="item__name" href="#function-color">color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function color($color, $tone: base) { 
+  @return get($color, $tone);
+ }" data-collapsed="@function color($color, $tone: base) { ... }"><code>@function color($color, $tone: base) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return color from map</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>Map name of colors</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$tone</code></th><td data-label="desc"><p>Shade/tint of color</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>base</code></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Color</code> &mdash;<p>Color from map</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    color: color($color-primary);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    color: #bada55;
+  }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-_brightness"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#function-_brightness">_brightness</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _brightness($color) { 
+  @return ((red($color)) + (green($color)) + (blue($color))) / 255 * 100%;
+ }" data-collapsed="@function _brightness($color) { ... }"><code>@function _brightness($color) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Brightness of color getter</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>Color to be analyzed</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Color brightness level</p></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-dynamic-color"><code>dynamic-color</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-dynamic-color"><h3 class="item__heading"><a class="item__name" href="#function-dynamic-color">dynamic-color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function dynamic-color($color) { 
+  @if $color == null {
+    @return null;
+  } @else {
+    $color-light: tint($color, 80%);
+    $color-dark: shade($color, 60%);
+    $color-brightness: _brightness($color);
+    $light-text-brightness: _brightness($color-light);
+    $dark-text-brightness: _brightness($color-dark);
+    @if abs($color-brightness - $light-text-brightness) &gt; abs($color-brightness - $dark-text-brightness) {
+      @return $color-light;
+    } @else {
+      @return $color-dark;
+    }
+  }
+ }" data-collapsed="@function dynamic-color($color) { ... }"><code>@function dynamic-color($color) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Compare color brightness and return new color</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>Color to base output on</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Color</code> &mdash;<p>New color based on inputed value</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    color: dynamic-color(#bada55);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    color: #4a5722;
+  }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-tint"><code>tint</code></a> &mdash; Mixes a color with white to create a new lighter color</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-shade"><code>shade</code></a> &mdash; Mixes a color with black to create a new darker color</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-_brightness"><code>_brightness</code></a> &mdash; Brightness of color getter</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-get"><h3 class="item__heading"><a class="item__name" href="#function-get">get</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function get($map, $key) { 
+  @if map-has-key($map, $key) == false {
+    $wrong-value: map-values($map);
+    @warn &#39;`#{$key}` does not exit in map, using first key/value pair instead.&#39;;
+    @return nth($wrong-value, 1);
+  }
+  @return map-get($map, $key);
+ }" data-collapsed="@function get($map, $key) { ... }"><code>@function get($map, $key) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return key value from a map</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$map</code></th><td data-label="desc"><p>Name of map to get key value from</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$key</code></th><td data-label="desc"><p>Value from map to get</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Value</code> &mdash;<p>Key value from map</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    font-size: get($typography, font-base);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    font-size: 14px;
+  }</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>If key does not exist get first key/value pair of map</p></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-color"><code>color</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-paper-depth"><code>paper-depth</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-path"><code>path</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-_convert-to-em"><code>_convert-to-em</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-em"><code>em</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-em"><code>em</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-_convert-to-rem"><code>_convert-to-rem</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-rem"><code>rem</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-rem"><code>rem</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-path"><h3 class="item__heading"><a class="item__name" href="#function-path">path</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function path($name, $path: get($bytes, media-path)) { 
+  $ext: &#39;.mp4&#39;, &#39;.webm&#39;, &#39;.ogg&#39;, &#39;.ogv&#39;, &#39;.mp3&#39;, &#39;.wav&#39;, &#39;.oga&#39;, &#39;.aac&#39;, &#39;.flv&#39;, &#39;.swf&#39;, &#39;.png&#39;, &#39;.jpg&#39;, &#39;.jpeg&#39;, &#39;.gif&#39;, &#39;.bmp&#39;, &#39;.svg&#39;;
+  $warn: ();
+  @each $item in $ext {
+    @if str-slice($name, str-length($item) * -1) != $item {
+      $warn: &#39;Invalid file extension for `path()`&#39;;
+    }
+  }
+  @warn $warn;
+  @return url(&#39;#{$path}/#{$name}&#39;);
+ }" data-collapsed="@function path($name, $path: get($bytes, media-path)) { ... }"><code>@function path($name, $path: get($bytes, media-path)) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>File path short cut for embeddable media</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$name</code></th><td data-label="desc"><p>Name of media to append to url</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$path</code></th><td data-label="desc"><p>Directory of media to display</p></td><td data-label="type"><code>Url</code></td><td data-label="default"><code>get($bytes, media-path)</code></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Url</code> &mdash;<p>url of media</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+     background: image-url(&#39;kitten.jpg&#39;) no-repeat 0 0;
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+     background: url(&#39;path/to/kitten.jpg&#39;) no-repeat 0 0;
+  }</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>Warning when $name does not have a valid extension</p></li></ul><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-_convert-to-em"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#function-_convert-to-em">_convert-to-em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _convert-to-em($px, $base: get($bytes, font-size)) { 
+  @if type-of($px) != number {
+    @return $px;
+  } @else {
+    $px: _strip-unit($px);
+    $base: _strip-unit($base);
+    @if $px == 0 {
+      @return 0;
+    } @else if $px == 1 or $px == -1 {
+      @return #{$px}px;
+    }
+  }
+  @return ($px/$base) * 1em;
+ }" data-collapsed="@function _convert-to-em($px, $base: get($bytes, font-size)) { ... }"><code>@function _convert-to-em($px, $base: get($bytes, font-size)) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Calculate px value into em value</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$px</code></th><td data-label="desc"><p>px value to convert</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$base</code></th><td data-label="desc"><p>em context</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>get($bytes, font-size)</code></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Converted em value</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-_strip-unit"><code>_strip-unit</code></a> &mdash; Strip unit from number</li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-em"><code>em</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-em"><h3 class="item__heading"><a class="item__name" href="#function-em">em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function em($values, $base: get($bytes, font-size)) { 
+  $max: length($values);
+  $em-values: ();
+
+  @if $max == 1 {
+    @return _convert-to-em(nth($values, 1), $base);
+  }
+  @for $i from 1 through $max {
+    $em-values: append($em-values, _convert-to-em(nth($values, $i), $base));
+  }
+  @return $em-values;
+ }" data-collapsed="@function em($values, $base: get($bytes, font-size)) { ... }"><code>@function em($values, $base: get($bytes, font-size)) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Iterate values and convert to em</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$values</code></th><td data-label="desc"><p>px value(s) to convert</p></td><td data-label="type"><code>Number</code> or <code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$base</code></th><td data-label="desc"><p>em context</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>get($bytes, font-size)</code></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> or <code>List</code> &mdash;<p>Converted em value(s)</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    padding: em(10px 20px);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    padding: .625em 1.25em;
+  }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-_convert-to-em"><code>_convert-to-em</code></a> &mdash; Calculate px value into em value</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-_convert-to-rem"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#function-_convert-to-rem">_convert-to-rem</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _convert-to-rem($px, $base: get($bytes, font-size)) { 
+  @if type-of($px) != number {
+    @return $px;
+  } @else {
+    $px: _strip-unit($px);
+    $base: _strip-unit($base);
+    @if $px == 0 {
+      @return 0;
+    } @else if $px == 1 or $px == -1 {
+      @return #{$px}px;
+    }
+  }
+  @return ($px/$base) * 1rem;
+ }" data-collapsed="@function _convert-to-rem($px, $base: get($bytes, font-size)) { ... }"><code>@function _convert-to-rem($px, $base: get($bytes, font-size)) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Calculate px value into rem value</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$px</code></th><td data-label="desc"><p>px value to convert</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$base</code></th><td data-label="desc"><p>rem context</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>get($bytes, font-size)</code></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Converted rem value</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-_strip-unit"><code>_strip-unit</code></a> &mdash; Strip unit from number</li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-rem"><code>rem</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-rem"><h3 class="item__heading"><a class="item__name" href="#function-rem">rem</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function rem($values, $base: get($bytes, font-size)) { 
+  $max: length($values);
+  $rem-values: ();
+
+  @if $max == 1 {
+    @return _convert-to-rem(nth($values, 1), $base);
+  }
+  @for $i from 1 through $max {
+    $rem-values: append($rem-values, _convert-to-rem(nth($values, $i), $base));
+  }
+  @return $rem-values;
+ }" data-collapsed="@function rem($values, $base: get($bytes, font-size)) { ... }"><code>@function rem($values, $base: get($bytes, font-size)) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Iterate values and convert to rem</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$values</code></th><td data-label="desc"><p>px value(s) to convert</p></td><td data-label="type"><code>Number</code> or <code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$base</code></th><td data-label="desc"><p>rem context</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>get($bytes, font-size)</code></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> or <code>List</code> &mdash;<p>Converted rem value(s)</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    padding: rem(10px 20px);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    padding: .625rem 1.25rem;
+  }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-_convert-to-rem"><code>_convert-to-rem</code></a> &mdash; Calculate px value into rem value</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-shade"><h3 class="item__heading"><a class="item__name" href="#function-shade">shade</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function shade($color, $percent) { 
+  @return mix(#000, $color, $percent);
+ }" data-collapsed="@function shade($color, $percent) { ... }"><code>@function shade($color, $percent) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixes color with black to create darker color</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>Color to darken</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$percent</code></th><td data-label="desc"><p>Amount of black to be mixed with <code>$color</code></p></td><td data-label="type"><code>Percent</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Color</code> &mdash;<p>New color swatch</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    color: shade(#bada55, 20%);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    color: #94ae44;
+  }</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-dynamic-color"><code>dynamic-color</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-_strip-unit"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#function-_strip-unit">_strip-unit</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _strip-unit($num) { 
+  @return $num / ($num * 0 + 1);
+ }" data-collapsed="@function _strip-unit($num) { ... }"><code>@function _strip-unit($num) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Strip unit from number</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$num</code></th><td data-label="desc"><p>Number with unit value</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Number without unit value</p></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-_convert-to-em"><code>_convert-to-em</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-em"><code>em</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-_convert-to-rem"><code>_convert-to-rem</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-rem"><code>rem</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-tint"><h3 class="item__heading"><a class="item__name" href="#function-tint">tint</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function tint($color, $percent) { 
+  @return mix(#fff, $color, $percent);
+ }" data-collapsed="@function tint($color, $percent) { ... }"><code>@function tint($color, $percent) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixes color with white to create lighter color</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>Color to lighten</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$percent</code></th><td data-label="desc"><p>Amount of white to be mixed with <code>$color</code></p></td><td data-label="type"><code>Percent</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Color</code> &mdash;<p>New color swatch</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    color: tint(#bada55, 20%);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    color: #c7e177;
+  }</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-dynamic-color"><code>dynamic-color</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-transparent"><h3 class="item__heading"><a class="item__name" href="#function-transparent">transparent</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function transparent($color, $opacity) { 
+  @if $opacity &lt; 0 or $opacity &gt; 100 {
+    @warn &#39;`$opacity` value in `transparent()` should be a number between 0 and 100&#39;;
+  }
+  @return rgba($color, $opacity/100);
+ }" data-collapsed="@function transparent($color, $opacity) { ... }"><code>@function transparent($color, $opacity) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Make color into a transparent version</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>Color to make transparent</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$opacity</code></th><td data-label="desc"><p>Opacity level of color</p></td><td data-label="type"><code>Number</code> or <code>Percent</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Color</code> &mdash;<p>Color with transparency</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    color: transparent(#000, 70);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    color: rgba(0, 0, 0, 0.7);
+  }</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>Warning when opacity level is less than 0 or greater than 100</p></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-paper-depth"><code>paper-depth</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="function-z"><h3 class="item__heading"><a class="item__name" href="#function-z">z</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function z($z-list, $z-layer) { 
+  $position: index($z-list, $z-layer);
+  @if $position == null {
+    @warn &#39;There is no item `#{$z-layer}` in this list; choose one of: #{$z-list}&#39;;
+    @return null;
+  }
+  @return $position * 100;
+ }" data-collapsed="@function z($z-list, $z-layer) { ... }"><code>@function z($z-list, $z-layer) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Manage z-index stacking order</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$z-list</code></th><td data-label="desc"><p>List of z-index stacking order</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$z-layer</code></th><td data-label="desc"><p>Element in stacking order</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>Number</code> &mdash;<p>Stacking order times 100</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  $list: (dropdown, modal);
+  .foo {
+    z-index: z($list, modal);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    z-index: 200;
+  }</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>Warning if element does not exist in list</p></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-z"><code>z</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section></section><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixin-center"><h3 class="item__heading"><a class="item__name" href="#mixin-center">center</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin center($direction: both, $position: relative) { 
+  @if not index(&#39;horizontal&#39; &#39;horz&#39; &#39;h&#39; &#39;vertical&#39; &#39;vert&#39; &#39;v&#39; &#39;both&#39;, $direction) {
+    @warn &#39;`center()` accepts `horizontal`, `horz`, `h`, `vertical`, `vert`, `v`, or `both` as a $direction argument&#39;;
+  } @else if index(&#39;horizontal&#39; &#39;horz&#39; &#39;h&#39;, $direction) {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if index(&#39;vertical&#39; &#39;vert&#39; &#39;v&#39;, $direction) {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @if not index(&#39;relative&#39; &#39;absolute&#39; &#39;fixed&#39;, $position) {
+    @warn &#39;`center()` accepts `relative`, `absolute`, or `fixed` as a $position argument&#39;;
+  } @else {
+    position: $position;
+  }
+ }" data-collapsed="@mixin center($direction: both, $position: relative) { ... }"><code>@mixin center($direction: both, $position: relative) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Center element on XY axis</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$direction</code></th><td data-label="desc"><p>Set alignment context to element</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>both</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$position</code></th><td data-label="desc"><p>Set position value to element</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>relative</code></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Centered element based on alignment</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include center(vert, absolute);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>Warning when <code>$direction</code> is not <code>horizontal</code>, <code>horz</code>, <code>h</code>, <code>vertical</code>, <code>vert</code>, <code>v</code>, <code>both</code> or <code>$position</code> is not <code>relative</code>, <code>absolute</code>, <code>fixed</code></p></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-circle"><h3 class="item__heading"><a class="item__name" href="#mixin-circle">circle</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin circle($height: null, $width: null, $radius: 100%) { 
+  border-radius: $radius;
+  @if $height == null or $width == null {
+    @warn &#39;`circle()` needs $height and $width to create circle&#39;;
+  } @else {
+    height: $height;
+    width: $width;
+  }
+ }" data-collapsed="@mixin circle($height: null, $width: null, $radius: 100%) { ... }"><code>@mixin circle($height: null, $width: null, $radius: 100%) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Create circle of any size</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$height</code></th><td data-label="desc"><p>Height to circle</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$width</code></th><td data-label="desc"><p>Width to circle</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$radius</code></th><td data-label="desc"><p>Border-radius to circle</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>100%</code></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>CSS circle based on height and width</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include circle(50px, 50px);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+  }</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>Warning when no <code>$height</code> or <code>$width</code> argument is passed</p></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-clearfix"><h3 class="item__heading"><a class="item__name" href="#mixin-clearfix">clearfix</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin clearfix() { 
+  &amp;::after {
+    clear: both;
+    content: &#39;&#39;;
+    display: table;
+  }
+ }" data-collapsed="@mixin clearfix() { ... }"><code>@mixin clearfix() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Helper for clearing floats, to be used on containing elements</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Clear, content, and display</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include clearfix();
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo::after {
+    clear: both;
+    content: &#39;&#39;;
+    display: table;
+  }</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-cf"><code>cf</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://cssmojo.com/latest_new_clearfix_so_far/">http://cssmojo.com/latest_new_clearfix_so_far/</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-cf"><h3 class="item__heading"><a class="item__name" href="#mixin-cf">cf</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin cf() { 
+  @include clearfix();
+ }" data-collapsed="@mixin cf() { ... }"><code>@mixin cf() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Alias for <code>clearfix()</code> mixin</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#mixin-clearfix"><code>clearfix</code></a> &mdash; Helper for clearing floats, to be used on containing elements</li></ul></section><section class="main__item container item" id="mixin-font-face"><h3 class="item__heading"><a class="item__name" href="#mixin-font-face">font-face</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin font-face($font-family, $font-path, $font-weight: 400, $font-style: normal) { 
+  @font-face {
+    font-family: $font-family;
+    src: url(&#39;#{$file-path}/#{$font-family}.eot&#39;);
+    src: url(&#39;#{$file-path}/#{$font-family}.eot?#iefix&#39;) format(&#39;embedded-opentype&#39;),
+         url(&#39;#{$file-path}/#{$font-family}.woff2&#39;) format(&#39;woff2&#39;),
+         url(&#39;#{$file-path}/#{$font-family}.woff&#39;) format(&#39;woff&#39;),
+         url(&#39;#{$file-path}/#{$font-family}.ttf&#39;) format(&#39;truetype&#39;),
+         url(&#39;#{$file-path}/#{$font-family}.svg##{$font-family}&#39;) format(&#39;svg&#39;);
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $font-family;
+      src: url(&#39;#{$file-path}/#{$font-family}.svg##{$font-family}&#39;) format(&#39;svg&#39;);
+    }
+  }
+ }" data-collapsed="@mixin font-face($font-family, $font-path, $font-weight: 400, $font-style: normal) { ... }"><code>@mixin font-face($font-family, $font-path, $font-weight: 400, $font-style: normal) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Include font-face fonts</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$font-family</code></th><td data-label="desc"><p>Name of font</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$font-path</code></th><td data-label="desc"><p>Path to font files</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$font-weight</code></th><td data-label="desc"><p>Weight of font</p></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default"><code>400</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$font-style</code></th><td data-label="desc"><p>Style of font</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>normal</code></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Font stack for all browsers</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  @include font-face(&#39;Ubuntu&#39;, &#39;../fonts&#39;);</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  @font-face {
+    font-family: &#39;Ubuntu&#39;;
+    src: url(&#39;../fonts.eot&#39;);
+    src: url(&#39;../fonts.eot?#iefix&#39;) format(&#39;embedded-opentype&#39;),
+         url(&#39;../fonts.woff2&#39;) format(&#39;woff2&#39;),
+         url(&#39;../fonts.woff&#39;) format(&#39;woff&#39;),
+         url(&#39;../fonts.ttf&#39;) format(&#39;truetype&#39;),
+         url(&#39;../fonts.svg#Ubuntu) format(&#39;svg&#39;);
+    font-weight: 400;
+    font-style: normal;
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: &#39;Ubuntu&#39;;
+      src: url(&#39;../fonts.svg#Ubuntu&#39;) format(&#39;svg&#39;);
+    }
+  }</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-hide-text"><h3 class="item__heading"><a class="item__name" href="#mixin-hide-text">hide-text</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin hide-text() { 
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+ }" data-collapsed="@mixin hide-text() { ... }"><code>@mixin hide-text() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Hide any text of an element</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Overflow, text-indent, and white-space to move text outside of element</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include hide-text();
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    overflow: hidden;
+    text-indent: 101%;
+    white-space: nowrap;
+  }</code></pre></div><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement">http://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-hidpi"><h3 class="item__heading"><a class="item__name" href="#mixin-hidpi">hidpi</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin hidpi($ratio) { 
+  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+  only screen and (min--moz-device-pixel-ratio: $ratio),
+  only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
+  only screen and (min-resolution: round($ratio * 96dpi)),
+  only screen and (min-resolution: $ratio * 1dppx) {
+    @content;
+  }
+ }" data-collapsed="@mixin hidpi($ratio) { ... }"><code>@mixin hidpi($ratio) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>HIDPI breakpoint helper</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$ratio</code></th><td data-label="desc"><p>Device DPI</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive). Role: Styles to be used on hidpi devices</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Media query and styles to target hidpi devices</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include opacity(1.5) {
+      width: 20em;
+    }
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min--moz-device-pixel-ratio: 1.5),
+  only screen and (-o-min-device-pixel-ratio: 1.5/1),
+  only screen and (min-resolution: 144dpi),
+  only screen and (min-resolution: 1.5dppx) {
+    .foo {
+      width: 20em;
+    }
+  }</code></pre></div><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://bjango.com/articles/min-device-pixel-ratio/">http://bjango.com/articles/min-device-pixel-ratio/</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-list-unstyled"><h3 class="item__heading"><a class="item__name" href="#mixin-list-unstyled">list-unstyled</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin list-unstyled() { 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+ }" data-collapsed="@mixin list-unstyled() { ... }"><code>@mixin list-unstyled() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Remove list item styles. For Semantic reasons list-unstyled() should only be used on unordered lists</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>CSS to remove list styling</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include list-unstyled();
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-opacity"><h3 class="item__heading"><a class="item__name" href="#mixin-opacity">opacity</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin opacity($value) { 
+  @if $value &lt; 0 or $value &gt; 100 {
+    @warn &#39;Opacity should be a value between 0 and 100&#39;;
+  } @else {
+    filter: alpha(opacity=$value);
+    opacity: $value/100;
+  }
+ }" data-collapsed="@mixin opacity($value) { ... }"><code>@mixin opacity($value) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Change opacity of an element</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$value</code></th><td data-label="desc"><p>Opacity level</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Opacity with a filter fall back</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include opacity(70);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    filter: alpha(opacity:70);
+    opacity: .7;
+  }</code></pre></div><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>Warning when value is less than 0 or greater than 100</p></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-paper-depth"><h3 class="item__heading"><a class="item__name" href="#mixin-paper-depth">paper-depth</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin paper-depth($depth) { 
+  $shadow-depth: (
+    1: (0 1px 3px transparent(#000, 12), 0 1px 2px transparent(#000, 24)),
+    2: (0 3px 6px transparent(#000, 16), 0 3px 6px transparent(#000, 23)),
+    3: (0 10px 20px transparent(#000, 19), 0 6px 6px transparent(#000, 23)),
+    4: (0 14px 28px transparent(#000, 25), 0 10px 10px transparent(#000, 22)),
+    5: (0 19px 38px transparent(#000, 30), 0 15px 12px transparent(#000, 22))
+  );
+  @if type-of($depth) != number or $depth &lt; 1 or $depth &gt; length($shadow-depth) {
+    @warn &#39;`paper-depth()` needs to be an integer between 1 and #{length($shadow-depth)}&#39;;
+  } @else {
+    box-shadow: get($shadow-depth, floor($depth));
+  }
+ }" data-collapsed="@mixin paper-depth($depth) { ... }"><code>@mixin paper-depth($depth) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Material design z-depth</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$depth</code></th><td data-label="desc"><p>Depth value of box-shadow</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Box-shadow to create depth</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include paper-depth(2);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23;
+  }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-transparent"><code>transparent</code></a> &mdash; Make color into a transparent version</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-paper-ripple"><h3 class="item__heading"><a class="item__name" href="#mixin-paper-ripple">paper-ripple</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin paper-ripple($bg-color, $hover: null) { 
+  @if $hover != null {
+    background-color: nth($bg-color, 1);
+  } @else {
+    background: nth($bg-color, 1) 50%;
+    background-size: 100%;
+
+    &amp;:active {
+      background: radial-gradient(circle, nth($bg-color, 1) 10%, nth($bg-color, 2) 11%) 50% no-repeat;
+      background-size: 1000%;
+      @content;
+    }
+  }
+ }" data-collapsed="@mixin paper-ripple($bg-color, $hover: null) { ... }"><code>@mixin paper-ripple($bg-color, $hover: null) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Create a material design ripple effect</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$bg-color</code></th><td data-label="desc"><p>List of colors for effect</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$hover</code></th><td data-label="desc"><p>Hover context to turn on/off effect</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>null</code></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive). Role: Add additional :active rules for element</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Background color and size based on hover context</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code> .foo {
+   @include paper-ripple(#bada55 darken(#bada55, 10%)) {
+     border-color: darken(#b8d951, 10%);
+   };
+   color: #666;
+   border: 1px solid #b8d951;
+
+   &amp;:hover,
+   &amp;:focus {
+     @include paper-ripple(darken(#bada55, 2%), hover);
+   }
+ }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code> .foo {
+   background: #bada55 50%;
+   background-size: 200%;
+   color: #666;
+   border: 1px solid #b8d951;
+ }
+ .foo:active {
+   background: -webkit-radial-gradient(circle, #bada55 10%, #a8cf2d 11%) 50% no-repeat;
+   background: radial-gradient(circle, #bada55 10%, #a8cf2d 11%) 50% no-repeat;
+   background-size: 1000%;
+   border-color: #a1c72b;
+ }
+ .foo:hover,
+ .foo:focus {
+   background-color: #b6d84d;
+ }</code></pre></div></section><section class="main__item container item" id="mixin-placeholder"><h3 class="item__heading"><a class="item__name" href="#mixin-placeholder">placeholder</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin placeholder() { 
+  $placeholders: &#39;::-webkit-input&#39; &#39;::-moz&#39; &#39;:-ms-input&#39; &#39;::&#39;;
+  @each $placeholder in $placeholders {
+    &amp;#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+ }" data-collapsed="@mixin placeholder() { ... }"><code>@mixin placeholder() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Control input placeholder styles</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive). Role: Placeholder styles to be applied on inputs</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Placeholder styles and vendor pseudo elements</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include placeholder {
+      color: #ff0000;
+    }
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo::-webkit-input-placeholder {
+    color: #ff0000;
+  }
+  .foo::-moz-placeholder {
+    color: #ff0000;
+  }
+  .foo:-ms-input-placeholder {
+    color: #ff0000;
+  }
+  .foo::-placeholder {
+    color: #ff0000;
+  }</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-em"><h3 class="item__heading"><a class="item__name" href="#mixin-em">em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin em($property, $values) { 
+  $font-size: _strip-unit(get($bytes, font-size));
+  $em-values: ();
+
+  // Loop through $values list
+  // 1. Check for zero values and output 0
+  // 2. Check if value == 1px or -1px and output 1px or -1px
+  // 3. If value is not a number output the value
+  // 4. Calculate em value
+  @each $value in $values {
+    @if type-of($value) != number {
+      $em-values: join($em-values, $value);
+    } @else if _strip-unit($value) == 0 {
+      $em-values: join($em-values, $value);
+    } @else if _strip-unit($value) == 1 or _strip-unit($value) == -1 {
+      $em-values: join($em-values, $value);
+    } @else {
+      $new-em-value: _strip-unit($value) / $font-size;
+      $em-values: join($em-values, #{$new-em-value}em);
+    }
+  }
+
+  // Output em values
+  #{$property}: $em-values;
+ }" data-collapsed="@mixin em($property, $values) { ... }"><code>@mixin em($property, $values) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Convert property and px values into em</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$property</code></th><td data-label="desc"><p>Property to convert values</p></td><td data-label="type"><code>Property</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$values</code></th><td data-label="desc"><p>Values to convert from px to em</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Property and converted em values</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include em(padding, 10px);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    padding: .625em;
+  }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-_strip-unit"><code>_strip-unit</code></a> &mdash; Strip unit from number</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-rem"><h3 class="item__heading"><a class="item__name" href="#mixin-rem">rem</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin rem($property, $values) { 
+  $font-size: _strip-unit(get($bytes, font-size));
+  $rem-values: ();
+
+  // Loop through $values list
+  // 1. Check for zero values and output 0
+  // 2. Check if value == 1px or -1px and output 1px or -1px
+  // 3. If value is not a number output the value
+  // 4. Calculate rem value
+  @each $value in $values {
+    @if type-of($value) != number {
+      $rem-values: join($rem-values, $value);
+    } @else if _strip-unit($value) == 0 {
+      $rem-values: join($rem-values, $value);
+    } @else if _strip-unit($value) == 1 or _strip-unit($value) == -1 {
+      $rem-values: join($rem-values, $value);
+    } @else {
+      $new-rem-value: _strip-unit($value) / $font-size;
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    }
+  }
+
+  // Output rem values
+  #{$property}: $rem-values;
+ }" data-collapsed="@mixin rem($property, $values) { ... }"><code>@mixin rem($property, $values) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Convert property and px values into rem</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$property</code></th><td data-label="desc"><p>Property to convert values</p></td><td data-label="type"><code>Property</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$values</code></th><td data-label="desc"><p>Values to convert from px to rem</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Property and converted rem values</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include rem(padding, 10px);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    padding: .625rem;
+  }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-_strip-unit"><code>_strip-unit</code></a> &mdash; Strip unit from number</li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-get"><code>get</code></a> &mdash; Return key value from a map</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-screen-size"><h3 class="item__heading"><a class="item__name" href="#mixin-screen-size">screen-size</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin screen-size($size) { 
+  max-width: $size;
+  width: 100%;
+ }" data-collapsed="@mixin screen-size($size) { ... }"><code>@mixin screen-size($size) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set width based on given size</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$size</code></th><td data-label="desc"><p>Max width of element</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Max width and width for responsive element</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include screen-size(1500px);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    max-width: 1500px;
+    width: 100%;
+  }</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-ss"><code>ss</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-ss"><h3 class="item__heading"><a class="item__name" href="#mixin-ss">ss</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin ss() { 
+  @include screen-size($args...);
+ }" data-collapsed="@mixin ss() { ... }"><code>@mixin ss() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Alias to screen-size()</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#mixin-screen-size"><code>screen-size</code></a> &mdash; Set width based on user given size</li></ul></section><section class="main__item container item" id="mixin-set"><h3 class="item__heading"><a class="item__name" href="#mixin-set">set</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin set($map, $keys...) { 
+  $i: 1;
+  $length: length($keys);
+
+  // Get items from map
+  @while $length &gt;= $i {
+    $map: map-get($map, nth($keys, $i));
+    $i: $i + 1;
+  }
+
+  // Print styles that are not a map
+  @each $property, $value in $map {
+    @if type-of($value) != map {
+      #{$property}: $value;
+    }
+  }
+ }" data-collapsed="@mixin set($map, $keys...) { ... }"><code>@mixin set($map, $keys...) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Get key/value pair from map and nested maps</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$map</code></th><td data-label="desc"><p>Map name</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$keys...</code></th><td data-label="desc"><p>Key name of nested map</p></td><td data-label="type"><code>Key</code> or <code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Key/value pair in a map or nested map</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  $map: (
+    background: #000,
+    color: #fff,
+    hover: (
+      color: #eee
+    )
+  );
+  .foo {
+    @include set($map);
+
+    &amp;:hover {
+      @include set($map, hover);
+    }
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    background: #000;
+    color: #fff;
+  }
+  .foo:hover {
+    color: #eee;
+  }</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-triangle"><h3 class="item__heading"><a class="item__name" href="#mixin-triangle">triangle</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin triangle($direction, $size, $color) { 
+  border: $size solid transparent;
+
+  // Set color for appropriate border side.
+  @if $direction == &#39;up&#39; {
+    border-bottom-color: $color;
+  } @else if $direction == &#39;right&#39; {
+    border-left-color: $color;
+  } @else if $direction == &#39;down&#39; {
+    border-top-color: $color;
+  } @else if $direction == &#39;left&#39; {
+    border-right-color: $color;
+  } @else if $direction == &#39;up-left&#39; {
+    border-left-color: $color;
+    border-top-color: $color;
+  } @else if $direction == &#39;up-right&#39; {
+    border-right-color: $color;
+    border-top-color: $color;
+  } @else if $direction == &#39;down-right&#39; {
+    border-bottom-color: $color;
+    border-right-color: $color;
+  } @else if $direction == &#39;down-left&#39; {
+    border-bottom-color: $color;
+    border-left-color: $color;
+  }
+ }" data-collapsed="@mixin triangle($direction, $size, $color) { ... }"><code>@mixin triangle($direction, $size, $color) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Create CSS triangle of any size</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$direction</code></th><td data-label="desc"><p>Direction of triangle</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$size</code></th><td data-label="desc"><p>Size of triangle</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>Color of triangle</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Border and border color depending on direction</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include trinagle(right, 10px, #ff0000);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    border: 10px solid transparent;
+    border-color-left: #ff0000;
+  }</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-truncate"><h3 class="item__heading"><a class="item__name" href="#mixin-truncate">truncate</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin truncate($width: 100%, $overflow: ellipsis) { 
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: $overflow;
+  white-space: nowrap;
+  word-wrap: normal;
+ }" data-collapsed="@mixin truncate($width: 100%, $overflow: ellipsis) { ... }"><code>@mixin truncate($width: 100%, $overflow: ellipsis) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Truncate overflow text</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$width</code></th><td data-label="desc"><p>Max-width of overflow element</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>100%</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$overflow</code></th><td data-label="desc"><p>Truncate text overflow style</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>ellipsis</code></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Max-width, overflow, text-overflow, white-space, and word-wrap used for truncating</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include truncate();
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: nowrap;
+  }</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-word-wrap"><h3 class="item__heading"><a class="item__name" href="#mixin-word-wrap">word-wrap</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin word-wrap($legacy: true) { 
+  // Warning: Needed for oldIE support, words are broken up letter-by-letter
+  @if $legacy == true {
+    word-break: normal;
+  }
+  // Non standard for webkit
+  hyphens: auto;
+  word-wrap: break-word;
+  word-break: break-word;
+ }" data-collapsed="@mixin word-wrap($legacy: true) { ... }"><code>@mixin word-wrap($legacy: true) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Word wrapping for text too long in container</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$legacy</code></th><td data-label="desc"><p>Give legacy fall back for older browsers</p></td><td data-label="type"><code>Boolean</code></td><td data-label="default"><code>true</code></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Hypens, word-wrap, and word-break to create word wrap</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  .foo {
+    @include word-wrap();
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    word-break: normal;
+    hyphens: auto;
+    word-wrap: break-word;
+    word-break: break-word;
+  }</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section><section class="main__item container item" id="mixin-z"><h3 class="item__heading"><a class="item__name" href="#mixin-z">z</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin z($z-list, $z-layer) { 
+  z-index: z($z-list, $z-layer);
+ }" data-collapsed="@mixin z($z-list, $z-layer) { ... }"><code>@mixin z($z-list, $z-layer) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Manage z-index stacking order</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$z-list</code></th><td data-label="desc"><p>List of z-index stacking order</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$z-layer</code></th><td data-label="desc"><p>Element in stacking order</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Z-index and the stacking order</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>  $list: (dropdown, modal);
+  .foo {
+    @include z($list, modal);
+  }</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>  .foo {
+    z-index: 200;
+  }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-z"><code>z</code></a> &mdash; Manage z-index stacking order</li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Azin Asili</p></li></ul></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --><span class="project-info__name">Bytes Sass library</span><!-- Version --> <span class="project-info__version">- v0.2.0</span><!-- License --> <span class="project-info__license">, under MIT</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

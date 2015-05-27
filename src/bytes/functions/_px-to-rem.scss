@@ -1,0 +1,51 @@
+/// Calculate px value into rem value
+/// @author Azin Asili
+/// @access private
+/// @param {number} $px - px value to convert
+/// @param {number} $base [get($bytes, font-size)] - rem context
+/// @require {function} get - Return key value from a map
+/// @require {function} _strip-unit - Strip unit from number
+/// @return {number} Converted rem value
+@function _convert-to-rem($px, $base: get($bytes, font-size)) {
+  @if type-of($px) != number {
+    @return $px;
+  } @else {
+    $px: _strip-unit($px);
+    $base: _strip-unit($base);
+    @if $px == 0 {
+      @return 0;
+    } @else if $px == 1 or $px == -1 {
+      @return #{$px}px;
+    }
+  }
+  @return ($px/$base) * 1rem;
+}
+
+/// Iterate values and convert to rem
+/// @author Azin Asili
+/// @access public
+/// @param {number | list} $values - px value(s) to convert
+/// @param {number} $base [get($bytes, font-size)] - rem context
+/// @require {function} get - Return key value from a map
+/// @require {function} _convert-to-rem - Calculate px value into rem value
+/// @return {number | list} Converted rem value(s)
+/// @example scss
+///   .foo {
+///     padding: rem(10px 20px);
+///   }
+/// @example css
+///   .foo {
+///     padding: .625rem 1.25rem;
+///   }
+@function rem($values, $base: get($bytes, font-size)) {
+  $max: length($values);
+  $rem-values: ();
+
+  @if $max == 1 {
+    @return _convert-to-rem(nth($values, 1), $base);
+  }
+  @for $i from 1 through $max {
+    $rem-values: append($rem-values, _convert-to-rem(nth($values, $i), $base));
+  }
+  @return $rem-values;
+}

@@ -1,0 +1,19 @@
+/// Manage z-index stacking order
+/// @author Azin Asili
+/// @access public
+/// @param {list} $z-list - List of z-index stacking order
+/// @param {string} $z-layer - Element in stacking order
+/// @require {function} z - Manage z-index stacking order
+/// @output Z-index and the stacking order
+/// @example scss
+///   $list: (dropdown, modal);
+///   .foo {
+///     @include z($list, modal);
+///   }
+/// @example css
+///   .foo {
+///     z-index: 200;
+///   }
+@mixin z($z-list, $z-layer) {
+  z-index: z($z-list, $z-layer);
+}

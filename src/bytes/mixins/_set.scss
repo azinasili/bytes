@@ -1,0 +1,46 @@
+/// Get key/value pair from map and nested maps
+/// @author Azin Asili
+/// @access public
+/// @param {map} $map - Map name
+/// @param {key | map} $keys... - Key name of nested map
+/// @output Key/value pair in a map or nested map
+/// @example scss
+///   $map: (
+///     background: #000,
+///     color: #fff,
+///     hover: (
+///       color: #eee
+///     )
+///   );
+///   .foo {
+///     @include set($map);
+///
+///     &:hover {
+///       @include set($map, hover);
+///     }
+///   }
+/// @example css
+///   .foo {
+///     background: #000;
+///     color: #fff;
+///   }
+///   .foo:hover {
+///     color: #eee;
+///   }
+@mixin set($map, $keys...) {
+  $i: 1;
+  $length: length($keys);
+
+  // Get items from map
+  @while $length >= $i {
+    $map: map-get($map, nth($keys, $i));
+    $i: $i + 1;
+  }
+
+  // Print styles that are not a map
+  @each $property, $value in $map {
+    @if type-of($value) != map {
+      #{$property}: $value;
+    }
+  }
+}

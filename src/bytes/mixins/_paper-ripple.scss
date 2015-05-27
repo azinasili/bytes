@@ -1,0 +1,49 @@
+/// Create a material design ripple effect
+/// @param {color} $bg-color - List of colors for effect
+/// @param {string} $hover [null] - Hover context to turn on/off effect
+/// @content Add additional :active rules for element
+/// @output Background color and size based on hover context
+/// @example scss
+///  .foo {
+///    @include paper-ripple(#bada55 darken(#bada55, 10%)) {
+///      border-color: darken(#b8d951, 10%);
+///    };
+///    color: #666;
+///    border: 1px solid #b8d951;
+///
+///    &:hover,
+///    &:focus {
+///      @include paper-ripple(darken(#bada55, 2%), hover);
+///    }
+///  }
+/// @example css
+///  .foo {
+///    background: #bada55 50%;
+///    background-size: 200%;
+///    color: #666;
+///    border: 1px solid #b8d951;
+///  }
+///  .foo:active {
+///    background: -webkit-radial-gradient(circle, #bada55 10%, #a8cf2d 11%) 50% no-repeat;
+///    background: radial-gradient(circle, #bada55 10%, #a8cf2d 11%) 50% no-repeat;
+///    background-size: 1000%;
+///    border-color: #a1c72b;
+///  }
+///  .foo:hover,
+///  .foo:focus {
+///    background-color: #b6d84d;
+///  }
+@mixin paper-ripple($bg-color, $hover: null) {
+  @if $hover != null {
+    background-color: nth($bg-color, 1);
+  } @else {
+    background: nth($bg-color, 1) 50%;
+    background-size: 100%;
+
+    &:active {
+      background: radial-gradient(circle, nth($bg-color, 1) 10%, nth($bg-color, 2) 11%) 50% no-repeat;
+      background-size: 1000%;
+      @content;
+    }
+  }
+}

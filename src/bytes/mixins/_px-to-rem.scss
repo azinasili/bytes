@@ -1,0 +1,41 @@
+/// Convert property and px values into rem
+/// @author Azin Asili
+/// @access public
+/// @param {property} $property - Property to convert values
+/// @param {number} $values - Values to convert from px to rem
+/// @require {function} _strip-unit - Strip unit from number
+/// @require {function} get - Return key value from a map
+/// @output Property and converted rem values
+/// @example scss
+///   .foo {
+///     @include rem(padding, 10px);
+///   }
+/// @example css
+///   .foo {
+///     padding: .625rem;
+///   }
+@mixin rem($property, $values) {
+  $font-size: _strip-unit(get($bytes, font-size));
+  $rem-values: ();
+
+  // Loop through $values list
+  // 1. Check for zero values and output 0
+  // 2. Check if value == 1px or -1px and output 1px or -1px
+  // 3. If value is not a number output the value
+  // 4. Calculate rem value
+  @each $value in $values {
+    @if type-of($value) != number {
+      $rem-values: join($rem-values, $value);
+    } @else if _strip-unit($value) == 0 {
+      $rem-values: join($rem-values, $value);
+    } @else if _strip-unit($value) == 1 or _strip-unit($value) == -1 {
+      $rem-values: join($rem-values, $value);
+    } @else {
+      $new-rem-value: _strip-unit($value) / $font-size;
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    }
+  }
+
+  // Output rem values
+  #{$property}: $rem-values;
+}

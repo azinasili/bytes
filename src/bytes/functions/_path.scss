@@ -1,0 +1,27 @@
+/// File path short cut for embeddable media
+/// @author Azin Asili
+/// @access public
+/// @param {string} $name - Name of media to append to url
+/// @param {url} $path [get($bytes, media-path)] - Directory of media to display
+/// @require {function} get - Return key value from a map
+/// @throw Warning when $name does not have a valid extension
+/// @return {url} url of media
+/// @example scss
+///   .foo {
+///      background: image-url('kitten.jpg') no-repeat 0 0;
+///   }
+/// @example css
+///   .foo {
+///      background: url('path/to/kitten.jpg') no-repeat 0 0;
+///   }
+@function path($name, $path: get($bytes, media-path)) {
+  $ext: '.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg';
+  $warn: ();
+  @each $item in $ext {
+    @if str-slice($name, str-length($item) * -1) != $item {
+      $warn: 'Invalid file extension for `path()`';
+    }
+  }
+  @warn $warn;
+  @return url('#{$path}/#{$name}');
+}

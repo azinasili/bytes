@@ -1,0 +1,21 @@
+/// Make color into a transparent version
+/// @author Azin Asili
+/// @access public
+/// @param {color} $color - Color to make transparent
+/// @param {number | percent} $opacity - Opacity level of color
+/// @throw Warning when opacity level is less than 0 or greater than 100
+/// @return {color} Color with transparency
+/// @example scss
+///   .foo {
+///     color: transparent(#000, 70);
+///   }
+/// @example css
+///   .foo {
+///     color: rgba(0, 0, 0, 0.7);
+///   }
+@function transparent($color, $opacity) {
+  @if $opacity < 0 or $opacity > 100 {
+    @warn '`$opacity` value in `transparent()` should be a number between 0 and 100';
+  }
+  @return rgba($color, $opacity/100);
+}

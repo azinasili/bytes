@@ -1,0 +1,42 @@
+/// Create CSS triangle of any size
+/// @author Azin Asili
+/// @access public
+/// @param {string} $direction - Direction of triangle
+/// @param {number} $size - Size of triangle
+/// @param {color} $color - Color of triangle
+/// @output Border and border color depending on direction
+/// @example scss
+///   .foo {
+///     @include trinagle(right, 10px, #ff0000);
+///   }
+/// @example css
+///   .foo {
+///     border: 10px solid transparent;
+///     border-color-left: #ff0000;
+///   }
+@mixin triangle($direction, $size, $color) {
+  border: $size solid transparent;
+
+  // Set color for appropriate border side.
+  @if $direction == 'up' {
+    border-bottom-color: $color;
+  } @else if $direction == 'right' {
+    border-left-color: $color;
+  } @else if $direction == 'down' {
+    border-top-color: $color;
+  } @else if $direction == 'left' {
+    border-right-color: $color;
+  } @else if $direction == 'up-left' {
+    border-left-color: $color;
+    border-top-color: $color;
+  } @else if $direction == 'up-right' {
+    border-right-color: $color;
+    border-top-color: $color;
+  } @else if $direction == 'down-right' {
+    border-bottom-color: $color;
+    border-right-color: $color;
+  } @else if $direction == 'down-left' {
+    border-bottom-color: $color;
+    border-left-color: $color;
+  }
+}

@@ -1,0 +1,26 @@
+/// Word wrapping for text too long in container
+/// @author Azin Asili
+/// @access public
+/// @param {boolean} $legacy [true] - Give legacy fall back for older browsers
+/// @output Hypens, word-wrap, and word-break to create word wrap
+/// @example scss
+///   .foo {
+///     @include word-wrap();
+///   }
+/// @example css
+///   .foo {
+///     word-break: normal;
+///     hyphens: auto;
+///     word-wrap: break-word;
+///     word-break: break-word;
+///   }
+@mixin word-wrap($legacy: true) {
+  // Warning: Needed for oldIE support, words are broken up letter-by-letter
+  @if $legacy == true {
+    word-break: normal;
+  }
+  // Non standard for webkit
+  hyphens: auto;
+  word-wrap: break-word;
+  word-break: break-word;
+}

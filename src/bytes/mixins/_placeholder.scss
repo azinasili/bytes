@@ -1,0 +1,32 @@
+/// Control input placeholder styles
+/// @author Azin Asili
+/// @access public
+/// @content Placeholder styles to be applied on inputs
+/// @output Placeholder styles and vendor pseudo elements
+/// @example scss
+///   .foo {
+///     @include placeholder {
+///       color: #ff0000;
+///     }
+///   }
+/// @example css
+///   .foo::-webkit-input-placeholder {
+///     color: #ff0000;
+///   }
+///   .foo::-moz-placeholder {
+///     color: #ff0000;
+///   }
+///   .foo:-ms-input-placeholder {
+///     color: #ff0000;
+///   }
+///   .foo::-placeholder {
+///     color: #ff0000;
+///   }
+@mixin placeholder() {
+  $placeholders: '::-webkit-input' '::-moz' ':-ms-input' '::';
+  @each $placeholder in $placeholders {
+    &#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}

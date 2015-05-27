@@ -1,0 +1,27 @@
+/// Create circle of any size
+/// @author Azin Asili
+/// @access public
+/// @param {number} $height [null] - Height to circle
+/// @param {number} $width [null] - Width to circle
+/// @param {number} $radius [100%] - Border-radius to circle
+/// @throw Warning when no `$height` or `$width` argument is passed
+/// @output CSS circle based on height and width
+/// @example scss
+///   .foo {
+///     @include circle(50px, 50px);
+///   }
+/// @example css
+///   .foo {
+///     border-radius: 100%;
+///     height: 50px;
+///     width: 50px;
+///   }
+@mixin circle($height: null, $width: null, $radius: 100%) {
+  border-radius: $radius;
+  @if $height == null or $width == null {
+    @warn '`circle()` needs $height and $width to create circle';
+  } @else {
+    height: $height;
+    width: $width;
+  }
+}

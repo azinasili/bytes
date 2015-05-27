@@ -1,0 +1,48 @@
+/// Include font-face fonts
+/// @author Azin Asili
+/// @access public
+/// @param {string} $font-family - Name of font
+/// @param {string} $font-path - Path to font files
+/// @param {number | string} $font-weight [400] - Weight of font
+/// @param {string} $font-style [normal] - Style of font
+/// @output Font stack for all browsers
+/// @example scss
+///   @include font-face('Ubuntu', '../fonts');
+/// @example css
+///   @font-face {
+///     font-family: 'Ubuntu';
+///     src: url('../fonts.eot');
+///     src: url('../fonts.eot?#iefix') format('embedded-opentype'),
+///          url('../fonts.woff2') format('woff2'),
+///          url('../fonts.woff') format('woff'),
+///          url('../fonts.ttf') format('truetype'),
+///          url('../fonts.svg#Ubuntu) format('svg');
+///     font-weight: 400;
+///     font-style: normal;
+///   }
+///   @media screen and (-webkit-min-device-pixel-ratio: 0) {
+///     @font-face {
+///       font-family: 'Ubuntu';
+///       src: url('../fonts.svg#Ubuntu') format('svg');
+///     }
+///   }
+@mixin font-face($font-family, $file-path, $font-weight: 400, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+    src: url('#{$file-path}/#{$font-family}.eot');
+    src: url('#{$file-path}/#{$font-family}.eot?#iefix') format('embedded-opentype'),
+         url('#{$file-path}/#{$font-family}.woff2') format('woff2'),
+         url('#{$file-path}/#{$font-family}.woff') format('woff'),
+         url('#{$file-path}/#{$font-family}.ttf') format('truetype'),
+         url('#{$file-path}/#{$font-family}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $font-family;
+      src: url('#{$file-path}/#{$font-family}.svg##{$font-family}') format('svg');
+    }
+  }
+}

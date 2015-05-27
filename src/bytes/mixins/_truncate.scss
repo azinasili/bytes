@@ -1,0 +1,25 @@
+/// Truncate overflow text
+/// @author Azin Asili
+/// @access public
+/// @param {number} $width [100%] - Max-width of overflow element
+/// @param {string} $overflow [ellipsis] - Truncate text overflow style
+/// @output Max-width, overflow, text-overflow, white-space, and word-wrap used for truncating
+/// @example scss
+///   .foo {
+///     @include truncate();
+///   }
+/// @example css
+///   .foo {
+///     max-width: 100%;
+///     overflow: hidden;
+///     text-overflow: ellipsis;
+///     white-space: nowrap;
+///     word-wrap: nowrap;
+///   }
+@mixin truncate($width: 100%, $overflow: ellipsis) {
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: $overflow;
+  white-space: nowrap;
+  word-wrap: normal;
+}

@@ -1,0 +1,24 @@
+/// Manage z-index stacking order
+/// @author Azin Asili
+/// @access public
+/// @param {list} $z-list - List of z-index stacking order
+/// @param {string} $z-layer - Element in stacking order
+/// @throw Warning if element does not exist in list
+/// @return {number} Stacking order times 100
+/// @example scss
+///   $list: (dropdown, modal);
+///   .foo {
+///     z-index: z($list, modal);
+///   }
+/// @example css
+///   .foo {
+///     z-index: 200;
+///   }
+@function z($z-list, $z-layer) {
+  $position: index($z-list, $z-layer);
+  @if $position == null {
+    @warn 'There is no item `#{$z-layer}` in this list; choose one of: #{$z-list}';
+    @return null;
+  }
+  @return $position * 100;
+}

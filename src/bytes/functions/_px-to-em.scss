@@ -1,0 +1,51 @@
+/// Calculate px value into em value
+/// @author Azin Asili
+/// @access private
+/// @param {number} $px - px value to convert
+/// @param {number} $base [get($bytes, font-size)] - em context
+/// @require {function} get - Return key value from a map
+/// @require {function} _strip-unit - Strip unit from number
+/// @return {number} Converted em value
+@function _convert-to-em($px, $base: get($bytes, font-size)) {
+  @if type-of($px) != number {
+    @return $px;
+  } @else {
+    $px: _strip-unit($px);
+    $base: _strip-unit($base);
+    @if $px == 0 {
+      @return 0;
+    } @else if $px == 1 or $px == -1 {
+      @return #{$px}px;
+    }
+  }
+  @return ($px/$base) * 1em;
+}
+
+/// Iterate values and convert to em
+/// @author Azin Asili
+/// @access public
+/// @param {number | list} $values - px value(s) to convert
+/// @param {number} $base [get($bytes, font-size)] - em context
+/// @require {function} get - Return key value from a map
+/// @require {function} _convert-to-em - Calculate px value into em value
+/// @return {number | list} Converted em value(s)
+/// @example scss
+///   .foo {
+///     padding: em(10px 20px);
+///   }
+/// @example css
+///   .foo {
+///     padding: .625em 1.25em;
+///   }
+@function em($values, $base: get($bytes, font-size)) {
+  $max: length($values);
+  $em-values: ();
+
+  @if $max == 1 {
+    @return _convert-to-em(nth($values, 1), $base);
+  }
+  @for $i from 1 through $max {
+    $em-values: append($em-values, _convert-to-em(nth($values, $i), $base));
+  }
+  @return $em-values;
+}
