@@ -1,6 +1,6 @@
 {
   "name": "bytes",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/azinasili/bytes",
   "authors": "Azin Asili <azinasili@gmail.com>",
   "description": "Lightweight Sass mixin library to make development fun",
