@@ -3,6 +3,7 @@
 /// @access public
 /// @param {color} $color - Color to darken
 /// @param {number | percent} $strength - Amount of black to be mixed with `$color`
+/// @throw Warning when strength is less than 0 or greater than 100
 /// @return {color} New color swatch
 /// @example scss
 ///   .foo {

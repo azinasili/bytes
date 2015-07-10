@@ -3,7 +3,7 @@
 /// @access public
 /// @param {color} $color - Color to make transparent
 /// @param {number | percent} $opacity - Opacity level of color
-/// @throw Warning when opacity level is less than 0 or greater than 100
+/// @throw Warning when opacity is less than 0 or greater than 100
 /// @return {color} Color with transparency
 /// @example scss
 ///   .foo {
