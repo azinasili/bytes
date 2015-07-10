@@ -18,6 +18,6 @@
     @warn 'Opacity should be a value between 0 and 100';
   } @else {
     filter: alpha(opacity=$value);
-    opacity: $value/100;
+    opacity: ($value / 100);
   }
 }

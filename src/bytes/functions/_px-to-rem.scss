@@ -18,7 +18,7 @@
       @return #{$px}px;
     }
   }
-  @return ($px/$base) * 1rem;
+  @return ($px / $base) * 1rem;
 }
 
 /// Iterate values and convert to rem

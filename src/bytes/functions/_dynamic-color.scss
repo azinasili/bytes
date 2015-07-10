@@ -4,7 +4,7 @@
 /// @param {color} $color - Color to be analyzed
 /// @return {number} Color brightness level
 @function _brightness($color) {
-  @return ((red($color)) + (green($color)) + (blue($color))) / 255 * 100%;
+  @return ((red($color)) + (green($color)) + (blue($color))) / (255 * 100%;)
 }
 
 /// Compare color brightness and return new color

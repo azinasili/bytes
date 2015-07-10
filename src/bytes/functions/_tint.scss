@@ -17,5 +17,5 @@
   @if $strength < 0 or $strength > 100 {
     @warn '`$strength` in `tint()` should be a number or percent between 0 and 100';
   }
-  @return mix(#fff, $color, $strength);
+  @return mix(rgb(255, 255, 255), $color, $strength);
 }
