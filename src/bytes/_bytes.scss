@@ -12,12 +12,12 @@
 @import 'functions/strip-units';
 @import 'functions/px-to-em';
 @import 'functions/px-to-rem';
-@import 'functions/color';
 @import 'functions/tint';
 @import 'functions/shade';
-@import 'functions/dynamic-color';
-@import 'functions/chroma';
 @import 'functions/transparent';
+@import 'functions/chroma';
+@import 'functions/color';
+@import 'functions/dynamic-color';
 @import 'functions/z-index';
 @import 'functions/path';
 @import 'functions/animate';
