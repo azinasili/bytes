@@ -2,7 +2,7 @@
 /// @author Azin Asili
 /// @access public
 /// @param {color} $color - Color to lighten
-/// @param {percent} $percent - Amount of white to be mixed with `$color`
+/// @param {number | percent} $strength - Amount of white to be mixed with `$color`
 /// @return {color} New color swatch
 /// @example scss
 ///   .foo {
@@ -12,6 +12,9 @@
 ///   .foo {
 ///     color: #c7e177;
 ///   }
-@function tint($color, $percent) {
-  @return mix(#fff, $color, $percent);
+@function tint($color, $strength) {
+  @if $strength < 0 or $strength > 100 {
+    @warn '`$strength` in `tint()` should be a number or percent between 0 and 100';
+  }
+  @return mix(#fff, $color, $strength);
 }

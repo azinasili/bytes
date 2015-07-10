@@ -2,7 +2,7 @@
 /// @author Azin Asili
 /// @access public
 /// @param {color} $color - Color to darken
-/// @param {percent} $percent - Amount of black to be mixed with `$color`
+/// @param {number | percent} $strength - Amount of black to be mixed with `$color`
 /// @return {color} New color swatch
 /// @example scss
 ///   .foo {
@@ -12,6 +12,9 @@
 ///   .foo {
 ///     color: #94ae44;
 ///   }
-@function shade($color, $percent) {
-  @return mix(#000, $color, $percent);
+@function shade($color, $strength) {
+  @if $strength < 0 or $strength > 100 {
+    @warn '`$strength` in `shade()` should be a number or percent between 0 and 100';
+  }
+  @return mix(#000, $color, $strength);
 }
