@@ -22,7 +22,7 @@
 }
 
 /// Alias for `clearfix()` mixin
-/// @alias clearfix()
+/// @alias clearfix
 /// @require {mixin} clearfix - Helper for clearing floats, to be used on containing elements
 @mixin cf() {
   @include clearfix();
