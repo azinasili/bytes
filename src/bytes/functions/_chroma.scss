@@ -20,11 +20,11 @@
 @function chroma($color, $strength) {
   @if $strength == 0 or $strength < -100 or $strength > 100 {
     @warn '`$strength` in `chroma()` should be a number or percent between -100 and 100';
-    @return $color;
   }
   @if $strength > 0 {
     @return tint($color, $strength);
   } @else if $strength < 0 {
     @return shade($color, ($strength * -1));
   }
+  @return $color;
 }

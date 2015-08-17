@@ -13,11 +13,14 @@
 ///   .foo {
 ///     font-size: 14px;
 ///   }
-@function get($map, $key) {
-  @if map-has-key($map, $key) == false {
-    $wrong-value: map-values($map);
-    @warn '`#{$key}` does not exit in map, using first key/value pair instead.';
-    @return nth($wrong-value, 1);
+@function get($map, $keys...) {
+  @each $key in $keys {
+    @if map-has-key($map, $key) == false {
+      $wrong-value: map-values($map);
+      @warn '`#{$keys}` does not exit in map, using first key/value pair instead.';
+      @return nth($wrong-value, 1);
+    }
+    $map: map-get($map, $key);
   }
-  @return map-get($map, $key);
+  @return $map;
 }
