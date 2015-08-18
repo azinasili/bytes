@@ -184,14 +184,14 @@
     @warn &#39;`center()` accepts `horizontal`, `horz`, `h`, `vertical`, `vert`, `v`, or `both` as a $direction argument&#39;;
   } @else if index(&#39;horizontal&#39; &#39;horz&#39; &#39;h&#39;, $direction) {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   } @else if index(&#39;vertical&#39; &#39;vert&#39; &#39;v&#39;, $direction) {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate3d(0, -50%, 0);
   } @else {
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
   }
   @if not index(&#39;relative&#39; &#39;absolute&#39; &#39;fixed&#39;, $position) {
     @warn &#39;`center()` accepts `relative`, `absolute`, or `fixed` as a $position argument&#39;;
