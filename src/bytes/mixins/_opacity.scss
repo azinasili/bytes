@@ -2,6 +2,7 @@
 /// @author Azin Asili
 /// @access public
 /// @param {number} $value - Opacity level
+/// @param {number} $value - Add important flag to declaration
 /// @throw Warning when value is less than 0 or greater than 100
 /// @output Opacity with a filter fall back
 /// @example scss
@@ -13,9 +14,12 @@
 ///     filter: alpha(opacity:70);
 ///     opacity: .7;
 ///   }
-@mixin opacity($value) {
+@mixin opacity($value, $is-important: '') {
   @if $value < 0 or $value > 100 {
     @warn 'Opacity should be a value between 0 and 100';
+  } @if $is-important == '!important' or $is-important == 'important' {
+    filter: alpha(opacity=$value) !important;
+    opacity: ($value / 100) !important;
   } @else {
     filter: alpha(opacity=$value);
     opacity: ($value / 100);
