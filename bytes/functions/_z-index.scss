@@ -20,5 +20,5 @@
     @warn 'There is no item `#{$z-layer}` in this list; choose one of: #{$z-list}';
     @return null;
   }
-  @return $position * 100;
+  @return ($position * 100);
 }

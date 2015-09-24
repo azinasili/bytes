@@ -22,14 +22,14 @@
     @warn '`center()` accepts `horizontal`, `horz`, `h`, `vertical`, `vert`, `v`, or `both` as a $direction argument';
   } @else if index('horizontal' 'horz' 'h', $direction) {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   } @else if index('vertical' 'vert' 'v', $direction) {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate3d(0, -50%, 0);
   } @else {
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
   }
   @if not index('relative' 'absolute' 'fixed', $position) {
     @warn '`center()` accepts `relative`, `absolute`, or `fixed` as a $position argument';

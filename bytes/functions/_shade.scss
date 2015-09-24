@@ -1,0 +1,22 @@
+/// Mixes color with black to create darker color
+/// @author Azin Asili
+/// @access public
+/// @param {color} $color - Color to darken
+/// @param {number | percent} $strength - Amount of black to be mixed with `$color`
+/// @throw Warning when strength is less than 0 or greater than 100
+/// @return {color} New color swatch
+/// @example scss
+///   .foo {
+///     color: shade(#bada55, 20%);
+///   }
+/// @example css
+///   .foo {
+///     color: #94ae44;
+///   }
+@function shade($color, $strength) {
+  @if $strength < 0 or $strength > 100 {
+    @warn '`$strength` in `shade()` should be a number or percent between 0 and 100';
+    @return $color;
+  }
+  @return mix(rgb(0, 0, 0), $color, $strength);
+}

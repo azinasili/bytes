@@ -1,0 +1,23 @@
+/// Return color from map and adjust opacity and chroma of color
+/// @author Azin Asili
+/// @access public
+/// @param {map} $color - Map name of colors
+/// @param {string} $tone [base] - Variant color in map
+/// @param {number | percent} $opacity [100] - Opacity of color
+/// @param {number | percent} $chroma [0] - Chroma of color
+/// @require {function} get - Return key value from a map
+/// @require {function} tint - Mixes color with white to create lighter color
+/// @require {function} shade - Mixes color with black to create darker color
+/// @require {function} transparent - Make color into a transparent version
+/// @return {color} Color from map
+/// @example scss
+///   .foo {
+///     color: color($color-primary);
+///   }
+/// @example css
+///   .foo {
+///     color: #bada55;
+///   }
+@function color($color, $opacity: 100, $chroma: 0) {
+  @return transparent(chroma($color, $chroma), $opacity);
+}

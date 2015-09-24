@@ -1,0 +1,32 @@
+/// Material design z-depth
+/// @author Azin Asili
+/// @access public
+/// @param {number} $depth - Depth value of box-shadow
+/// @param {number} $is-important - Add important flag to declaration
+/// @require {function} get - Return key value from a map
+/// @require {function} transparent - Make color into a transparent version
+/// @output Box-shadow to create depth
+/// @example scss
+///   .foo {
+///     @include paper-depth(2);
+///   }
+/// @example css
+///   .foo {
+///     box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23;
+///   }
+@mixin paper-depth($depth, $is-important: '') {
+  $shadow-depth: (
+    1: (0 1px 3px transparent(rgb(0, 0, 0), 12), 0 1px 2px transparent(rgb(0, 0, 0), 24)),
+    2: (0 3px 6px transparent(rgb(0, 0, 0), 16), 0 3px 6px transparent(rgb(0, 0, 0), 23)),
+    3: (0 10px 20px transparent(rgb(0, 0, 0), 19), 0 6px 6px transparent(rgb(0, 0, 0), 23)),
+    4: (0 14px 28px transparent(rgb(0, 0, 0), 25), 0 10px 10px transparent(rgb(0, 0, 0), 22)),
+    5: (0 19px 38px transparent(rgb(0, 0, 0), 30), 0 15px 12px transparent(rgb(0, 0, 0), 22))
+  );
+  @if type-of($depth) != number or $depth < 1 or $depth > length($shadow-depth) {
+    @warn '`paper-depth()` needs to be an integer between 1 and #{length($shadow-depth)}';
+  } @if $is-important == '!important' or 'important' {
+    box-shadow: get($shadow-depth, $depth) !important;
+  } @else {
+    box-shadow: get($shadow-depth, $depth);
+  }
+}
