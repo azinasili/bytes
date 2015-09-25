@@ -9,7 +9,8 @@
     "sass",
     "scss",
     "mixin",
-    "functions"
+    "functions",
+    "helper"
   ],
   "license": "MIT",
   "ignore": [
