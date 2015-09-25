@@ -3,7 +3,7 @@
 /// @access public
 /// @param {property} $property - Property to convert values
 /// @param {number} $values - Values to convert from px to rem
-/// @require {function} _strip-unit - Strip unit from number
+/// @require {function} _b-strip-unit - Strip unit from number
 /// @require {function} get - Return key value from a map
 /// @output Property and converted rem values
 /// @example scss
@@ -15,7 +15,7 @@
 ///     padding: .625rem;
 ///   }
 @mixin rem($property, $values) {
-  $font-size: _strip-unit(get($bytes, font-size));
+  $font-size: _b-strip-unit(get($bytes, font-size));
   $rem-values: ();
 
   // Loop through $values list
@@ -26,12 +26,12 @@
   @each $value in $values {
     @if type-of($value) != number {
       $rem-values: join($rem-values, $value);
-    } @else if _strip-unit($value) == 0 {
+    } @else if _b-strip-unit($value) == 0 {
       $rem-values: join($rem-values, $value);
-    } @else if _strip-unit($value) == 1 or _strip-unit($value) == -1 {
+    } @else if _b-strip-unit($value) == 1 or _b-strip-unit($value) == -1 {
       $rem-values: join($rem-values, $value);
     } @else {
-      $new-rem-value: _strip-unit($value) / $font-size;
+      $new-rem-value: _b-strip-unit($value) / $font-size;
       $rem-values: join($rem-values, #{$new-rem-value}rem);
     }
   }

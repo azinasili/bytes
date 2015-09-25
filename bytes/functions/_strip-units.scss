@@ -3,6 +3,6 @@
 /// @access private
 /// @param {number} $num - Number with unit value
 /// @return {number} Number without unit value
-@function _strip-unit($num) {
+@function _b-strip-unit($num) {
   @return $num / ($num * 0 + 1);
 }
