@@ -18,9 +18,12 @@
 ///   }
 @mixin circle($height: null, $width: null, $radius: 100%) {
   border-radius: $radius;
-  @if $height == null or $width == null {
-    @warn '`circle()` needs $height and $width to create circle';
+  @if $height == null {
+    @warn '`circle()` at minimum needs a $height to create circle';
   } @else {
+    @if $width == null {
+      $width: $height;
+    }
     height: $height;
     width: $width;
   }
