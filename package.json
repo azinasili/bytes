@@ -2,9 +2,20 @@
   "name" : "bytes",
   "title" : "Bytes Sass library",
   "description" : "Lightweight Sass mixin library to make development fun",
-  "url" : "https://azinasili.com",
-  "author" : "Azin Asili",
+  "version" : "0.2.8",
   "copyright" : "2015",
-  "version" : "0.2.5",
-  "license" : "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:azinasili/bytes.git"
+  },
+  "keywords": [
+    "mixin",
+    "functions",
+    "sass",
+    "scss",
+    "helper"
+  ],
+  "author" : "Azin Asili",
+  "license" : "MIT",
+  "homepage": "https://github.com/azinasili/bytes"
 }

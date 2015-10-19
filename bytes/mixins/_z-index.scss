@@ -3,17 +3,23 @@
 /// @access public
 /// @param {list} $z-list - List of z-index stacking order
 /// @param {string} $z-layer - Element in stacking order
-/// @require {function} z - Manage z-index stacking order
+/// @require {function} z-index - Manage z-index stacking order
 /// @output Z-index and the stacking order
 /// @example scss
 ///   $list: (dropdown, modal);
 ///   .foo {
-///     @include z($list, modal);
+///     @include z-index($list, modal);
 ///   }
 /// @example css
 ///   .foo {
 ///     z-index: 200;
 ///   }
-@mixin z($z-list, $z-layer) {
-  z-index: z($z-list, $z-layer);
+@mixin z-index($z-list, $z-layer) {
+  z-index: z-index($z-list, $z-layer);
+}
+
+/// Alias for `z-index()` mixin
+/// @alias z-index
+@mixin z($args...) {
+  @include z-index($args...);
 }

@@ -4,14 +4,14 @@
 /// @param {number} $px - px value to convert
 /// @param {number} $base [get($bytes, font-size)] - em context
 /// @require {function} get - Return key value from a map
-/// @require {function} _strip-unit - Strip unit from number
+/// @require {function} _b-strip-unit - Strip unit from number
 /// @return {number} Converted em value
-@function _convert-to-em($px, $base: get($bytes, font-size)) {
+@function _b-convert-to-em($px, $base: get($bytes, font-size)) {
   @if type-of($px) != number {
     @return $px;
   } @else {
-    $px: _strip-unit($px);
-    $base: _strip-unit($base);
+    $px: _b-strip-unit($px);
+    $base: _b-strip-unit($base);
     @if $px == 0 {
       @return 0;
     } @else if $px == 1 or $px == -1 {
@@ -27,7 +27,7 @@
 /// @param {number | list} $values - px value(s) to convert
 /// @param {number} $base [get($bytes, font-size)] - em context
 /// @require {function} get - Return key value from a map
-/// @require {function} _convert-to-em - Calculate px value into em value
+/// @require {function} _b-convert-to-em - Calculate px value into em value
 /// @return {number | list} Converted em value(s)
 /// @example scss
 ///   .foo {
@@ -42,10 +42,10 @@
   $em-values: ();
 
   @if $max == 1 {
-    @return _convert-to-em(nth($values, 1), $base);
+    @return _b-convert-to-em(nth($values, 1), $base);
   }
   @for $i from 1 through $max {
-    $em-values: append($em-values, _convert-to-em(nth($values, $i), $base));
+    $em-values: append($em-values, _b-convert-to-em(nth($values, $i), $base));
   }
   @return $em-values;
 }
