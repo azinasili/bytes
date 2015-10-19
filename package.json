@@ -2,7 +2,7 @@
   "name" : "bytes",
   "title" : "Bytes Sass library",
   "description" : "Lightweight Sass mixin library to make development fun",
-  "version" : "0.2.8",
+  "version" : "0.2.9",
   "copyright" : "2015",
   "repository": {
     "type": "git",
