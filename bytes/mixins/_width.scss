@@ -1,9 +1,9 @@
 /// Set width based on given max
 /// @author Azin Asili
 /// @access public
-/// @param {number} $max - Max width of element
-/// @param {number} $min - Min width of element
-/// @throw Warning when arguments are not a number
+/// @param {number} $min [null] - Min width of element
+/// @param {number} $max [null] - Max width of element
+/// @param {number} $width [100%] - Width of element
 /// @output Max-width, min-width, and width for responsive element
 /// @example scss
 ///   .foo {
@@ -11,17 +11,16 @@
 ///   }
 /// @example css
 ///   .foo {
-///     min-width: 300px;
 ///     max-width: 1500px;
+///     min-width: 300px;
 ///     width: 100%;
 ///   }
-@mixin width($max, $min: null) {
-  @if type-of($min) != number or type-of($max) != number {
-    @warn '`$min` and `$max` must be numbers';
+@mixin width($min: null, $max: null, $width: 100%) {
+  @if $max != null {
+    max-width: $max;
   }
   @if $min != null {
     min-width: $min;
   }
-  max-width: $max;
-  width: 100%;
+  width: $width;
 }

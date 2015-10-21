@@ -1,8 +1,8 @@
-/// Quickly change the tint or shade of a color
+/// Change the tint or shade of a color
 /// @author Azin Asili
 /// @access public
 /// @param {color} $color - Color to add tint or shade to
-/// @param {number | percent} $strength - Amount to adjust `$color`
+/// @param {number | percent} $chroma - Amount to adjust `$color`
 /// @require {function} tint - Mixes color with white to create lighter color
 /// @require {function} shade - Mixes color with black to create darker color
 /// @throw Warning when strength level is less than 0 or greater than 100
@@ -17,14 +17,14 @@
 ///     color: #c1de66;
 ///     color: #a7c44d;
 ///   }
-@function chroma($color, $strength) {
-  @if $strength == 0 or $strength < -100 or $strength > 100 {
-    @warn '`$strength` in `chroma()` should be a number or percent between -100 and 100';
+@function chroma($color, $chroma) {
+  @if $chroma < -100 or $chroma > 100 {
+    @warn '`$chroma` in `chroma()` should be a number or percent between -100 and 100';
   }
-  @if $strength > 0 {
-    @return tint($color, $strength);
-  } @else if $strength < 0 {
-    @return shade($color, ($strength * -1));
+  @if $chroma > 0 {
+    @return tint($color, $chroma);
+  } @else if $chroma < 0 {
+    @return shade($color, ($chroma * -1));
   }
   @return $color;
 }
