@@ -3,7 +3,7 @@
 /// @access public
 /// @param {map} $color - Map name of colors
 /// @param {string} $tone [base] - Variant color in map
-/// @param {number | percent} $opacity [100] - Opacity of color
+/// @param {number | percent} $opacity [null] - Opacity of color
 /// @param {number | percent} $chroma [0] - Chroma of color
 /// @require {function} transparent - Make color into a transparent version
 /// @require {function} chroma - Change the tint or shade of a color
@@ -16,6 +16,9 @@
 ///   .foo {
 ///     color: #bada55;
 ///   }
-@function color($color, $opacity: 100, $chroma: 0) {
-  @return transparent(chroma($color, $chroma), $opacity);
+@function color($color, $opacity: null, $chroma: 0) {
+  @if $opacity != null {
+    @return transparent(chroma($color, $chroma), $opacity);
+  }
+  @return chroma($color, $chroma);
 }
