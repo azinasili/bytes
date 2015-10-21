@@ -9,13 +9,13 @@
 ///   }
 /// @example css
 ///   .foo {
-///     line-height: 0;
+///     font-size: 0;
 ///     overflow: hidden;
 ///     text-indent: -101%;
 ///     white-space: nowrap;
 ///   }
 @mixin hide-text() {
-  line-height: 0;
+  font-size: 0;
   overflow: hidden;
   text-indent: -101%;
   white-space: nowrap;
