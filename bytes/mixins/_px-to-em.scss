@@ -15,7 +15,7 @@
 ///     padding: .625em;
 ///   }
 @mixin em($property, $values) {
-  $font-size: _b-strip-unit(get($bytes, font-size));
+  $font-size: _b-strip-unit(get($bytes, 'font-size'));
   $em-values: ();
 
   // Loop through $values list
