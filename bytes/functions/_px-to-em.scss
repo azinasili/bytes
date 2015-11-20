@@ -2,11 +2,11 @@
 /// @author Azin Asili
 /// @access private
 /// @param {number} $px - px value to convert
-/// @param {number} $base [get($bytes, font-size)] - em context
+/// @param {number} $base [get($bytes, 'font-size')] - em context
 /// @require {function} get - Return key value from a map
 /// @require {function} _b-strip-unit - Strip unit from number
 /// @return {number} Converted em value
-@function _b-convert-to-em($px, $base: get($bytes, font-size)) {
+@function _b-convert-to-em($px, $base: get($bytes, 'font-size')) {
   @if type-of($px) != number {
     @return $px;
   } @else {
@@ -25,7 +25,7 @@
 /// @author Azin Asili
 /// @access public
 /// @param {number | list} $values - px value(s) to convert
-/// @param {number} $base [get($bytes, font-size)] - em context
+/// @param {number} $base [get($bytes, 'font-size')] - em context
 /// @require {function} get - Return key value from a map
 /// @require {function} _b-convert-to-em - Calculate px value into em value
 /// @return {number | list} Converted em value(s)
@@ -37,7 +37,7 @@
 ///   .foo {
 ///     padding: .625em 1.25em;
 ///   }
-@function em($values, $base: get($bytes, font-size)) {
+@function em($values, $base: get($bytes, 'font-size')) {
   $max: length($values);
   $em-values: ();
 

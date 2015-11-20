@@ -15,7 +15,7 @@
 ///     padding: .625rem;
 ///   }
 @mixin rem($property, $values) {
-  $font-size: _b-strip-unit(get($bytes, font-size));
+  $font-size: _b-strip-unit(get($bytes, 'font-size'));
   $rem-values: ();
 
   // Loop through $values list
