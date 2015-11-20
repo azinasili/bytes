@@ -16,13 +16,14 @@
 ///     opacity: .7;
 ///   }
 @mixin opacity($opacity, $is-important: '') {
+  $opacity: _b-strip-unit($opacity);
   @if $opacity < 0 or $opacity > 100 {
     @warn 'Opacity should be a value between 0 and 100';
-  } @if $is-important == '!important' or $is-important == 'important' {
-    filter: alpha(opacity=_b-strip-unit($opacity)) !important;
-    opacity: (_b-strip-unit($opacity) / 100) !important;
+  } @if index('true' 'important' '!important', $is-important) {
+    filter: alpha(opacity=$opacity) !important;
+    opacity: ($opacity / 100) !important;
   } @else {
-    filter: alpha(opacity=_b-strip-unit($opacity));
-    opacity: (_b-strip-unit($opacity) / 100);
+    filter: alpha(opacity=$opacity);
+    opacity: ($opacity / 100);
   }
 }
