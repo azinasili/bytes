@@ -14,8 +14,8 @@
 ///   .foo {
 ///     padding: .625em;
 ///   }
-@mixin em($property, $values) {
-  $font-size: _b-strip-unit(get($bytes, 'font-size'));
+@mixin em($property, $values, $base: get($bytes, 'font-size')) {
+  $font-size: _b-strip-unit($base);
   $em-values: ();
 
   // Loop through $values list
@@ -24,14 +24,16 @@
   // 3. If value is not a number output the value
   // 4. Calculate em value
   @each $value in $values {
+    $value: _b-strip-unit($value);
+
     @if type-of($value) != number {
       $em-values: join($em-values, $value);
-    } @else if _b-strip-unit($value) == 0 {
+    } @else if $value == 0 {
       $em-values: join($em-values, $value);
-    } @else if _b-strip-unit($value) == 1 or _b-strip-unit($value) == -1 {
+    } @else if $value == 1 or $value == -1 {
       $em-values: join($em-values, $value);
     } @else {
-      $new-em-value: _b-strip-unit($value) / $font-size;
+      $new-em-value: $value/$font-size;
       $em-values: join($em-values, #{$new-em-value}em);
     }
   }

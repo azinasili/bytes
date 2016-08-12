@@ -38,11 +38,11 @@
     background-color: nth($bg-color, 1);
   } @else {
     background: nth($bg-color, 1) 50%;
-    background-size: 100%;
+    background-size: 100% 100%;
 
     &:active {
       background: radial-gradient(circle, nth($bg-color, 1) 10%, nth($bg-color, 2) 11%) 50% no-repeat;
-      background-size: 1000%;
+      background-size: 1000% 1000%;
       @content;
     }
   }
