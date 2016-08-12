@@ -25,7 +25,9 @@
   // 3. If value is not a number output the value
   // 4. Calculate rem value
   @each $value in $values {
-    $value: _b-strip-unit($value);
+    @if type-of($value) == number {
+      $value: _b-strip-unit($value);
+    }
 
     @if type-of($value) != number {
       $rem-values: join($rem-values, $value);
