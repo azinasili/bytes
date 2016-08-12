@@ -34,7 +34,7 @@
     } @else if $value == 0 {
       $em-values: join($em-values, $value);
     } @else if $value == 1 or $value == -1 {
-      $em-values: join($em-values, $value);
+      $em-values: join($em-values, #{$value}px);
     } @else {
       $new-em-value: $value/$font-size;
       $em-values: join($em-values, #{$new-em-value}em);
