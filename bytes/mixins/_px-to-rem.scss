@@ -3,6 +3,7 @@
 /// @access public
 /// @param {property} $property - Property to convert values
 /// @param {number} $values - Values to convert from px to rem
+/// @param {number} $base [get($bytes, 'font-size')] - rem context
 /// @require {function} _b-strip-unit - Strip unit from number
 /// @require {function} get - Return key value from a map
 /// @output Property and converted rem values
