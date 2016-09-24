@@ -46,7 +46,7 @@
     } @else if $direction == 'topRight' {
       border-top-color: $color;
       border-right-color: $color;
-    } @esle if $direction == 'bottomLeft' {
+    } @else if $direction == 'bottomLeft' {
       border-bottom-color: $color;
       border-left-color: $color;
     } @else if $direction == 'bottomRight' {
