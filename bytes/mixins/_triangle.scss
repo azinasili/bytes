@@ -43,19 +43,13 @@
     @if $direction == 'topLeft' {
       border-top-color: $color;
       border-left-color: $color;
-    }
-
-    @if $direction == 'topRight' {
+    } @else if $direction == 'topRight' {
       border-top-color: $color;
       border-right-color: $color;
-    }
-
-    @if $direction == 'bottomLeft' {
+    } @esle if $direction == 'bottomLeft' {
       border-bottom-color: $color;
       border-left-color: $color;
-    }
-
-    @if $direction == 'bottomRight' {
+    } @else if $direction == 'bottomRight' {
       border-right-color: $color;
       border-bottom-color: $color;
     }
