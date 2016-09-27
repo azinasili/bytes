@@ -3,13 +3,13 @@
 /// @access public
 /// @param {number} $width - Width of triangle
 /// @param {number} $height - Height of triangle
-/// @param {color} $color - Color of triangle
-/// @param {string} $direction - Direction of triangle
+/// @param {color} $color [#000] - Color of triangle
+/// @param {string} $direction ['bottom'] - Direction of triangle
 /// @require {function} get - Return key value from a map
 /// @output Border and border color depending on direction
 /// @example scss
 ///   .foo {
-///     @include triangle(20px, 10px, coral, right);
+///     @include triangle(20px, 10px, coral, 'right');
 ///   }
 /// @example css
 ///   .foo {
@@ -18,16 +18,16 @@
 //      border-top: 10px solid transparent;
 //      border-bottom: 10px solid transparent;
 ///   }
-@mixin triangle($width, $height, $color: #000, $direction: bottom) {
+@mixin triangle($width, $height, $color: #000, $direction: 'bottom') {
   $directions: (
-    top         : ('bottom', 'left', 'right'),
-    right       : ('left', 'top', 'bottom'),
-    bottom      : ('top', 'left', 'right'),
-    left        : ('right', 'top', 'bottom'),
-    topLeft     : (),
-    topRight    : (),
-    bottomLeft  : (),
-    bottomRight : (),
+    'top'         : ('bottom', 'left', 'right'),
+    'right'       : ('left', 'top', 'bottom'),
+    'bottom'      : ('top', 'left', 'right'),
+    'left'        : ('right', 'top', 'bottom'),
+    'topLeft'     : (),
+    'topRight'    : (),
+    'bottomLeft'  : (),
+    'bottomRight' : (),
   );
 
   @if not map-has-key($directions, $direction) {
