@@ -1,4 +1,4 @@
-/// Calculate px value into em value
+/// Calculate px value to em value
 /// @author Azin Asili
 /// @access private
 /// @param {number} $px - px value to convert
@@ -13,7 +13,7 @@
     $px: _b-strip-unit($px);
     $base: _b-strip-unit($base);
     @if $px == 0 {
-      @return 0;
+      @return $px;
     } @else if $px == 1 or $px == -1 {
       @return #{$px}px;
     }
