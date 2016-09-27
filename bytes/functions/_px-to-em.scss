@@ -41,9 +41,6 @@
   $max: length($values);
   $em-values: ();
 
-  @if $max == 1 {
-    @return _b-convert-to-em(nth($values, 1), $base);
-  }
   @for $i from 1 through $max {
     $em-values: append($em-values, _b-convert-to-em(nth($values, $i), $base));
   }
