@@ -1,4 +1,4 @@
-/// Convert property and px value(s) into em
+/// Convert property and px value(s) to em
 /// @author Azin Asili
 /// @access public
 /// @param {property} $property - Property to convert value(s)
@@ -10,7 +10,7 @@
 /// @output Property and converted em value(s)
 /// @example scss
 ///   .foo {
-//      @include em(margin, 10px auto);
+///     @include em(margin, 10px auto);
 ///     @include em(padding, 10px);
 ///   }
 /// @example css
