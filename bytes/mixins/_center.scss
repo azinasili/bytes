@@ -1,15 +1,14 @@
-/// Center element on XY axis
+/// Center element on X or Y axis
 /// @author Azin Asili
 /// @access public
 /// @param {string} $direction [both] - Set alignment context to element
 /// @param {string} $position [relative] - Set position value to element
-/// @throw Warning when `$direction` is not `horizontal`, `horz`, `h`,
-///        `vertical`, `vert`, `v`, `both` or `$position` is not `relative`,
-///        `absolute`, `fixed`
+/// @throw Error if `$direction` is not an allowed value
+/// @throw Warning if `$position` is not a valued property value
 /// @output Centered element based on alignment
 /// @example scss
 ///   .foo {
-///     @include center(vert, absolute);
+///     @include center(horz, absolute);
 ///   }
 /// @example css
 ///   .foo {
@@ -19,7 +18,7 @@
 ///   }
 @mixin center($direction: both, $position: relative) {
   @if not index('horizontal' 'horz' 'h' 'vertical' 'vert' 'v' 'both', $direction) {
-    @warn '`center()` accepts `horizontal`, `horz`, `h`, `vertical`, `vert`, `v`, or `both` as a $direction argument';
+    @error '`center()` accepts `horizontal`, `horz`, `h`, `vertical`, `vert`, `v`, or `both` as a $direction argument';
   } @else if index('horizontal' 'horz' 'h', $direction) {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
