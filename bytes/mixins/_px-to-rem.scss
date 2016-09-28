@@ -1,17 +1,21 @@
-/// Convert property and px values into rem
+/// Convert property and px value(s) to rem
 /// @author Azin Asili
 /// @access public
-/// @param {property} $property - Property to convert values
-/// @param {number} $values - Values to convert from px to rem
-/// @require {function} _b-strip-unit - Strip unit from number
+/// @param {property} $property - Property to convert value(s)
+/// @param {number} $values - Value(s) to convert from px to rem
+/// @param {number} $base [get($bytes, 'font-size')] - rem context
+/// @require {function} rem - Iterate value(s) and convert to rem
 /// @require {function} get - Return key value from a map
-/// @output Property and converted rem values
+/// @require {function} _b-strip-unit - Strip unit from number
+/// @output Property and converted rem value(s)
 /// @example scss
 ///   .foo {
+///     @include rem(margin, 10px auto);
 ///     @include rem(padding, 10px);
 ///   }
 /// @example css
 ///   .foo {
+///     margin: .625rem auto;
 ///     padding: .625rem;
 ///   }
 @mixin rem($property, $values, $base: get($bytes, 'font-size')) {
@@ -19,23 +23,9 @@
   $rem-values: ();
 
   // Loop through $values list
-  // 1. Check for zero values and output 0
-  // 2. Check if value == 1px or -1px and output 1px or -1px
-  // 3. If value is not a number output the value
-  // 4. Calculate rem value
+  // Calculate rem value on each item
   @each $value in $values {
-    $value: _b-strip-unit($value);
-
-    @if type-of($value) != number {
-      $rem-values: join($rem-values, $value);
-    } @else if $value == 0 {
-      $rem-values: join($rem-values, $value);
-    } @else if $value == 1 or $value == -1 {
-      $rem-values: join($rem-values, $value);
-    } @else {
-      $new-rem-value: $value/$font-size;
-      $rem-values: join($rem-values, #{$new-rem-value}rem);
-    }
+    $rem-values: join($rem-values, rem($value, $base));
   }
 
   // Output rem values
