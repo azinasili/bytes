@@ -1,17 +1,21 @@
-/// Convert property and px values into em
+/// Convert property and px value(s) into em
 /// @author Azin Asili
 /// @access public
-/// @param {property} $property - Property to convert values
-/// @param {number} $values - Values to convert from px to em
-/// @require {function} _b-strip-unit - Strip unit from number
+/// @param {property} $property - Property to convert value(s)
+/// @param {number} $values - Value(s) to convert from px to em
+/// @param {number} $base [get($bytes, 'font-size')] - em context
+/// @require {function} em - Iterate value(s) and convert to em
 /// @require {function} get - Return key value from a map
-/// @output Property and converted em values
+/// @require {function} _b-strip-unit - Strip unit from number
+/// @output Property and converted em value(s)
 /// @example scss
 ///   .foo {
+//      @include em(margin, 10px auto);
 ///     @include em(padding, 10px);
 ///   }
 /// @example css
 ///   .foo {
+///     margin: .625em auto;
 ///     padding: .625em;
 ///   }
 @mixin em($property, $values, $base: get($bytes, 'font-size')) {
@@ -19,23 +23,9 @@
   $em-values: ();
 
   // Loop through $values list
-  // 1. Check for zero values and output 0
-  // 2. Check if value == 1px or -1px and output 1px or -1px
-  // 3. If value is not a number output the value
-  // 4. Calculate em value
+  // Calculate em value on each item
   @each $value in $values {
-    $value: _b-strip-unit($value);
-
-    @if type-of($value) != number {
-      $em-values: join($em-values, $value);
-    } @else if $value == 0 {
-      $em-values: join($em-values, $value);
-    } @else if $value == 1 or $value == -1 {
-      $em-values: join($em-values, $value);
-    } @else {
-      $new-em-value: $value/$font-size;
-      $em-values: join($em-values, #{$new-em-value}em);
-    }
+    $em-values: join($em-values, em($value, $base));
   }
 
   // Output em values
