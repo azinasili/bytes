@@ -21,7 +21,7 @@
   @return ($px / $base) * 1rem;
 }
 
-/// Iterate values and convert to rem
+/// Iterate value(s) and convert to rem
 /// @author Azin Asili
 /// @access public
 /// @param {number | list} $values - px value(s) to convert
@@ -41,9 +41,6 @@
   $max: length($values);
   $rem-values: ();
 
-  @if $max == 1 {
-    @return _b-convert-to-rem(nth($values, 1), $base);
-  }
   @for $i from 1 through $max {
     $rem-values: append($rem-values, _b-convert-to-rem(nth($values, $i), $base));
   }
