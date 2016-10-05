@@ -36,7 +36,7 @@
 
   display: inline-block;
 
-  @if $width == $height and index('topLeft' 'topRight' 'bottomLeft' 'bottomRight', $direction) {
+  @if $width == $height and index(('topLeft', 'topRight', 'bottomLeft', 'bottomRight'), $direction) {
     $size: $width/2;
     border: $size solid transparent;
 

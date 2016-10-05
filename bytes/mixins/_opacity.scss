@@ -19,7 +19,7 @@
   $opacity: _b-strip-unit($opacity);
   @if $opacity < 0 or $opacity > 100 {
     @warn 'Opacity should be a value between 0 and 100';
-  } @if index(true 'true' 'important' '!important', $is-important) {
+  } @if index((true, 'true', 'important', '!important'), $is-important) {
     filter: alpha(opacity=$opacity) !important;
     opacity: ($opacity / 100) !important;
   } @else {
