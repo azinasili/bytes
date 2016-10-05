@@ -1,7 +1,7 @@
 /// Center element on X or Y axis
 /// @author Azin Asili
 /// @access public
-/// @param {string} $direction [both] - Set alignment context to element
+/// @param {string} $direction - Set alignment context to element
 /// @param {string} $position [relative] - Set position value to element
 /// @throw Error if `$direction` is not an allowed value
 /// @throw Warning if `$position` is not a valued property value
@@ -16,13 +16,13 @@
 ///     transform: translateX(-50%);
 ///     position: absolute;
 ///   }
-@mixin center($direction: both, $position: relative) {
-  @if not index('horizontal' 'horz' 'h' 'vertical' 'vert' 'v' 'both', $direction) {
+@mixin center($direction, $position: relative) {
+  @if not index(('horizontal', 'horz', 'h', 'vertical', 'vert', 'v', 'both'), $direction) {
     @error '`center()` accepts `horizontal`, `horz`, `h`, `vertical`, `vert`, `v`, or `both` as a $direction argument';
-  } @else if index('horizontal' 'horz' 'h', $direction) {
+  } @else if index(('horizontal', 'horz', 'h'), $direction) {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
-  } @else if index('vertical' 'vert' 'v', $direction) {
+  } @else if index(('vertical', 'vert', 'v'), $direction) {
     top: 50%;
     transform: translate3d(0, -50%, 0);
   } @else {
@@ -30,8 +30,8 @@
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
   }
-  @if not index('relative' 'absolute' 'fixed', $position) {
-    @warn '`center()` accepts `relative`, `absolute`, or `fixed` as a $position argument';
+  @if not index(('relative', 'absolute', 'fixed'), $position) {
+    @error '`center()` accepts `relative`, `absolute`, or `fixed` as a $position argument';
   } @else {
     position: $position;
   }
