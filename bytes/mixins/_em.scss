@@ -5,8 +5,6 @@
 /// @param {number} $values - Value(s) to convert from px to em
 /// @param {number} $base [get($bytes, 'font-size')] - em context
 /// @require {function} em - Iterate value(s) and convert to em
-/// @require {function} get - Return key value from a map
-/// @require {function} _b-strip-unit - Strip unit from number
 /// @output Property and converted em value(s)
 /// @example scss
 ///   .foo {
@@ -19,15 +17,5 @@
 ///     padding: .625em;
 ///   }
 @mixin em($property, $values, $base: get($bytes, 'font-size')) {
-  $font-size: _b-strip-unit($base);
-  $em-values: ();
-
-  // Loop through $values list
-  // Calculate em value on each item
-  @each $value in $values {
-    $em-values: join($em-values, em($value, $base));
-  }
-
-  // Output em values
-  #{$property}: $em-values;
+  #{$property}: em($values, $base);
 }

@@ -10,8 +10,9 @@
 // Bytes' functions
 @import 'bytes/functions/get';
 @import 'bytes/functions/strip-units';
-@import 'bytes/functions/px-to-em';
-@import 'bytes/functions/px-to-rem';
+@import 'bytes/functions/convert-px';
+@import 'bytes/functions/em';
+@import 'bytes/functions/rem';
 @import 'bytes/functions/tint';
 @import 'bytes/functions/shade';
 @import 'bytes/functions/transparent';
@@ -23,8 +24,8 @@
 @import 'bytes/functions/animate';
 
 // Bytes' mixins
-@import 'bytes/mixins/px-to-em';
-@import 'bytes/mixins/px-to-rem';
+@import 'bytes/mixins/em';
+@import 'bytes/mixins/rem';
 @import 'bytes/mixins/font-face';
 @import 'bytes/mixins/center';
 @import 'bytes/mixins/circle';
