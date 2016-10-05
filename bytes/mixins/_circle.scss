@@ -1,7 +1,7 @@
 /// Create circle of any size
 /// @author Azin Asili
 /// @access public
-/// @param {number} $width [null] - Width to shape
+/// @param {number} $width - Width to shape
 /// @param {number} $height [null] - Height to shape
 /// @param {number} $radius [100%] - Border-radius to shape
 /// @throw Error when at minimum no `$height` parameter is passed
@@ -16,15 +16,11 @@
 ///     height: 20px;
 ///     width: 50px;
 ///   }
-@mixin circle($width: null, $height: null, $radius: 100%) {
-  @if $width == null {
-    @error '`circle()` at minimum needs a $height to create shape';
-  } @else {
-    border-radius: $radius;
-    @if $height == null {
-      $height: $width;
-    }
-    height: $height;
-    width: $width;
+@mixin circle($width, $height: null, $radius: 100%) {
+  border-radius: $radius;
+  @if $height == null {
+    $height: $width;
   }
+  height: $height;
+  width: $width;
 }
