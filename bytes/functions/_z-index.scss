@@ -21,3 +21,9 @@
   }
   @return ($position * 100);
 }
+
+/// Alias for `z-index()` function
+/// @alias z-index
+@function z($args...) {
+  @return z-index($args...);
+}

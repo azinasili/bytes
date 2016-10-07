@@ -17,9 +17,3 @@
 @mixin z-index($z-list, $z-layer) {
   z-index: z-index($z-list, $z-layer);
 }
-
-/// Alias for `z-index()` mixin
-/// @alias z-index
-@mixin z($args...) {
-  @include z-index($args...);
-}
