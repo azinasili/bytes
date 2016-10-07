@@ -13,10 +13,10 @@
 ///   }
 /// @example css
 ///   .foo {
-//      display: inline-block;
-//      border-left: 10px solid coral;
-//      border-top: 10px solid transparent;
-//      border-bottom: 10px solid transparent;
+///     display: inline-block;
+///     border-left: 10px solid coral;
+///     border-top: 10px solid transparent;
+///     border-bottom: 10px solid transparent;
 ///   }
 @mixin triangle($width, $height, $color: #000, $direction: 'bottom') {
   $directions: (
