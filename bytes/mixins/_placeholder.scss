@@ -36,7 +36,6 @@
   @each $placeholder in $placeholders {
     &#{$placeholder}-placeholder {
       @content;
-      @include opacity(100);
     }
   }
 }
