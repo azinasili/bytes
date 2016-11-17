@@ -14,29 +14,51 @@
 ///     border: 10px solid transparent;
 ///     border-color-left: #ff0000;
 ///   }
-@mixin triangle($direction, $size, $color) {
-  border: $size solid transparent;
+@mixin triangle($width, $height: $width, $color: #000, $direction: bottom) {
+  $directions: (
+    top         : ('bottom', 'left', 'right'),
+    right       : ('left', 'top', 'bottom'),
+    bottom      : ('top', 'left', 'right'),
+    left        : ('right', 'top', 'bottom'),
+    topLeft     : (),
+    topRight    : (),
+    bottomLeft  : (),
+    bottomRight : (),
+  );
 
-  // Set color for appropriate border side.
-  @if $direction == 'up' {
-    border-bottom-color: $color;
-  } @else if $direction == 'right' {
-    border-left-color: $color;
-  } @else if $direction == 'down' {
-    border-top-color: $color;
-  } @else if $direction == 'left' {
-    border-right-color: $color;
-  } @else if $direction == 'up-left' {
-    border-left-color: $color;
-    border-top-color: $color;
-  } @else if $direction == 'up-right' {
-    border-right-color: $color;
-    border-top-color: $color;
-  } @else if $direction == 'down-right' {
-    border-bottom-color: $color;
-    border-right-color: $color;
-  } @else if $direction == 'down-left' {
-    border-bottom-color: $color;
-    border-left-color: $color;
+  @if not map-has-key($directions, $direction) {
+    @error '`#{$direction}` is not a valid argument for `triangle()`, please use one of the following: #{map-keys($directions)}';
+  }
+
+  display: inline-block;
+
+  @if $width == $height and index(('topLeft', 'topRight', 'bottomLeft', 'bottomRight'), $direction) {
+    $size: ($width / 2);
+    border: $size solid transparent;
+
+    @if $direction == 'topLeft' {
+      border-top-color: $color;
+      border-left-color: $color;
+    } @else if $direction == 'topRight' {
+      border-top-color: $color;
+      border-right-color: $color;
+    } @else if $direction == 'bottomLeft' {
+      border-bottom-color: $color;
+      border-left-color: $color;
+    } @else if $direction == 'bottomRight' {
+      border-bottom-color: $color;
+      border-right-color: $color;
+    }
+  } @else {
+    $sides: map-get($directions, $direction);
+    $width: ($width / 2);
+
+    @if index(('topLeft', 'topRight', 'bottomLeft', 'bottomRight'), $direction) {
+      @error '`triangle()` dimensions must be the same to use `#{$direction}`';
+    }
+
+    border-#{nth($sides, 1)}: $height solid $color;
+    border-#{nth($sides, 2)}: $width solid transparent;
+    border-#{nth($sides, 3)}: $width solid transparent;
   }
 }
