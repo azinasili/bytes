@@ -16,15 +16,8 @@
 ///     height: 50px;
 ///     width: 50px;
 ///   }
-@mixin circle($height: null, $width: null, $radius: 100%) {
-  @if $height == null {
-    @warn '`circle()` at minimum needs a $height to create shape';
-  } @else {
-    border-radius: $radius;
-    @if $width == null {
-      $width: $height;
-    }
-    height: $height;
-    width: $width;
-  }
+@mixin circle($width, $height: $width, $radius: 100%) {
+  border-radius: $radius;
+  height: $height;
+  width: $width;
 }
