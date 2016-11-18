@@ -14,12 +14,6 @@
 ///   .foo {
 ///     z-index: 200;
 ///   }
-@mixin z-index($z-list, $z-layer) {
-  z-index: z-index($z-list, $z-layer);
-}
-
-/// Alias for `z-index()` mixin
-/// @alias z-index
-@mixin z($args...) {
-  @include z-index($args...);
+@mixin z-index($args...) {
+  z-index: z-index($args...);
 }
