@@ -17,13 +17,19 @@
 ///     transform: translateX(-50%);
 ///     position: absolute;
 ///   }
-@mixin center($direction: both, $position: relative) {
-  @if not index('horizontal' 'horz' 'h' 'vertical' 'vert' 'v' 'both', $direction) {
-    @warn '`center()` accepts `horizontal`, `horz`, `h`, `vertical`, `vert`, `v`, or `both` as a $direction argument';
-  } @else if index('horizontal' 'horz' 'h', $direction) {
+@mixin center($direction, $position: relative) {
+  $directionsHorz: ('horizontal', 'horz', 'h');
+  $directionsVert: ('vertical', 'vert', 'v');
+  $directions: join($directionsHorz, $directionsVert);
+  $directions: join($directions, ('both'));
+  $positions: ('relative', 'absolute', 'fixed');
+
+  @if not index($directions, $direction) {
+    @warn '`#{$direction}` is not a valid argument for `center()`, please use one of the following: #{$directions}';
+  } @else if index($directionsHorz, $direction) {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
-  } @else if index('vertical' 'vert' 'v', $direction) {
+  } @else if index($directionsVert, $direction) {
     top: 50%;
     transform: translate3d(0, -50%, 0);
   } @else {
@@ -31,10 +37,10 @@
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
   }
-  @if not index('relative' 'absolute' 'fixed', $position) {
-    @warn '`center()` accepts `relative`, `absolute`, or `fixed` as a $position argument';
-  } @else {
-    position: $position;
-  }
-}
 
+  @if not index($positions, $position) {
+    @warn '`#{$position}` is not a valid argument for `center()`, please use one of the following: #{$positions}';
+  }
+
+  position: $position;
+}
