@@ -1,0 +1,20 @@
+/// Convert px to a value for em/rem
+/// @author Azin Asili
+/// @access private
+/// @param {number} $px - px value to convert
+/// @param {number} $base - Context value
+/// @require {function} _b-strip-unit - Strip unit from number
+/// @require {function} get - Return key value from a map
+/// @return {number} Unitless converted px
+@function _b-convert-px($px, $base) {
+  $px: _b-strip-unit($px);
+  $font-size: _b-strip-unit(get($bytes, 'font-size'));
+
+  @if unit($base) == 'em' or unit($base) == 'rem' {
+    $base: (_b-strip-unit($base) * $font-size);
+  } @else {
+    $base: _b-strip-unit($base);
+  }
+
+  @return ($px / $base);
+}

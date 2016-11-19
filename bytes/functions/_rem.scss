@@ -1,0 +1,32 @@
+/// Iterate value(s) and convert to rem
+/// @author Azin Asili
+/// @access public
+/// @param {number | list} $values - px value(s) to convert
+/// @param {number} $base [get($bytes, 'font-size')] - rem context
+/// @require {function} get - Return key value from a map
+/// @require {function} _b-convert-px - Convert px to a value for em/rem
+/// @return {number | list} Converted rem value(s)
+/// @example scss
+///   .foo {
+///     padding: rem(10px 20px);
+///   }
+/// @example css
+///   .foo {
+///     padding: .625rem 1.25rem;
+///   }
+@function rem($values, $base: get($bytes, 'font-size')) {
+  $rem-values: ();
+
+  // Decide how to handle each value
+  @each $value in $values {
+    @if type-of($value) != number or unit($value) != 'px' or index((0, 1, -1), $value) {
+      $rem-values: append($rem-values, $value);
+    } @else {
+      $rem-value: _b-convert-px($value, $base) * 1rem;
+      $rem-values: appen
+      d($rem-values, $rem-value);
+    }
+  }
+
+  @return $rem-values;
+}
