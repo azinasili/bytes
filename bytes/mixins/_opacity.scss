@@ -1,8 +1,8 @@
 /// Change opacity of an element
 /// @author Azin Asili
 /// @access public
-/// @param {number} $opacity - Opacity level
-/// @param {number} $opacity - Add important flag to declaration
+/// @param {number} $opacity - Opacity level from 0% to 100%
+/// @param {string} $is-important [null] - Add important flag to declaration
 /// @require {function} _b-strip-unit - Strip unit from number
 /// @throw Warning when value is less than 0 or greater than 100
 /// @output Opacity with a filter fall back
@@ -17,9 +17,12 @@
 ///   }
 @mixin opacity($opacity, $is-important: null) {
   $opacity: _b-strip-unit($opacity);
+
   @if $opacity < 0 or $opacity > 100 {
-    @warn '`opacity()` accepts an integer between 0 and 100';
-  } @if index((true, 'true', 'important', '!important'), $is-important) {
+    @warn '`$opacity` should be a value between 0 and 100';
+  }
+
+  @if index((true, 'true', 'important', '!important'), $is-important) {
     filter: alpha(opacity=$opacity) !important;
     opacity: ($opacity / 100) !important;
   } @else {
