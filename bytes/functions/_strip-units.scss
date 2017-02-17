@@ -1,8 +1,8 @@
 /// Strip unit from number
 /// @author Azin Asili
-/// @access private
+/// @access public
 /// @param {number} $num - Number with unit
 /// @return {number} Number without unit
-@function _b-strip-unit($num) {
+@function strip-unit($num) {
   @return $num / ($num * 0 + 1);
 }

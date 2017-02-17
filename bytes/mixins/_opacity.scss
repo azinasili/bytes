@@ -3,7 +3,7 @@
 /// @access public
 /// @param {number} $opacity - Opacity level from 0% to 100%
 /// @param {string} $is-important [null] - Add important flag to declaration
-/// @require {function} _b-strip-unit - Strip unit from number
+/// @require {function} strip-unit - Strip unit from number
 /// @throw Warning when value is less than 0 or greater than 100
 /// @output Opacity with a filter fall back
 /// @example scss
@@ -16,7 +16,7 @@
 ///     opacity: .7;
 ///   }
 @mixin opacity($opacity, $is-important: null) {
-  $opacity: _b-strip-unit($opacity);
+  $opacity: strip-unit($opacity);
 
   @if $opacity < 0 or $opacity > 100 {
     @warn '`$opacity` should be a value between 0 and 100';
