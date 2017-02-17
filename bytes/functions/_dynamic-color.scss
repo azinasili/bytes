@@ -32,6 +32,7 @@
     $color-brightness: _b-brightness($color);
     $light-text-brightness: _b-brightness($color-light);
     $dark-text-brightness: _b-brightness($color-dark);
+
     @if abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness) {
       @return $color-light;
     } @else {

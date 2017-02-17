@@ -17,11 +17,13 @@
 @function path($name, $path: get($bytes, 'media-path')) {
   $ext: '.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg';
   $warn: ();
+
   @each $item in $ext {
     @if str-slice($name, str-length($item) * -1) != $item {
       $warn: 'Invalid file extension for `path()`';
     }
   }
+
   @warn $warn;
   @return url('#{$path}/#{$name}');
 }
