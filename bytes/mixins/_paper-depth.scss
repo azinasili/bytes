@@ -22,9 +22,12 @@
     4: (0 14px 28px transparent(rgb(0, 0, 0), 25), 0 10px 10px transparent(rgb(0, 0, 0), 22)),
     5: (0 19px 38px transparent(rgb(0, 0, 0), 30), 0 15px 12px transparent(rgb(0, 0, 0), 22))
   );
+
   @if type-of($depth) != number or $depth < 1 or $depth > length($shadow-depth) {
     @warn '`paper-depth()` needs to be an integer between 1 and #{length($shadow-depth)}';
-  } @if index('true' 'important' '!important', $is-important) {
+  }
+
+  @if index((true, 'true', 'important', '!important'), $is-important) {
     box-shadow: get($shadow-depth, $depth) !important;
   } @else {
     box-shadow: get($shadow-depth, $depth);
