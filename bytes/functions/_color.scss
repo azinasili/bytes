@@ -16,9 +16,6 @@
 ///   .foo {
 ///     color: #bada55;
 ///   }
-@function color($color, $opacity: null, $chroma: 0) {
-  @if $opacity != null {
-    @return transparent(chroma($color, $chroma), $opacity);
-  }
-  @return chroma($color, $chroma);
+@function color($color, $opacity: 1, $chroma: 0) {
+  @return transparent(chroma($color, $chroma), $opacity);
 }
