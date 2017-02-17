@@ -19,5 +19,6 @@
     @warn '`$opacity` in `transparent()` should be a number or percent between 0 and 100';
     @return $color;
   }
+
   @return rgba($color, (_b-strip-unit($opacity) / 100));
 }
