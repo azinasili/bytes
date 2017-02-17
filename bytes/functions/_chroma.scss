@@ -21,10 +21,12 @@
   @if $chroma < -100 or $chroma > 100 {
     @warn '`$chroma` in `chroma()` should be a number or percent between -100 and 100';
   }
+
   @if $chroma > 0 {
     @return tint($color, $chroma);
   } @else if $chroma < 0 {
     @return shade($color, ($chroma * -1));
   }
+
   @return $color;
 }
