@@ -18,5 +18,6 @@
     @warn '`$strength` in `tint()` should be a number or percent between 0 and 100';
     @return $color;
   }
+
   @return mix(rgb(255, 255, 255), $color, $strength);
 }
