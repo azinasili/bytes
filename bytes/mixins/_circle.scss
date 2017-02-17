@@ -1,10 +1,9 @@
 /// Create circle of any size
 /// @author Azin Asili
 /// @access public
-/// @param {number} $height [null] - Height to shape
-/// @param {number} $width [null] - Width to shape
-/// @param {number} $radius [100%] - Border-radius to shape
-/// @throw Warning when at minimum no `$height` parameter is passed
+/// @param {number} $width - Width of shape
+/// @param {number} $height [$width] - Height of shape
+/// @param {number} $radius [100%] - Border-radius of shape
 /// @output CSS circle based on height and width
 /// @example scss
 ///   .foo {
