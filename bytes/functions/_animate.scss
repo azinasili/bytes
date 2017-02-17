@@ -1,7 +1,7 @@
 /// Default animation for transitions
 /// @author Azin Asili
 /// @access public
-/// @param {property} $property [all] - CSS property to transition
+/// @param {property} $property [all] - Property to transition
 /// @param {number} $duration [.4s] - Length of transition
 /// @param {function} $easing [cubic-bezier(.4, 0, .2, 1)] - Easing function for transition
 /// @param {number} $delay [null] - Transition delay
@@ -19,5 +19,6 @@
   @if unitless($duration) or $delay != null and unitless($delay) {
     @warn 'Please specify a timing unit for `$duration` or `$delay` in `animate()`';
   }
+
   @return $property $duration $easing $delay;
 }
