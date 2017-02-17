@@ -38,6 +38,7 @@
     font-weight: $font-weight;
     font-style: $font-style;
   }
+
   // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     @font-face {
