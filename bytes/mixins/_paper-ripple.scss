@@ -19,14 +19,14 @@
 /// @example css
 ///  .foo {
 ///    background: #bada55 50%;
-///    background-size: 200%;
+///    background-size: 100% 100%;
 ///    color: #666;
 ///    border: 1px solid #b8d951;
 ///  }
 ///  .foo:active {
 ///    background: -webkit-radial-gradient(circle, #bada55 10%, #a8cf2d 11%) 50% no-repeat;
 ///    background: radial-gradient(circle, #bada55 10%, #a8cf2d 11%) 50% no-repeat;
-///    background-size: 1000%;
+///    background-size: 1000% 1000%;
 ///    border-color: #a1c72b;
 ///  }
 ///  .foo:hover,
