@@ -18,5 +18,6 @@
     @warn '`$strength` in `shade()` should be a number or percent between 0 and 100';
     @return $color;
   }
+
   @return mix(rgb(0, 0, 0), $color, $strength);
 }
