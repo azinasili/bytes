@@ -20,7 +20,9 @@
       @warn '`#{$keys}` does not exit in map, using first key/value pair instead.';
       @return nth($wrong-value, 1);
     }
+
     $map: map-get($map, $key);
   }
+
   @return $map;
 }
