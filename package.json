@@ -2,8 +2,10 @@
   "name" : "bytes",
   "title" : "Bytes Sass library",
   "description" : "Lightweight Sass mixin library to make development fun",
+  "homepage": "https://github.com/azinasili/bytes",
+  "author" : "Azin Asili",
   "version" : "0.5.1",
-  "copyright" : "2015",
+  "license" : "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:azinasili/bytes.git"
@@ -15,7 +17,14 @@
     "scss",
     "helper"
   ],
-  "author" : "Azin Asili",
-  "license" : "MIT",
-  "homepage": "https://github.com/azinasili/bytes"
+  "devDependencies": {
+    "connect-livereload": "^0.6.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-open": "^0.2.3",
+    "grunt-sass": "^2.0.0",
+    "grunt-sassdoc": "^2.0.2",
+    "load-grunt-config": "^0.19.0",
+    "sassdoc": "^2.1.20"
+  }
 }
