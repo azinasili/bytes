@@ -3,7 +3,7 @@
   "version": "0.5.2",
   "description": "Lightweight Sass mixin library to make development fun",
   "homepage": "https://github.com/azinasili/bytes",
-  "authors" : "Azin Asili <hello@azinasili.com>",
+  "authors": "Azin Asili <hello@azinasili.com>",
   "license": "MIT",
   "main": "_bytes.scss",
   "keywords": [
