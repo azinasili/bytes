@@ -7,12 +7,12 @@
 /// @output CSS circle based on height and width
 /// @example scss
 ///   .foo {
-///     @include circle(50px, 50px);
+///     @include circle(50px, 20px);
 ///   }
 /// @example css
 ///   .foo {
 ///     border-radius: 100%;
-///     height: 50px;
+///     height: 20px;
 ///     width: 50px;
 ///   }
 @mixin circle($width, $height: $width, $radius: 100%) {
