@@ -3,8 +3,12 @@
 /// @access private
 /// @param {color} $color - Color to be analyzed
 /// @return {number} Color brightness level
-@function _b-brightness($color) {
-  @return ((red($color)) + (green($color)) + (blue($color))) / (255 * 100%);
+@function _brightness($color) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+
+  @return ($red + $green + $blue) / (255 * 100%);
 }
 
 /// Compare color brightness and return new color
@@ -13,7 +17,7 @@
 /// @param {color} $color - Color to base output on
 /// @require {function} tint - Mixes a color with white to create a new lighter color
 /// @require {function} shade - Mixes a color with black to create a new darker color
-/// @require {function} _b-brightness - Brightness of color getter
+/// @require {function} _brightness - Brightness of color getter
 /// @return {color} New color based on inputed value
 /// @example scss
 ///   .foo {
@@ -24,19 +28,15 @@
 ///     color: #4a5722;
 ///   }
 @function dynamic-color($color) {
-  @if $color == null {
-    @return null;
-  } @else {
-    $color-light: tint($color, 80%);
-    $color-dark: shade($color, 60%);
-    $color-brightness: _b-brightness($color);
-    $light-text-brightness: _b-brightness($color-light);
-    $dark-text-brightness: _b-brightness($color-dark);
+  $color-light: tint($color, 80%);
+  $color-dark: shade($color, 60%);
+  $color-brightness: _brightness($color);
+  $light-text-brightness: _brightness($color-light);
+  $dark-text-brightness: _brightness($color-dark);
 
-    @if abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness) {
-      @return $color-light;
-    } @else {
-      @return $color-dark;
-    }
+  @if abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness) {
+    @return $color-light;
+  } @else {
+    @return $color-dark;
   }
 }
