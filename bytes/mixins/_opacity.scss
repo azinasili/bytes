@@ -4,7 +4,7 @@
 /// @param {number} $opacity - Opacity level from 0% to 100%
 /// @param {string} $is-important [null] - Add important flag to declaration
 /// @require {function} strip-unit - Strip unit from number
-/// @throw Warning when value is less than 0 or greater than 100
+/// @throw Warning when $opacity is less than 0 or greater than 100
 /// @output Opacity with a filter fall back
 /// @example scss
 ///   .foo {
@@ -19,7 +19,7 @@
   $opacity: strip-unit($opacity);
 
   @if $opacity < 0 or $opacity > 100 {
-    @warn '`opacity()` accepts a value between 0 and 100';
+    @warn '`#{$opacity}` should be a number or percent between 0 and 100 in `opacity()`';
   }
 
   @if index((true, 'true', 'important', '!important'), $is-important) {

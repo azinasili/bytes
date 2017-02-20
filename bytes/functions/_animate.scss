@@ -5,7 +5,7 @@
 /// @param {number} $duration [.4s] - Length of transition
 /// @param {function} $easing [cubic-bezier(.4, 0, .2, 1)] - Easing function for transition
 /// @param {number} $delay [null] - Transition delay
-/// @throw Warning when $duration does not have a unit
+/// @throw Warning when $duration or $delay does not have a unit
 /// @return {value} Values to transition
 /// @example scss
 ///   .foo {
@@ -16,8 +16,12 @@
 ///     transition: background .4s cubic-bezier(.4, 0, .2, 1);
 ///   }
 @function animate($property: all, $duration: .4s, $easing: cubic-bezier(.4, 0, .2, 1), $delay: null) {
-  @if unitless($duration) or $delay != null and unitless($delay) {
-    @warn 'Please specify a timing unit for `$duration` or `$delay` in `animate()`';
+  @if unitless($duration) {
+    @warn '`#{$duration}` should have a timing unit in `animate()`';
+  }
+
+  @if $delay != null and unitless($delay) {
+    @warn '`#{$delay}` should have a timing unit in `animate()`';
   }
 
   @return $property $duration $easing $delay;

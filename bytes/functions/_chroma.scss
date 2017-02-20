@@ -5,7 +5,7 @@
 /// @param {number | percent} $chroma - Amount to adjust `$color`
 /// @require {function} tint - Mixes color with white to create lighter color
 /// @require {function} shade - Mixes color with black to create darker color
-/// @throw Warning when strength level is less than 0 or greater than 100
+/// @throw Warning when $chroma is less than 0 or greater than 100
 /// @return {color} New color swatch
 /// @example scss
 ///   .foo {
@@ -19,7 +19,7 @@
 ///   }
 @function chroma($color, $chroma) {
   @if $chroma < -100 or $chroma > 100 {
-    @warn '`$chroma` in `chroma()` should be a number or percent between -100 and 100';
+    @warn '`#{$chroma}` should be a number or percent between -100 and 100 in `chroma()`';
   }
 
   @if $chroma > 0 {

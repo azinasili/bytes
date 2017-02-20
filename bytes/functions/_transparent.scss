@@ -4,8 +4,8 @@
 /// @param {color} $color - Color to make transparent
 /// @param {number | percent} $opacity - Opacity level of color
 /// @require {function} strip-unit - Strip unit from number
-/// @throw Warning when opacity is less than 0 or greater than 100
-/// @return {color} Color with transparency
+/// @throw Warning when $opacity is less than 0 or greater than 100
+/// @return {color} Color with transparency added
 /// @example scss
 ///   .foo {
 ///     color: transparent(#000, 70);
@@ -16,7 +16,7 @@
 ///   }
 @function transparent($color, $opacity) {
   @if $opacity < 0 or $opacity > 100 {
-    @warn '`$opacity` in `transparent()` should be a number or percent between 0 and 100';
+    @warn '`#{$opacity}` should be a number or percent between 0 and 100 in `transparent()`';
     @return $color;
   }
 
