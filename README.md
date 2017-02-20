@@ -159,7 +159,7 @@ $map: (
 }
 
 .test {
-  z-index: z($list, 'element');
+  z-index: z($list, 'modal');
 }
 ```
 
@@ -196,14 +196,14 @@ $map: (
 #### `font-family`
 ```scss
 .test {
-  @include font-family('Open Sans', ../fonts,);
+  @include font-family('Open Sans', '../fonts');
 }
 ```
 
 #### `center`
 ```scss
 .test {
-  @include center(both, absolute);
+  @include center('both', 'absolute');
 }
 ```
 
@@ -280,7 +280,7 @@ $map: (
   @include set($map);
 
   &:hover {
-    @include set($map, hover);
+    @include set($map, 'hover');
   }
 }
 ```
