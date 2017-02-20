@@ -16,13 +16,7 @@
 ///     width: 100%;
 ///   }
 @mixin width($min: null, $max: null, $width: 100%) {
-  @if $max != null {
-    max-width: $max;
-  }
-
-  @if $min != null {
-    min-width: $min;
-  }
-
+  max-width: $max;
+  min-width: $min;
   width: $width;
 }
