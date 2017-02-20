@@ -12,7 +12,7 @@ A small mixin and function helper library for Sass projects.
 1. Import Bytes into your stylesheet:
 
   ```scss
-  @import "bytes/bytes";
+  @import "path/to/bytes/bytes";
   ```
 
   It’s not recommended to add or modify the Neat files so that you can update
