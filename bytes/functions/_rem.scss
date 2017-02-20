@@ -23,8 +23,7 @@
       $rem-values: append($rem-values, $value);
     } @else {
       $rem-value: _b-convert-px($value, $base) * 1rem;
-      $rem-values: appen
-      d($rem-values, $rem-value);
+      $rem-values: append($rem-values, $rem-value);
     }
   }
 

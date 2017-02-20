@@ -1,8 +1,8 @@
-/// Word wrapping for text too long in container
+/// Text wrapping for long words
 /// @author Azin Asili
 /// @access public
 /// @link https://justmarkup.com/log/2015/07/31/dealing-with-long-words-in-css/
-/// @output Hypens, word-wrap, and word-break to create word wrap
+/// @output Text wrapping using hypens, word-wrap, and word-break
 /// @example scss
 ///   .foo {
 ///     @include word-wrap();

@@ -1,9 +1,8 @@
-/// Control input placeholder styles
+/// Shortcut for input placeholder styles
 /// @author Azin Asili
 /// @access public
-/// @require {function} opacity - change opacity of an element
 /// @content Placeholder styles to be applied on inputs
-/// @output Placeholder styles and vendor pseudo elements
+/// @output Vendor pseudo elements for placeholder styles
 /// @example scss
 ///   .foo {
 ///     @include placeholder {
@@ -13,23 +12,15 @@
 /// @example css
 ///   .foo::-webkit-input-placeholder {
 ///     color: #ff0000;
-///     filter: alpha(opacity=1);
-///     opacity: 1;
 ///   }
 ///   .foo::-moz-placeholder {
 ///     color: #ff0000;
-///     filter: alpha(opacity=1);
-///     opacity: 1;
 ///   }
 ///   .foo:-ms-input-placeholder {
 ///     color: #ff0000;
-///     filter: alpha(opacity=1);
-///     opacity: 1;
 ///   }
 ///   .foo::-placeholder {
 ///     color: #ff0000;
-///     filter: alpha(opacity=1);
-///     opacity: 1;
 ///   }
 @mixin placeholder() {
   $placeholders: '::-webkit-input' '::-moz' ':-ms-input' '::';

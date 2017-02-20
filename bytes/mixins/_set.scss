@@ -1,9 +1,10 @@
-/// Get key/value pair from map and nested maps
+/// Set key/value pair from map as CSS property and value
 /// @author Azin Asili
 /// @access public
-/// @param {map} $map - Map name
-/// @param {key | map} $keys... - Key name of nested map
-/// @output Key/value pair in a map or nested map
+/// @param {map} $map - Name of map
+/// @param {key | map} $keys... - Name of key of a nested map
+/// @require {function} get - Return key value from a map
+/// @output Key/value pair in a map set as property and value
 /// @example scss
 ///   $map: (
 ///     background: #000,
@@ -33,7 +34,7 @@
 
   // Get items from map
   @while $length >= $i {
-    $map: map-get($map, nth($keys, $i));
+    $map: get($map, nth($keys, $i));
     $i: $i + 1;
   }
 

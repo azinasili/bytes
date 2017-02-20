@@ -1,10 +1,10 @@
-/// Iterate values and convert to em
+/// Iterate value(s) and convert to em
 /// @author Azin Asili
 /// @access public
 /// @param {number | list} $values - px value(s) to convert
 /// @param {number} $base [get($bytes, 'font-size')] - em context
 /// @require {function} get - Return key value from a map
-/// @require {function} _b-convert-to-em - Calculate px value into em value
+/// @require {function} _b-convert-px - Convert px to a value for em/rem
 /// @return {number | list} Converted em value(s)
 /// @example scss
 ///   .foo {
