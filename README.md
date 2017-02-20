@@ -59,6 +59,12 @@ A small mixin and function helper library for Sass projects.
 ### Docs
 Bytes uses [Sassdoc](http://sassdoc.com/) for documentation. Docs can be generated via the command line using [Grunt](http://gruntjs.com/).
 
+1. Install documentation dependencies:
+
+  ```bash
+  npm install
+  ```
+
 1. Generate and open docs in a browser:
 
   ```bash
