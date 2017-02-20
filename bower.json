@@ -1,9 +1,10 @@
 {
   "name": "bytes",
-  "version": "0.5.1",
-  "homepage": "https://github.com/azinasili/bytes",
-  "authors": "Azin Asili <azinasili@gmail.com>",
+  "version": "0.5.2",
   "description": "Lightweight Sass mixin library to make development fun",
+  "homepage": "https://github.com/azinasili/bytes",
+  "authors": "Azin Asili <hello@azinasili.com>",
+  "license": "MIT",
   "main": "_bytes.scss",
   "keywords": [
     "sass",
@@ -12,15 +13,10 @@
     "functions",
     "helper"
   ],
-  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "_tmp",
-    "bower_components",
     "bower.json",
-    "Gruntfile.js",
-    "package.json"
   ]
 }

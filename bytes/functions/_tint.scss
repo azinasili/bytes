@@ -3,7 +3,7 @@
 /// @access public
 /// @param {color} $color - Color to lighten
 /// @param {number | percent} $strength - Amount of white to be mixed with `$color`
-/// @throw Warning when strength is less than 0 or greater than 100
+/// @throw Warning when $strength is less than 0 or greater than 100
 /// @return {color} New color swatch
 /// @example scss
 ///   .foo {
@@ -15,7 +15,7 @@
 ///   }
 @function tint($color, $strength) {
   @if $strength < 0 or $strength > 100 {
-    @warn '`$strength` in `tint()` should be a number or percent between 0 and 100';
+    @warn '`#{$strength}` should be a number or percent between 0 and 100 in `tint()`';
     @return $color;
   }
 

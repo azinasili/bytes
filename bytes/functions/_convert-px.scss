@@ -6,7 +6,7 @@
 /// @require {function} strip-unit - Strip unit from number
 /// @require {function} get - Return key value from a map
 /// @return {number} Unitless converted px
-@function _b-convert-px($px, $base) {
+@function _convert-px($px, $base) {
   $px: strip-unit($px);
   $font-size: strip-unit(get($bytes, 'font-size'));
 

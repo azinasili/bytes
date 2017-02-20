@@ -3,7 +3,7 @@
 /// @access public
 /// @param {string} $direction - Set alignment context to element
 /// @param {string} $position [relative] - Set position value to element
-/// @throw Warning when `$direction` or `$position` is not an accepted value
+/// @throw Error when `$direction` or `$position` is not an accepted value
 /// @output Centered element based on alignment
 /// @example scss
 ///   .foo {
@@ -16,18 +16,25 @@
 ///     position: absolute;
 ///   }
 @mixin center($direction, $position: relative) {
-  $directionsHorz: ('horizontal', 'horz', 'h');
-  $directionsVert: ('vertical', 'vert', 'v');
-  $directions: join($directionsHorz, $directionsVert);
-  $directions: join($directions, ('both'));
+  $horizontal: ('horizontal', 'horz', 'h');
+  $vertical: ('vertical', 'vert', 'v');
+  $directions: join(($horizontal, $vertical), ('both'));
   $positions: ('relative', 'absolute', 'fixed');
 
-  @if not index($directions, $direction) {
-    @warn '`#{$direction}` is not a valid argument for `center()`, please use one of the following: #{$directions}';
-  } @else if index($directionsHorz, $direction) {
+  @if not index($positions, $position) {
+    @error '`#{$direction}` is not a valid argument for `center()`, please use one of the following: #{$directions}';
+  }
+
+  @if not index($positions, $position) {
+    @error '`#{$position}` is not a valid argument for `center()`, please use one of the following: #{$positions}';
+  }
+
+  position: $position;
+
+  @if index($horizontal, $direction) {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
-  } @else if index($directionsVert, $direction) {
+  } @else if index($vertical, $direction) {
     top: 50%;
     transform: translate3d(0, -50%, 0);
   } @else {
@@ -35,10 +42,4 @@
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
   }
-
-  @if not index($positions, $position) {
-    @warn '`#{$position}` is not a valid argument for `center()`, please use one of the following: #{$positions}';
-  }
-
-  position: $position;
 }

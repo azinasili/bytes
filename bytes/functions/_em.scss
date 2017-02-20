@@ -4,7 +4,7 @@
 /// @param {number | list} $values - px value(s) to convert
 /// @param {number} $base [get($bytes, 'font-size')] - em context
 /// @require {function} get - Return key value from a map
-/// @require {function} _b-convert-px - Convert px to a value for em/rem
+/// @require {function} _convert-px - Convert px to a value for em/rem
 /// @return {number | list} Converted em value(s)
 /// @example scss
 ///   .foo {
@@ -22,7 +22,7 @@
     @if type-of($value) != number or unit($value) != 'px' or index((0, 1, -1), $value) {
       $em-values: append($em-values, $value);
     } @else {
-      $em-value: _b-convert-px($value, $base) * 1em;
+      $em-value: _convert-px($value, $base) * 1em;
       $em-values: append($em-values, $em-value);
     }
   }

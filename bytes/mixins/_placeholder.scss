@@ -23,7 +23,7 @@
 ///     color: #ff0000;
 ///   }
 @mixin placeholder() {
-  $placeholders: '::-webkit-input' '::-moz' ':-ms-input' '::';
+  $placeholders: ('::-webkit-input', '::-moz', ':-ms-input', '::');
 
   @each $placeholder in $placeholders {
     &#{$placeholder}-placeholder {

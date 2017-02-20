@@ -6,6 +6,7 @@
 /// @param {color} $color [#000] - Color of triangle
 /// @param {string} $direction ['bottom'] - Direction of triangle
 /// @require {function} get - Return key value from a map
+/// @require {function} set - Set key/value pair from map as CSS property and value
 /// @output Border and border color depending on direction
 /// @example scss
 ///   .foo {
@@ -18,17 +19,50 @@
 ///     border-top: 10px solid transparent;
 ///     border-bottom: 10px solid transparent;
 ///   }
-@mixin triangle($width, $height: $width, $color: #000, $direction: bottom) {
-  $directions: (
-    top         : ('bottom', 'left', 'right'),
-    right       : ('left', 'top', 'bottom'),
-    bottom      : ('top', 'left', 'right'),
-    left        : ('right', 'top', 'bottom'),
-    topLeft     : (),
-    topRight    : (),
-    bottomLeft  : (),
-    bottomRight : (),
+@mixin triangle($width, $height: $width, $color: #000, $direction: 'bottom') {
+  $size: ($width / 2);
+  $sides: (
+    'top': (
+      'border-bottom': $height solid $color,
+      'border-left': $size solid transparent,
+      'border-right': $size solid transparent,
+    ),
+    'right': (
+      'border-left': $height solid $color,
+      'border-top': $size solid transparent,
+      'border-bottom': $size solid transparent,
+    ),
+    'bottom': (
+      'border-top': $height solid $color,
+      'border-left': $size solid transparent,
+      'border-right': $size solid transparent,
+    ),
+    'left': (
+      'border-right': $height solid $color,
+      'border-top': $size solid transparent,
+      'border-bottom': $size solid transparent,
+    ),
   );
+  $angles: (
+    'topLeft': (
+      'border-top-color': $color,
+      'border-left-color': $color,
+    ),
+    'topRight': (
+      'border-top-color': $color,
+      'border-right-color': $color,
+    ),
+    'bottomLeft': (
+      'border-bottom-color': $color,
+      'border-left-color': $color,
+    ),
+    'bottomRight': (
+      'border-bottom-color': $color,
+      'border-right-color': $color,
+    ),
+  );
+  $directions: map-merge($sides, $angles);
+  $angle-check: map-has-key($angles, $direction);
 
   @if not map-has-key($directions, $direction) {
     @error '`#{$direction}` is not a valid argument for `triangle()`, please use one of the following: #{map-keys($directions)}';
@@ -36,33 +70,14 @@
 
   display: inline-block;
 
-  @if $width == $height and index(('topLeft', 'topRight', 'bottomLeft', 'bottomRight'), $direction) {
-    $size: ($width / 2);
+  @if $width == $height and $angle-check {
     border: $size solid transparent;
-
-    @if $direction == 'topLeft' {
-      border-top-color: $color;
-      border-left-color: $color;
-    } @else if $direction == 'topRight' {
-      border-top-color: $color;
-      border-right-color: $color;
-    } @else if $direction == 'bottomLeft' {
-      border-bottom-color: $color;
-      border-left-color: $color;
-    } @else if $direction == 'bottomRight' {
-      border-bottom-color: $color;
-      border-right-color: $color;
-    }
+    @include set(get($angles, $direction));
   } @else {
-    $sides: get($directions, $direction);
-    $width: ($width / 2);
-
-    @if index(('topLeft', 'topRight', 'bottomLeft', 'bottomRight'), $direction) {
-      @error '`triangle()` dimensions must be the same to use `#{$direction}`';
+    @if $angle-check {
+      @error '`triangle()` $width and $height must be the same to use `#{$direction}`';
     }
 
-    border-#{nth($sides, 1)}: $height solid $color;
-    border-#{nth($sides, 2)}: $width solid transparent;
-    border-#{nth($sides, 3)}: $width solid transparent;
+    @include set(get($sides, $direction));
   }
 }
