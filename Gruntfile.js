@@ -15,7 +15,6 @@ module.exports = function(grunt) {
 
     // Options to use for tasks
     // use: <%= property %>
-    // NOTE: `connect.js` has hardcoded <%= demo %> value
     data: {
       docs : 'sassdoc',
       port : 9000,
