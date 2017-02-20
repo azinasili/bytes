@@ -1,5 +1,24 @@
-# bytes
+# Bytes
 A small mixin and function helper library for Sass projects.
+
+## Installation
+
+1. Install the Bytes with [Bower](http://bower.io) package manager:
+
+  ```bash
+  bower install bytes
+  ```
+
+1. Import Bytes into your stylesheet:
+
+  ```scss
+  @import "bytes/bytes";
+  ```
+
+  It’s not recommended to add or modify the Neat files so that you can update
+  them easily.
+
+## What's included with Bytes?
 
 **Functions**
 
@@ -37,9 +56,9 @@ A small mixin and function helper library for Sass projects.
 * [`paper-ripple`](#paper-ripple)
 * [`z-index`](#z-index)
 
-## Functions
+### Functions
 
-### `get`
+#### `get`
 ```scss
 $map: (
   'foo': 'bar',
@@ -50,70 +69,70 @@ $map: (
 }
 ```
 
-### `strip-unit`
+#### `strip-unit`
 ```scss
 .test {
   line-height: strip-unit(2rem);
 }
 ```
 
-### `em` function
+#### `em` function
 ```scss
 .test {
   padding: em(6px 12px);
 }
 ```
 
-### `rem` function
+#### `rem` function
 ```scss
 .test {
   padding: rem(6px 12px);
 }
 ```
 
-### `tint`
+#### `tint`
 ```scss
 .test {
   color: tint(#bada55, 15%);
 }
 ```
 
-### `shade`
+#### `shade`
 ```scss
 .test {
   color: shade(#bada55, 15%);
 }
 ```
 
-### `transparent`
+#### `transparent`
 ```scss
 .test {
   color: transparent(#bada55, 85%);
 }
 ```
 
-### `chroma`
+#### `chroma`
 ```scss
 .test {
   color: chroma(#bada55, -10%);
 }
 ```
 
-### `color`
+#### `color`
 ```scss
 .test {
   color: color(#bada55, 10%, -35%);
 }
 ```
 
-### `dynamic-color`
+#### `dynamic-color`
 ```scss
 .test {
   color: dynamic-color(#bada55);
 }
 ```
 
-### `z-index`
+#### `z-index`
 ```scss
 .test {
   $list: (
@@ -129,93 +148,93 @@ $map: (
 }
 ```
 
-### `path`
+#### `path`
 ```scss
 .test {
   background: path('kitten.jpg') no-repeat 0 0;
 }
 ```
 
-### `animate`
+#### `animate`
 ```scss
 .test {
   transition: animate(all, .5s);
 }
 ```
 
-## Mixins
+### Mixins
 
-### `em` mixin
+#### `em` mixin
 ```scss
 .test {
   @include em(padding, 10px);
 }
 ```
 
-### `rem` mixin
+#### `rem` mixin
 ```scss
 .test {
   @include rem(padding, 10px);
 }
 ```
 
-### `font-family`
+#### `font-family`
 ```scss
 .test {
   @include font-family('Open Sans', ../fonts,);
 }
 ```
 
-### `center`
+#### `center`
 ```scss
 .test {
   @include center(both, absolute);
 }
 ```
 
-### `circle`
+#### `circle`
 ```scss
 .test {
   @include circle(20px, 10px);
 }
 ```
 
-### `hide-text`
+#### `hide-text`
 ```scss
 .test {
   @include hide-text();
 }
 ```
 
-### `opacity`
+#### `opacity`
 ```scss
 .test {
   @include opacity(30%);
 }
 ```
 
-### `triangle`
+#### `triangle`
 ```scss
 .test {
   @include triangle(20px, 10px, #bada55, 'bottom');
 }
 ```
 
-### `truncate`
+#### `truncate`
 ```scss
 .test {
   @include truncate();
 }
 ```
 
-### `word-wrap`
+#### `word-wrap`
 ```scss
 .test {
   @include word-wrap();
 }
 ```
 
-### `hidpi`
+#### `hidpi`
 ```scss
 .test {
   @include hidpi() {
@@ -224,7 +243,7 @@ $map: (
 }
 ```
 
-### `placeholder`
+#### `placeholder`
 ```scss
 .test {
   @include placeholder() {
@@ -233,7 +252,7 @@ $map: (
 }
 ```
 
-### `set`
+#### `set`
 ```scss
 $map: (
   'background': black;
@@ -251,28 +270,28 @@ $map: (
 }
 ```
 
-### `width`
+#### `width`
 ```scss
 .test {
   @include width(200px, 500px);
 }
 ```
 
-### `paper-depth`
+#### `paper-depth`
 ```scss
 .test {
   @include paper-depth(3);
 }
 ```
 
-### `paper-ripple`
+#### `paper-ripple`
 ```scss
 .test {
   @include paper-ripple(black white);
 }
 ```
 
-### `z-index`
+#### `z-index`
 ```scss
 .test {
   $list: (
@@ -286,6 +305,7 @@ $map: (
 
 ## TODO
 
+* Added testing suite
 * Expand settings and user controlled settings
 * Have `hide-text` be less destructive
 * Add more options for some mixins
