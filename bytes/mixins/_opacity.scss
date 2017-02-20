@@ -19,7 +19,7 @@
   $opacity: strip-unit($opacity);
 
   @if $opacity < 0 or $opacity > 100 {
-    @warn '`$opacity` should be a value between 0 and 100';
+    @warn '`opacity()` accepts a value between 0 and 100';
   }
 
   @if index((true, 'true', 'important', '!important'), $is-important) {
