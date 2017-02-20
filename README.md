@@ -1,12 +1,12 @@
 # bytes
-Small mixin and function helper library for Sass projects.
+A small mixin and function helper library for Sass projects.
 
-*Functions*
+**Functions**
 
 * [`get`](#get)
 * [`strip-unit`](#strip-unit)
-* [`em` function](#em-function)
-* [`rem` function](#rem-function)
+* [`em`](#em-function)
+* [`rem`](#rem-function)
 * [`tint`](#tint)
 * [`shade`](#shade)
 * [`transparent`](#transparent)
@@ -17,7 +17,7 @@ Small mixin and function helper library for Sass projects.
 * [`path`](#path)
 * [`animate`](#animate)
 
-*Mixins*
+**Mixins**
 
 * [`em`](#em-mixin)
 * [`rem`](#rem-mixin)
@@ -283,3 +283,9 @@ $map: (
   @include z-index($list, 'modal');
 }
 ```
+
+## TODO
+
+* Expand settings and user controlled settings
+* Have `hide-text` be less destructive
+* Add more options for some mixins
