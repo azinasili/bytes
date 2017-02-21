@@ -3,7 +3,34 @@
 /// Options for Bytes library
 /// @author Azin Asili
 ////
+
+/// Bytes default settings.
+///
+/// @name Bytes default settings
+/// @access private
+/// @group settings
+/// @type map
+///
+/// @property {number (with unit)} font-size [16px]
+///   Default project font-size, used for `px` conversion for `em` and `rem`.
+///
+/// @property {string} media-path ['../assets']
+///   Project path to media assets.
 $bytes: (
-  'font-size': 16px,
-  'media-path': '../images'
-) !default;
+  'font-size'  : 16px,
+  'media-path' : '../assets',
+);
+
+/// This variable is a sass map that overrides Bytes default settings.
+/// Use this to define your project's properties.
+///
+/// @name Bytes
+/// @access public
+/// @group settings
+/// @type map
+///
+/// @example scss
+///   $bytes: (
+///     'font-size': 14px,
+///   );
+$bytes: () !default;
