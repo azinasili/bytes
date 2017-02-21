@@ -2,8 +2,8 @@
 /// @author Azin Asili
 /// @access public
 /// @param {property} $property [all] - Property to transition
-/// @param {number} $duration [.4s] - Length of transition
-/// @param {function} $easing [cubic-bezier(.4, 0, .2, 1)] - Easing function for transition
+/// @param {number} $duration [get($bytes, 'animate-timing')] - Length of transition
+/// @param {string | function} $easing [get($bytes, 'animate-easing')] - Easing function for transition
 /// @param {number} $delay [null] - Transition delay
 /// @throw Warning when $duration or $delay does not have a unit
 /// @return {value} Values to transition
@@ -15,7 +15,12 @@
 ///   .foo {
 ///     transition: background .4s cubic-bezier(.4, 0, .2, 1);
 ///   }
-@function animate($property: all, $duration: .4s, $easing: cubic-bezier(.4, 0, .2, 1), $delay: null) {
+@function animate(
+  $property : all,
+  $duration : get($bytes, 'animate-timing'),
+  $easing   : get($bytes, 'animate-easing'),
+  $delay    : null
+) {
   @if unitless($duration) {
     @warn '`#{$duration}` should have a timing unit in `animate()`';
   }
@@ -24,5 +29,5 @@
     @warn '`#{$delay}` should have a timing unit in `animate()`';
   }
 
-  @return $property $duration $easing $delay;
+  @return $property $duration unquote($easing) $delay;
 }

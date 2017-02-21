@@ -16,9 +16,17 @@
 ///
 /// @property {string} media-path ['../assets']
 ///   Project path to media assets.
+///
+/// @property {number (with unit)} animate-timing [.4s]
+///   Global transition duration.
+///
+/// @property {string | function} animate-easing [cubic-bezier(.4, 0, .2, 1)]
+///   Global transition easing function.
 $bytes: (
-  'font-size'  : 16px,
-  'media-path' : '../assets',
+  'font-size'      : 16px,
+  'media-path'     : '../assets',
+  'animate-timing' : .4s,
+  'animate-easing' : cubic-bezier(.4, 0, .2, 1),
 );
 
 /// This variable is a sass map that overrides Bytes default settings.
