@@ -2,8 +2,8 @@
 /// @author Azin Asili
 /// @access public
 /// @param {number | list} $values - px value(s) to convert
-/// @param {number} $base [get($bytes, 'font-size')] - rem context
-/// @require {function} get - Return key value from a map
+/// @param {number} $base [_get-setting($_bytes-default, $bytes, 'font-size')] - rem context
+/// @require {function} _get-setting - Gets setting based on defaults and user settings
 /// @require {function} _convert-px - Convert px to a value for em/rem
 /// @return {number | list} Converted rem value(s)
 /// @example scss
@@ -14,7 +14,7 @@
 ///   .foo {
 ///     padding: .625rem 1.25rem;
 ///   }
-@function rem($values, $base: get($bytes, 'font-size')) {
+@function rem($values, $base: _get-setting($_bytes-default, $bytes, 'font-size')) {
   $rem-values: ();
 
   // Decide how to handle each value

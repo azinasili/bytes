@@ -4,11 +4,11 @@
 /// @param {number} $px - px value to convert
 /// @param {number} $base - Context value
 /// @require {function} strip-unit - Strip unit from number
-/// @require {function} get - Return key value from a map
+/// @require {function} _get-setting - Gets setting based on defaults and user settings
 /// @return {number} Unitless converted px
 @function _convert-px($px, $base) {
   $px: strip-unit($px);
-  $font-size: strip-unit(get($bytes, 'font-size'));
+  $font-size: strip-unit(_get-setting($_bytes-default, $bytes, 'font-size'));
 
   @if unit($base) == 'em' or unit($base) == 'rem' {
     $base: (strip-unit($base) * $font-size);
