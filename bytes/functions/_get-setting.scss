@@ -17,5 +17,5 @@
 @function _get-setting($default, $override, $setting) {
   $_config: map-merge($default, $override);
 
-  @return unquote(get($_config, $setting));
+  @return unquote(map-get($_config, $setting));
 }
