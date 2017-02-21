@@ -5,6 +5,7 @@
 /// @param {number} $duration [get($bytes, 'animate-timing')] - Length of transition
 /// @param {string | function} $easing [get($bytes, 'animate-easing')] - Easing function for transition
 /// @param {number} $delay [null] - Transition delay
+/// @require {function} get - Return key value from a map
 /// @throw Warning when $duration or $delay does not have a unit
 /// @return {value} Values to transition
 /// @example scss
