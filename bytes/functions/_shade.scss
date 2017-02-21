@@ -3,6 +3,8 @@
 /// @access public
 /// @param {color} $color - Color to darken
 /// @param {number | percent} $strength - Amount of black to be mixed with `$color`
+/// @param {color} $black - Black swatch to be mixed with `$color`
+/// @require {function} _get-setting - Gets setting based on defaults and user settings
 /// @throw Warning when $strength is less than 0 or greater than 100
 /// @return {color} New color swatch
 /// @example scss
@@ -13,11 +15,11 @@
 ///   .foo {
 ///     color: #94ae44;
 ///   }
-@function shade($color, $strength) {
+@function shade($color, $strength, $black: _get-setting($_bytes-default, $bytes, 'black')) {
   @if $strength < 0 or $strength > 100 {
     @warn '`#{$strength}` should be a number or percent between 0 and 100 in `shade()`';
     @return $color;
   }
 
-  @return mix(rgb(0, 0, 0), $color, $strength);
+  @return mix($black, $color, $strength);
 }
