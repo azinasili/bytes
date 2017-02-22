@@ -2,28 +2,34 @@
 /// @author Azin Asili
 /// @access public
 /// @param {string} $name - Name of media to append to url
-/// @param {url} $path [get($bytes, 'media-path')] - Directory of media to display
-/// @require {function} get - Return key value from a map
-/// @throw Warning when $name does not have a valid extension
+/// @param {url} $path [_get-setting($_bytes-default, $bytes, 'media-path')] - Directory of media to display
+/// @require {function} _get-setting - Gets setting based on defaults and user settings
+/// @throw Error when $name does not have a valid extension
 /// @return {url} url of media
 /// @example scss
+///   $bytes: (
+///      'media-path': '../img';
+///   ):
 ///   .foo {
 ///      background: path('kitten.jpg') no-repeat 0 0;
 ///   }
 /// @example css
 ///   .foo {
-///      background: url('path/to/kitten.jpg') no-repeat 0 0;
+///      background: url('../img/kitten.jpg') no-repeat 0 0;
 ///   }
-@function path($name, $path: get($bytes, 'media-path')) {
-  $ext: '.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg';
-  $warn: ();
+@function path($name, $path: _get-setting($_bytes-default, $bytes, 'media-path')) {
+  $ext: ('.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg');
+  $valid-ext: false;
 
   @each $item in $ext {
-    @if str-slice($name, str-length($item) * -1) != $item {
-      $warn: 'Invalid file extension for `path()`';
+    @if $item == str-slice($name, str-length($item) * -1) {
+      $valid-ext: true;
     }
   }
 
-  @warn $warn;
+  @if not $valid-text {
+    @error '#{$name} has an invalid file extension for `path()`';
+  }
+
   @return url('#{$path}/#{$name}');
 }
