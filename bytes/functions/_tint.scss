@@ -3,7 +3,7 @@
 /// @access public
 /// @param {color} $color - Color to lighten
 /// @param {number | percent} $strength - Amount of white to be mixed with `$color`
-/// @param {color} $white - White swatch to be mixed with `$color`
+/// @param {color} $white [_get-setting($bytes, 'white')] - White swatch to be mixed with `$color`
 /// @require {function} _get-setting - Gets setting based on defaults and user settings
 /// @throw Warning when $strength is less than 0 or greater than 100
 /// @return {color} New color swatch
@@ -15,7 +15,7 @@
 ///   .foo {
 ///     color: #c7e177;
 ///   }
-@function tint($color, $strength, $white: _get-setting($_bytes-default, $bytes, 'white')) {
+@function tint($color, $strength, $white: _get-setting($bytes, 'white')) {
   @if $strength < 0 or $strength > 100 {
     @warn '`#{$strength}` should be a number or percent between 0 and 100 in `tint()`';
     @return $color;

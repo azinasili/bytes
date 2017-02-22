@@ -3,7 +3,7 @@
 /// @access public
 /// @param {string | property} $property - Property to convert value(s)
 /// @param {number} $values - Value(s) to convert from px to em
-/// @param {number} $base [_get-setting($_bytes-default, $bytes, 'font-size')] - em context
+/// @param {number} $base [_get-setting($bytes, 'font-size')] - em context
 /// @require {function} _get-setting - Gets setting based on defaults and user settings
 /// @require {function} em - Iterate value(s) and convert to em
 /// @output Property and converted em value(s)
@@ -17,6 +17,6 @@
 ///     margin: .625em auto;
 ///     padding: .625em;
 ///   }
-@mixin em($property, $values, $base: _get-setting($_bytes-default, $bytes, 'font-size')) {
+@mixin em($property, $values, $base: _get-setting($bytes, 'font-size')) {
   #{$property}: em($values, $base);
 }

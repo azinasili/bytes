@@ -8,7 +8,7 @@
 /// @return {number} Unitless converted px
 @function _convert-px($px, $base) {
   $px: strip-unit($px);
-  $font-size: strip-unit(_get-setting($_bytes-default, $bytes, 'font-size'));
+  $font-size: strip-unit(_get-setting($bytes, 'font-size'));
 
   @if unit($base) == 'em' or unit($base) == 'rem' {
     $base: (strip-unit($base) * $font-size);

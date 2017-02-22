@@ -3,7 +3,7 @@
 /// @access public
 /// @param {string | property} $property - Property to convert value(s)
 /// @param {number} $values - Value(s) to convert from px to rem
-/// @param {number} $base [_get-setting($_bytes-default, $bytes, 'font-size')] - rem context
+/// @param {number} $base [_get-setting($bytes, 'font-size')] - rem context
 /// @require {function} _get-setting - Gets setting based on defaults and user settings
 /// @require {function} rem - Iterate value(s) and convert to rem
 /// @output Property and converted rem value(s)
@@ -17,6 +17,6 @@
 ///     margin: .625rem auto;
 ///     padding: .625rem;
 ///   }
-@mixin rem($property, $values, $base: _get-setting($_bytes-default, $bytes, 'font-size')) {
+@mixin rem($property, $values, $base: _get-setting($bytes, 'font-size')) {
   #{$property}: rem($values, $base);
 }

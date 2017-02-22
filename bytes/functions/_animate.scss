@@ -1,11 +1,11 @@
 /// Default animation for transitions
 /// @author Azin Asili
 /// @access public
-/// @param {string | property} $property [all] - Property to transition
-/// @param {number (with unit)} $duration [get($bytes, 'animate-timing')] - Length of transition
-/// @param {string | function} $easing [get($bytes, 'animate-easing')] - Easing function for transition
+/// @param {string | property} $property ['all'] - Property to transition
+/// @param {number (with unit)} $duration [_get-setting($bytes, 'animate-timing')] - Length of transition
+/// @param {string | function} $easing [_get-setting($bytes, 'animate-easing')] - Easing function for transition
 /// @param {number (with unit)} $delay [null] - Transition delay
-/// @require {function} get - Return key value from a map
+/// @require {function} _get-setting - Gets setting based on defaults and user settings
 /// @throw Warning when $duration or $delay does not have a unit
 /// @return {value} Values to transition
 /// @example scss
@@ -18,15 +18,15 @@
 ///   }
 @function animate(
   $property : 'all',
-  $duration : _get-setting($_bytes-default, $bytes, 'animate-timing'),
-  $easing   : _get-setting($_bytes-default, $bytes, 'animate-easing'),
+  $duration : _get-setting($bytes, 'animate-timing'),
+  $easing   : _get-setting($bytes, 'animate-easing'),
   $delay    : null
 ) {
   @if unitless($duration) {
     @warn '`#{$duration}` should have a timing unit in `animate()`';
   }
 
-  @if $delay != null and unitless($delay) {
+  @if not $delay and unitless($delay) {
     @warn '`#{$delay}` should have a timing unit in `animate()`';
   }
 
