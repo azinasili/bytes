@@ -1,21 +1,20 @@
 /// Gets setting based on defaults and user settings
 /// @author Azin Asili
 /// @access private
-/// @param {map} $default - Library default settings
 /// @param {map} $override - User defined settings
 /// @param {key} $setting - Map key of setting
 /// @return {value} Key value from map
 /// @example scss
 ///   $bytes: ('font-size': 14px);
 ///   .foo {
-///     font-size: _get-setting($_bytes-default, $bytes, 'font-size');
+///     font-size: _get-setting($bytes, 'font-size');
 ///   }
 /// @example css
 ///   .foo {
 ///     font-size: 16px;
 ///   }
-@function _get-setting($default, $override, $setting) {
-  $_config: map-merge($default, $override);
+@function _get-setting($override, $setting) {
+  $_config: map-merge($_bytes-default, $override);
 
   @return unquote(map-get($_config, $setting));
 }
