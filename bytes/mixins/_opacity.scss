@@ -16,17 +16,17 @@
 ///     opacity: .7;
 ///   }
 @mixin opacity($opacity, $is-important: null) {
-  $opacity: strip-unit($opacity);
+  $_opacity: strip-unit($opacity);
 
-  @if $opacity < 0 or $opacity > 100 {
+  @if $_opacity < 0 or $_opacity > 100 {
     @warn '`#{$opacity}` should be a number or percent between 0 and 100 in `opacity()`';
   }
 
   @if index((true, 'true', 'important', '!important'), $is-important) {
-    filter: alpha(opacity=$opacity) !important;
-    opacity: ($opacity / 100) !important;
+    filter: alpha(opacity=$_opacity) !important;
+    opacity: ($_opacity / 100) !important;
   } @else {
-    filter: alpha(opacity=$opacity);
-    opacity: ($opacity / 100);
+    filter: alpha(opacity=$_opacity);
+    opacity: ($_opacity / 100);
   }
 }

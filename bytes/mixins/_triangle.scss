@@ -20,30 +20,30 @@
 ///     border-bottom: 10px solid transparent;
 ///   }
 @mixin triangle($width, $height: $width, $color: #000, $direction: 'bottom') {
-  $size: ($width / 2);
-  $sides: (
+  $_size: ($width / 2);
+  $_sides: (
     'top': (
       'border-bottom': $height solid $color,
-      'border-left': $size solid transparent,
-      'border-right': $size solid transparent,
+      'border-left': $_size solid transparent,
+      'border-right': $_size solid transparent,
     ),
     'right': (
       'border-left': $height solid $color,
-      'border-top': $size solid transparent,
-      'border-bottom': $size solid transparent,
+      'border-top': $_size solid transparent,
+      'border-bottom': $_size solid transparent,
     ),
     'bottom': (
       'border-top': $height solid $color,
-      'border-left': $size solid transparent,
-      'border-right': $size solid transparent,
+      'border-left': $_size solid transparent,
+      'border-right': $_size solid transparent,
     ),
     'left': (
       'border-right': $height solid $color,
-      'border-top': $size solid transparent,
-      'border-bottom': $size solid transparent,
+      'border-top': $_size solid transparent,
+      'border-bottom': $_size solid transparent,
     ),
   );
-  $angles: (
+  $_angles: (
     'topLeft': (
       'border-top-color': $color,
       'border-left-color': $color,
@@ -61,23 +61,23 @@
       'border-right-color': $color,
     ),
   );
-  $directions: map-merge($sides, $angles);
-  $angle-check: map-has-key($angles, $direction);
+  $_directions: map-merge($_sides, $_angles);
+  $_angle-check: map-has-key($_angles, $direction);
 
-  @if not map-has-key($directions, $direction) {
-    @error '`#{$direction}` is not a valid argument for `triangle()`, please use one of the following: #{map-keys($directions)}';
+  @if not map-has-key($_directions, $direction) {
+    @error '`#{$direction}` is not a valid argument for `triangle()`, please use one of the following: #{map-keys($_directions)}';
   }
 
   display: inline-block;
 
-  @if $width == $height and $angle-check {
-    border: $size solid transparent;
-    @include set(get($angles, $direction));
+  @if $width == $height and $_angle-check {
+    border: $_size solid transparent;
+    @include set(get($_angles, $direction));
   } @else {
-    @if $angle-check {
+    @if $_angle-check {
       @error '`triangle()` $width and $height must be the same to use `#{$direction}`';
     }
 
-    @include set(get($sides, $direction));
+    @include set(get($_sides, $direction));
   }
 }

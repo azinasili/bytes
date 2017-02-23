@@ -26,7 +26,7 @@
     @warn '`#{$duration}` should have a timing unit in `animate()`';
   }
 
-  @if not $delay and unitless($delay) {
+  @if $delay and unitless($delay) {
     @warn '`#{$delay}` should have a timing unit in `animate()`';
   }
 

@@ -7,14 +7,14 @@
 /// @require {function} _get-setting - Gets setting based on defaults and user settings
 /// @return {number} Unitless converted px
 @function _convert-px($px, $base) {
-  $px: strip-unit($px);
-  $font-size: strip-unit(_get-setting($bytes, 'font-size'));
+  $_px: strip-unit($px);
+  $_font-size: strip-unit(_get-setting($bytes, 'font-size'));
 
   @if unit($base) == 'em' or unit($base) == 'rem' {
-    $base: (strip-unit($base) * $font-size);
+    $base: (strip-unit($base) * $_font-size);
   } @else {
     $base: strip-unit($base);
   }
 
-  @return ($px / $base);
+  @return ($_px / $base);
 }

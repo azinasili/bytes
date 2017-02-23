@@ -16,25 +16,25 @@
 ///     position: absolute;
 ///   }
 @mixin center($direction, $position: 'relative') {
-  $horizontal: ('horizontal', 'horz', 'h');
-  $vertical: ('vertical', 'vert', 'v');
-  $directions: join(($horizontal, $vertical), ('both'));
-  $positions: ('relative', 'absolute', 'fixed');
+  $_horizontal: ('horizontal', 'horz', 'h');
+  $_vertical: ('vertical', 'vert', 'v');
+  $_directions: join(($_horizontal, $_vertical), ('both'));
+  $_positions: ('relative', 'absolute', 'fixed');
 
-  @if not index($positions, $position) {
-    @error '`#{$direction}` is not a valid argument for `center()`, please use one of the following: #{$directions}';
+  @if not index($_directions, $direction) {
+    @error '`#{$direction}` is not a valid argument for `center()`, please use one of the following: #{$_directions}';
   }
 
-  @if not index($positions, $position) {
-    @error '`#{$position}` is not a valid argument for `center()`, please use one of the following: #{$positions}';
+  @if not index($_positions, $position) {
+    @error '`#{$position}` is not a valid argument for `center()`, please use one of the following: #{$_positions}';
   }
 
   position: unquote($position);
 
-  @if index($horizontal, $direction) {
+  @if index($_horizontal, $direction) {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
-  } @else if index($vertical, $direction) {
+  } @else if index($_vertical, $direction) {
     top: 50%;
     transform: translate3d(0, -50%, 0);
   } @else {

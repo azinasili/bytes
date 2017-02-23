@@ -29,13 +29,13 @@
 ///     color: #eee;
 ///   }
 @mixin set($map, $keys...) {
-  $i: 1;
-  $length: length($keys);
+  $_i: 1;
+  $_length: length($keys);
 
   // Get items from map
-  @while $length >= $i {
-    $map: get($map, nth($keys, $i));
-    $i: $i + 1;
+  @while $_length >= $_i {
+    $map: get($map, nth($keys, $_i));
+    $_i: $_i + 1;
   }
 
   // Print styles that are not a map

@@ -16,9 +16,10 @@
 @function get($map, $keys...) {
   @each $key in $keys {
     @if map-has-key($map, $key) == false {
-      $wrong-value: map-values($map);
+      $_wrong-value: map-values($map);
+
       @warn '`#{$keys}` does not exit in map, using first key/value pair instead.';
-      @return nth($wrong-value, 1);
+      @return nth($_wrong-value, 1);
     }
 
     $map: map-get($map, $key);

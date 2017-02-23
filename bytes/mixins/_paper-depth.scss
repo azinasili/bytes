@@ -14,8 +14,8 @@
 ///   .foo {
 ///     box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23;
 ///   }
-@mixin paper-depth($depth, $is-important: '') {
-  $shadow-depth: (
+@mixin paper-depth($depth, $is-important: null) {
+  $_shadow-depth: (
     1: (0 1px 3px transparent(rgb(0, 0, 0), 12), 0 1px 2px transparent(rgb(0, 0, 0), 24)),
     2: (0 3px 6px transparent(rgb(0, 0, 0), 16), 0 3px 6px transparent(rgb(0, 0, 0), 23)),
     3: (0 10px 20px transparent(rgb(0, 0, 0), 19), 0 6px 6px transparent(rgb(0, 0, 0), 23)),
@@ -23,13 +23,13 @@
     5: (0 19px 38px transparent(rgb(0, 0, 0), 30), 0 15px 12px transparent(rgb(0, 0, 0), 22))
   );
 
-  @if type-of($depth) != number or $depth < 1 or $depth > length($shadow-depth) {
-    @warn '`paper-depth()` accepts an integer between 1 and #{length($shadow-depth)}';
+  @if type-of($depth) != number or $depth < 1 or $depth > length($_shadow-depth) {
+    @warn '`paper-depth()` accepts an integer between 1 and #{length($_shadow-depth)}';
   }
 
   @if index((true, 'true', 'important', '!important'), $is-important) {
-    box-shadow: get($shadow-depth, $depth) !important;
+    box-shadow: get($_shadow-depth, $depth) !important;
   } @else {
-    box-shadow: get($shadow-depth, $depth);
+    box-shadow: get($_shadow-depth, $depth);
   }
 }

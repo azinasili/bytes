@@ -34,7 +34,7 @@
 ///    background-color: #b6d84d;
 ///  }
 @mixin paper-ripple($bg-color, $hover: null) {
-  @if $hover != null {
+  @if $hover {
     background-color: nth($bg-color, 1);
   } @else {
     background: nth($bg-color, 1) 50%;

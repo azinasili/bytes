@@ -18,12 +18,12 @@
 ///      background: url('../img/kitten.jpg') no-repeat 0 0;
 ///   }
 @function path($name, $path: _get-setting($bytes, 'media-path')) {
-  $ext: ('.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg');
-  $valid-ext: false;
+  $_ext: ('.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg');
+  $_valid-ext: false;
 
-  @each $item in $ext {
+  @each $item in $_ext {
     @if $item == str-slice($name, str-length($item) * -1) {
-      $valid-ext: true;
+      $_valid-ext: true;
     }
   }
 

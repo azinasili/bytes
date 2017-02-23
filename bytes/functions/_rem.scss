@@ -15,17 +15,17 @@
 ///     padding: .625rem 1.25rem;
 ///   }
 @function rem($values, $base: _get-setting($bytes, 'font-size')) {
-  $rem-values: ();
+  $_rem-values: ();
 
   // Decide how to handle each value
   @each $value in $values {
     @if type-of($value) != number or unit($value) != 'px' or index((0, 1, -1), $value) {
-      $rem-values: append($rem-values, $value);
+      $_rem-values: append($_rem-values, $value);
     } @else {
-      $rem-value: _convert-px($value, $base) * 1rem;
-      $rem-values: append($rem-values, $rem-value);
+      $_rem-value: _convert-px($value, $base) * 1rem;
+      $_rem-values: append($_rem-values, $_rem-value);
     }
   }
 
-  @return $rem-values;
+  @return $_rem-values;
 }

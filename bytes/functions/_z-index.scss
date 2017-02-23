@@ -15,13 +15,13 @@
 ///     z-index: 200;
 ///   }
 @function z-index($z-list, $z-layer) {
-  $position: index($z-list, $z-layer);
+  $_position: index($z-list, $z-layer);
 
-  @if $position == null {
+  @if not $_position {
     @error 'There is no item `#{$z-layer}` in this list; choose one of: #{$z-list}';
   }
 
-  @return ($position * 100);
+  @return ($_position * 100);
 }
 
 /// Alias for `z-index()` function
