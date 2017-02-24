@@ -1,8 +1,11 @@
-/// Brightness of color getter
-/// @author Azin Asili
+/// Return brightness of color
+///
 /// @access private
-/// @param {color} $color - Color to be analyzed
-/// @return {number} Color brightness level
+///
+/// @param {color} $color
+///   Color to be analyzed
+///
+/// @return {number}
 @function _brightness($color) {
   $_red   : red($color);
   $_green : green($color);
@@ -11,21 +14,28 @@
   @return ($_red + $_green + $_blue) / (255 * 100);
 }
 
-/// Compare color brightness and return new color
-/// @author Azin Asili
+/// Return new color based on lightness of color
+///
 /// @access public
-/// @param {color} $color - Color to base output on
-/// @require {function} _brightness - Brightness of color getter
-/// @require {function} chroma - Change the tint or shade of a color
-/// @return {color} New color based on inputed value
+///
+/// @param {color} $color
+///   Color to analyze
+///
+/// @return {color}
+///
 /// @example scss
 ///   .foo {
 ///     color: dynamic-color(#bada55);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     color: #4a5722;
 ///   }
+///
+/// @require {function} _brightness
+///
+/// @require {function} chroma
 @function dynamic-color($color) {
   $_color-light           : chroma($color, 80%);
   $_color-dark            : chroma($color, -60%);

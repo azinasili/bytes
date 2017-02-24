@@ -1,14 +1,17 @@
-/// Shortcut for input placeholder styles
-/// @author Azin Asili
+/// Apply styles to input placeholders
+///
 /// @access public
-/// @content Placeholder styles to be applied on inputs
-/// @output Vendor pseudo elements for placeholder styles
+///
+/// @content
+///   Placeholder declarations to be applied on inputs
+///
 /// @example scss
 ///   .foo {
 ///     @include placeholder {
 ///       color: #ff0000;
 ///     }
 ///   }
+///
 /// @example css
 ///   .foo::-webkit-input-placeholder {
 ///     color: #ff0000;

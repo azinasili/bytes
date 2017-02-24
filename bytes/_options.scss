@@ -2,13 +2,13 @@
 /// Bytes
 /// Options for Bytes library
 /// @author Azin Asili
+/// @group settings
 ////
 
 /// Bytes default settings.
 ///
-/// @name Bytes default settings
 /// @access private
-/// @group settings
+///
 /// @type map
 ///
 /// @property {string | function} animate-easing [cubic-bezier(.4, 0, .2, 1)]
@@ -40,9 +40,8 @@ $_bytes-default: (
 /// This variable is a sass map that overrides Bytes default settings.
 /// Use this to define your project's properties.
 ///
-/// @name Bytes
 /// @access public
-/// @group settings
+///
 /// @type map
 ///
 /// @example scss

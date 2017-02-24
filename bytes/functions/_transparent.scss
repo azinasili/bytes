@@ -1,19 +1,28 @@
-/// Make color into a transparent version
-/// @author Azin Asili
+/// Add transparency to color
+///
 /// @access public
-/// @param {color} $color - Color to make transparent
-/// @param {number | percent} $opacity - Opacity level of color
-/// @require {function} strip-unit - Strip unit from number
-/// @throw Warning when $opacity is less than 0 or greater than 100
-/// @return {color} Color with transparency added
+///
+/// @param {color} $color
+///   Color to manipulate
+///
+/// @param {number | percent} $opacity
+///   Amount to adjust `$color`
+///
+/// @return {color}
+///
 /// @example scss
 ///   .foo {
-///     color: transparent(#000, 70);
+///     color: transparent(#000, 70%);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     color: rgba(0, 0, 0, 0.7);
 ///   }
+///
+/// @throw Warning when `$opacity` is less than 0 or greater than 100
+///
+/// @require {function} strip-unit
 @function transparent($color, $opacity) {
   @if $opacity < 0 or $opacity > 100 {
     @warn '`#{$opacity}` should be a number or percent between 0 and 100 in `transparent()`';

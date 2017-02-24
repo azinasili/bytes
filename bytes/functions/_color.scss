@@ -1,20 +1,31 @@
-/// Return color from map and adjust opacity and chroma of color
-/// @author Azin Asili
+/// Adjust color opacity and chroma
+///
 /// @access public
-/// @param {color} $color - Color value to be manipulated
-/// @param {number | percent} $opacity [100%] - Opacity of color
-/// @param {number | percent} $chroma [0] - Chroma of color
-/// @require {function} transparent - Make color into a transparent version
-/// @require {function} chroma - Change the tint or shade of a color
-/// @return {color} New color
+///
+/// @param {color} $color
+///   Color to manipulate
+///
+/// @param {number | percent} $opacity [100%]
+///   Opacity of color
+///
+/// @param {number | percent} $chroma [0]
+///   Chroma of color
+///
+/// @return {color}
+///
 /// @example scss
 ///   .foo {
 ///     color: color($color-primary);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     color: #bada55;
 ///   }
+///
+/// @require {function} transparent
+///
+/// @require {function} chroma
 @function color($color, $opacity: 100%, $chroma: 0) {
   @return transparent(chroma($color, $chroma), $opacity);
 }

@@ -1,19 +1,28 @@
 /// Iterate value(s) and convert to em
-/// @author Azin Asili
+///
 /// @access public
-/// @param {number | list} $values - px value(s) to convert
-/// @param {number} $base [_get-setting($bytes, 'font-size')] - em context
-/// @require {function} _get-setting - Gets setting based on defaults and user settings
-/// @require {function} _convert-px - Convert px to a value for em/rem
-/// @return {number | list} Converted em value(s)
+///
+/// @param {number (with unit) | list} $values
+///   Value(s) to convert to em
+///
+/// @param {number (with unit)} $base [_get-setting($bytes, 'font-size')]
+///   Base context for calculation
+///
+/// @return {list}
+///
 /// @example scss
 ///   .foo {
 ///     padding: em(10px 20px);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     padding: .625em 1.25em;
 ///   }
+///
+/// @require {function} _get-setting
+///
+/// @require {function} _convert-px
 @function em($values, $base: _get-setting($bytes, 'font-size')) {
   $_em-values: ();
 

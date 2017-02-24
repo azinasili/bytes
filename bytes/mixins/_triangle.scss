@@ -1,17 +1,24 @@
 /// Create CSS triangle of any size
-/// @author Azin Asili
+///
 /// @access public
-/// @param {number} $width - Width of triangle
-/// @param {number} $height [$width] - Height of triangle
-/// @param {color} $color [#000] - Color of triangle
-/// @param {string} $direction ['bottom'] - Direction of triangle
-/// @require {function} get - Return key value from a map
-/// @require {function} set - Set key/value pair from map as CSS property and value
-/// @output Border and border color depending on direction
+///
+/// @param {number (with unit)} $width
+///   Width of triangle
+///
+/// @param {number (with unit)} $height [$width]
+///   Height of triangle
+///
+/// @param {color} $color [#000]
+///   Color of triangle
+///
+/// @param {string} $direction ['bottom']
+///   Direction of triangle
+///
 /// @example scss
 ///   .foo {
 ///     @include triangle(20px, 10px, coral, 'right');
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     display: inline-block;
@@ -19,6 +26,10 @@
 ///     border-top: 10px solid transparent;
 ///     border-bottom: 10px solid transparent;
 ///   }
+///
+/// @require {function} get
+///
+/// @require {function} set
 @mixin triangle($width, $height: $width, $color: #000, $direction: 'bottom') {
   $_size: ($width / 2);
   $_sides: (

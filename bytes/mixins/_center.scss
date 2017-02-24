@@ -1,20 +1,26 @@
 /// Center element on X or Y axis
-/// @author Azin Asili
+///
 /// @access public
-/// @param {string} $direction - Set alignment context to element
-/// @param {string | value} $position ['relative'] - Set position value to element
-/// @throw Error when `$direction` or `$position` is not an accepted value
-/// @output Centered element based on alignment
+///
+/// @param {string} $direction
+///   Direction to align element
+///
+/// @param {string} $position ['relative']
+///   Position value to element
+///
 /// @example scss
 ///   .foo {
-///     @include center(horz, absolute);
+///     @include center('horz', 'absolute');
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     left: 50%;
 ///     transform: translateX(-50%);
 ///     position: absolute;
 ///   }
+///
+/// @throw Error when `$direction` or `$position` is not an accepted value
 @mixin center($direction, $position: 'relative') {
   $_horizontal: ('horizontal', 'horz', 'h');
   $_vertical: ('vertical', 'vert', 'v');

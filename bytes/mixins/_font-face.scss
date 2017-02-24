@@ -1,13 +1,22 @@
 /// Include font-face fonts
-/// @author Azin Asili
+///
 /// @access public
-/// @param {string} $font-family - Name of font
-/// @param {string} $font-path - Path to font files
-/// @param {number | string} $font-weight [400] - Weight of font
-/// @param {string} $font-style [normal] - Style of font
-/// @output Font stack for all browsers
+///
+/// @param {string} $font-family
+///   Name of font
+///
+/// @param {string} $font-path
+///   Path to font files
+///
+/// @param {number} $font-weight [400]
+///   Weight of font
+///
+/// @param {string} $font-style [normal]
+///   Style of font
+///
 /// @example scss
 ///   @include font-face('Ubuntu', '../fonts');
+///
 /// @example css
 ///   @font-face {
 ///     font-family: 'Ubuntu';

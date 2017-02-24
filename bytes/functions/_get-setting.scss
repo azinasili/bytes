@@ -1,14 +1,21 @@
-/// Gets setting based on defaults and user settings
-/// @author Azin Asili
+/// Return Bytes setting
+///
 /// @access private
-/// @param {map} $override - User defined settings
-/// @param {key} $setting - Map key of setting
-/// @return {value} Key value from map
+///
+/// @param {map} $override
+///   User defined settings
+///
+/// @param {key} $setting
+///   Map key of setting
+///
+/// @return {boolean | color | list | number | string}
+///
 /// @example scss
 ///   $bytes: ('font-size': 14px);
 ///   .foo {
 ///     font-size: _get-setting($bytes, 'font-size');
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     font-size: 16px;

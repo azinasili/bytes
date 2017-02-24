@@ -1,14 +1,21 @@
 /// Set width based on given min, max, or length
-/// @author Azin Asili
+///
 /// @access public
-/// @param {number} $min [null] - Minimum width of element
-/// @param {number} $max [null] - Maximum width of element
-/// @param {number} $width [100%] - Width of element
-/// @output Values for max-width, min-width, and/or width
+///
+/// @param {number (with unit)} $min [null]
+///   Minimum width of element
+///
+/// @param {number (with unit)} $max [null]
+///   Maximum width of element
+///
+/// @param {number (with unit)} $width [100%]
+///    Width of element
+///
 /// @example scss
 ///   .foo {
 ///     @include width(300px, 1500px);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     max-width: 1500px;

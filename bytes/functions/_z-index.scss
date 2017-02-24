@@ -1,30 +1,39 @@
 /// Manage z-index stacking order
-/// @author Azin Asili
+///
 /// @access public
-/// @param {list} $z-list - List of preferred stacking order
-/// @param {string} $z-layer - Element in stacking order
-/// @throw Error if element does not exist in list
-/// @return {number} Stacking order times 100
+///
+/// @param {list} $z-list
+///   List of element stacking order
+///
+/// @param {string} $z-layer
+///   Element in `$z-list`
+///
+/// @return {number}
+///
 /// @example scss
-///   $list: (dropdown, modal);
+///   $list: ('dropdown', 'modal');
 ///   .foo {
-///     z-index: z-index($list, modal);
+///     z-index: z-index($list, 'modal');
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     z-index: 200;
 ///   }
+///
+/// @throw Error if `$z-layer` does not exist in list
 @function z-index($z-list, $z-layer) {
   $_position: index($z-list, $z-layer);
 
   @if not $_position {
-    @error 'There is no item `#{$z-layer}` in this list; choose one of: #{$z-list}';
+    @error 'There is no item `#{$z-layer}` in this list; choose one of: `#{$z-list}`';
   }
 
   @return ($_position * 100);
 }
 
 /// Alias for `z-index()` function
+///
 /// @alias z-index
 @function z($args...) {
   @return z-index($args...);

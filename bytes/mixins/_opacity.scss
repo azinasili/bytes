@@ -1,20 +1,27 @@
 /// Change opacity of an element
-/// @author Azin Asili
+///
 /// @access public
-/// @param {number} $opacity - Opacity level from 0% to 100%
-/// @param {string} $is-important [null] - Add important flag to declaration
-/// @require {function} strip-unit - Strip unit from number
-/// @throw Warning when $opacity is less than 0 or greater than 100
-/// @output Opacity with a filter fall back
+///
+/// @param {number | percent} $opacity
+///   Amount to apply opacity
+///
+/// @param {string} $is-important [null]
+///   Add important flag to declaration
+///
 /// @example scss
 ///   .foo {
-///     @include opacity(70);
+///     @include opacity(70%);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     filter: alpha(opacity:70);
 ///     opacity: .7;
 ///   }
+///
+/// @throw Warning when $opacity is less than 0 or greater than 100
+///
+/// @require {function} strip-unit
 @mixin opacity($opacity, $is-important: null) {
   $_opacity: strip-unit($opacity);
 

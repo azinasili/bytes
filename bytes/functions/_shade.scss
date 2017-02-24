@@ -1,20 +1,31 @@
-/// Mixes color with black to create darker color
-/// @author Azin Asili
+/// Mix color with black to create darker color
+///
 /// @access public
-/// @param {color} $color - Color to darken
-/// @param {number | percent} $strength - Amount of black to be mixed with `$color`
-/// @param {color} $black [_get-setting($bytes, 'black')] - Black swatch to be mixed with `$color`
-/// @require {function} _get-setting - Gets setting based on defaults and user settings
-/// @throw Warning when $strength is less than 0 or greater than 100
-/// @return {color} New color swatch
+///
+/// @param {color} $color
+///   Color to manipulate
+///
+/// @param {number | percent} $strength
+///   Amount to adjust `$color`
+///
+/// @param {color} $black [_get-setting($bytes, 'black')]
+///   Color to be mixed with `$color`
+///
+/// @return {color}
+///
 /// @example scss
 ///   .foo {
 ///     color: shade(#bada55, 20%);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     color: #94ae44;
 ///   }
+///
+/// @throw Warning when `$strength` is less than 0 or greater than 100
+///
+/// @require {function} _get-setting
 @function shade($color, $strength, $black: _get-setting($bytes, 'black')) {
   @if $strength < 0 or $strength > 100 {
     @warn '`#{$strength}` should be a number or percent between 0 and 100 in `shade()`';

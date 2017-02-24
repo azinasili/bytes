@@ -1,8 +1,11 @@
 /// Strip unit from number
-/// @author Azin Asili
+///
 /// @access public
-/// @param {number} $num - Number with unit
-/// @return {number} Number without unit
+///
+/// @param {number (with unit)} $num
+///   Number to remove unit
+///
+/// @return {number}
 @function strip-unit($num) {
   @return $num / ($num * 0 + 1);
 }

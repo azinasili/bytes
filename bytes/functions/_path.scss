@@ -1,11 +1,15 @@
-/// File path short cut for embeddable media
-/// @author Azin Asili
+/// File path short cut for assets
+///
 /// @access public
-/// @param {string} $name - Name of media to append to url
-/// @param {url} $path [_get-setting($bytes, 'media-path')] - Directory of media to display
-/// @require {function} _get-setting - Gets setting based on defaults and user settings
-/// @throw Error when $name does not have a valid extension
-/// @return {url} url of media
+///
+/// @param {string} $name
+///   Name of asset
+///
+/// @param {url} $path [_get-setting($bytes, 'media-path')]
+///   Directory path to asset
+///
+/// @return {function}
+///
 /// @example scss
 ///   $bytes: (
 ///      'media-path': '../img';
@@ -13,10 +17,15 @@
 ///   .foo {
 ///      background: path('kitten.jpg') no-repeat 0 0;
 ///   }
+///
 /// @example css
 ///   .foo {
 ///      background: url('../img/kitten.jpg') no-repeat 0 0;
 ///   }
+///
+/// @throw Error when `$name` has an invalid file extension
+///
+/// @require {function} _get-setting
 @function path($name, $path: _get-setting($bytes, 'media-path')) {
   $_ext: ('.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg');
   $_valid-ext: false;
@@ -28,7 +37,7 @@
   }
 
   @if not $valid-text {
-    @error '#{$name} has an invalid file extension for `path()`';
+    @error '`#{$name}` has an invalid file extension for `path()`';
   }
 
   @return url('#{$path}/#{$name}');
