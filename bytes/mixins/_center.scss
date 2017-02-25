@@ -8,6 +8,9 @@
 /// @param {string} $position ['relative']
 ///   Position value to element
 ///
+/// @param {boolean | string} $is-important
+///   Add important flag to declaration
+///
 /// @example scss
 ///   .foo {
 ///     @include center('horz', 'absolute');
@@ -21,11 +24,14 @@
 ///   }
 ///
 /// @throw Error when `$direction` or `$position` is not an accepted value
-@mixin center($direction, $position: 'relative') {
+///
+/// @require {function} _is-important
+@mixin center($direction, $position: 'relative', $is-important: null) {
   $_horizontal: ('horizontal', 'horz', 'h');
   $_vertical: ('vertical', 'vert', 'v');
   $_directions: join(($_horizontal, $_vertical), ('both'));
   $_positions: ('relative', 'absolute', 'fixed');
+  $_important: null;
 
   @if not index($_directions, $direction) {
     @error '`#{$direction}` is not a valid argument for `center()`, please use one of the following: #{$_directions}';
@@ -35,17 +41,21 @@
     @error '`#{$position}` is not a valid argument for `center()`, please use one of the following: #{$_positions}';
   }
 
-  position: unquote($position);
+  @if _is-important($is-important) {
+    $_important: !important;
+  }
+
+  position: unquote($position) $_important;
 
   @if index($_horizontal, $direction) {
-    left: 50%;
-    transform: translate3d(-50%, 0, 0);
+    left: 50% $_important;
+    transform: translate3d(-50%, 0, 0) $_important;
   } @else if index($_vertical, $direction) {
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
+    top: 50% $_important;
+    transform: translate3d(0, -50%, 0) $_important;
   } @else {
-    left: 50%;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
+    left: 50% $_important;
+    top: 50% $_important;
+    transform: translate3d(-50%, -50%, 0) $_important;
   }
 }

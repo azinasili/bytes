@@ -11,6 +11,9 @@
 /// @param {number (with unit)} $base [_get-setting($bytes, 'font-size')]
 ///   Base context for calculation
 ///
+/// @param {boolean | string} $is-important
+///   Add important flag to declaration
+///
 /// @example scss
 ///   .foo {
 ///     @include em(margin, 10px auto);
@@ -25,7 +28,20 @@
 ///
 /// @require {function} _get-setting
 ///
+/// @require {function} _is-important
+///
 /// @require {function} em
-@mixin em($property, $values, $base: _get-setting($bytes, 'font-size')) {
-  #{$property}: em($values, $base);
+@mixin em(
+  $property,
+  $values,
+  $base: _get-setting($bytes, 'font-size'),
+  $is-important: null
+) {
+  $_important: null;
+
+  @if _is-important($is-important) {
+    $_important: !important;
+  }
+
+  #{$property}: em($values, $base) !important;
 }

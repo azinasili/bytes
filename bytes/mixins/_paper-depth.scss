@@ -5,7 +5,7 @@
 /// @param {number} $depth
 ///   Depth value of box-shadow
 ///
-/// @param {string} $is-important
+/// @param {boolean | string} $is-important
 ///   Add important flag to declaration
 ///
 /// @example scss
@@ -18,10 +18,13 @@
 ///     box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23;
 ///   }
 ///
+/// @require {function} _is-important
+///
 /// @require {function} get
 ///
 /// @require {function} transparent
 @mixin paper-depth($depth, $is-important: null) {
+  $_important: null;
   $_shadow-depth: (
     1: (0 1px 3px transparent(rgb(0, 0, 0), 12), 0 1px 2px transparent(rgb(0, 0, 0), 24)),
     2: (0 3px 6px transparent(rgb(0, 0, 0), 16), 0 3px 6px transparent(rgb(0, 0, 0), 23)),
@@ -34,9 +37,9 @@
     @warn '`paper-depth()` accepts an integer between 1 and #{length($_shadow-depth)}';
   }
 
-  @if index((true, 'true', 'important', '!important'), $is-important) {
-    box-shadow: get($_shadow-depth, $depth) !important;
-  } @else {
-    box-shadow: get($_shadow-depth, $depth);
+  @if _is-important($is-important) {
+    $_important: !important;
   }
+
+  box-shadow: get($_shadow-depth, $depth) !important;
 }

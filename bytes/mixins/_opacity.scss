@@ -5,7 +5,7 @@
 /// @param {number | percent} $opacity
 ///   Amount to apply opacity
 ///
-/// @param {string} $is-important [null]
+/// @param {boolean | string} $is-important [null]
 ///   Add important flag to declaration
 ///
 /// @example scss
@@ -21,19 +21,21 @@
 ///
 /// @throw Warning when $opacity is less than 0 or greater than 100
 ///
+/// @require {function} _is-important
+///
 /// @require {function} strip-unit
 @mixin opacity($opacity, $is-important: null) {
   $_opacity: strip-unit($opacity);
+  $_important: null;
 
   @if $_opacity < 0 or $_opacity > 100 {
     @warn '`#{$opacity}` should be a number or percent between 0 and 100 in `opacity()`';
   }
 
-  @if index((true, 'true', 'important', '!important'), $is-important) {
-    filter: alpha(opacity=$_opacity) !important;
-    opacity: ($_opacity / 100) !important;
-  } @else {
-    filter: alpha(opacity=$_opacity);
-    opacity: ($_opacity / 100);
+  @if _is-important($is-important) {
+    $_important: !important;
   }
+
+  filter: alpha(opacity=$_opacity) $_important;
+  opacity: ($_opacity / 100) $_important;
 }
