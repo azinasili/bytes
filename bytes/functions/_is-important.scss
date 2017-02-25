@@ -1,0 +1,15 @@
+/// Check for important flagsx
+///
+/// @access private
+///
+/// @param {boolean | string} $is-important
+///   Flags to check if important
+///
+/// @return {boolean}
+@function _is-important($is-important) {
+  @if index((true, 'true', 'important', '!important'), $is-important) {
+    @return true;
+  }
+
+  @return false;
+}
