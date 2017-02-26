@@ -41,5 +41,5 @@
     $_important: !important;
   }
 
-  box-shadow: get($_shadow-depth, $depth) !important;
+  box-shadow: get($_shadow-depth, $depth) $_important;
 }

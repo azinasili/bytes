@@ -43,5 +43,5 @@
     $_important: !important;
   }
 
-  #{$property}: rem($values, $base) !important;
+  #{$property}: rem($values, $base) $_important;
 }
