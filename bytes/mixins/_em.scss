@@ -5,14 +5,8 @@
 /// @param {string | property} $property
 ///   Property to convert value(s)
 ///
-/// @param {number (with unit)} $values
-///   Value(s) to convert to em
-///
-/// @param {number (with unit)} $base [_get-setting($bytes, 'font-size')]
-///   Base context for calculation
-///
-/// @param {boolean | string} $is-important
-///   Add important flag to declaration
+/// @param {arguments} $args...
+///   Accepts the same arguments as `em` function
 ///
 /// @example scss
 ///   .foo {
@@ -26,22 +20,7 @@
 ///     padding: .625em;
 ///   }
 ///
-/// @require {function} _get-setting
-///
-/// @require {function} _is-important
-///
 /// @require {function} em
-@mixin em(
-  $property,
-  $values,
-  $base: _get-setting($bytes, 'font-size'),
-  $is-important: null
-) {
-  $_important: null;
-
-  @if _is-important($is-important) {
-    $_important: !important;
-  }
-
-  #{$property}: em($values, $base) $_important;
+@mixin em($property, $args...) {
+  #{$property}: em($args...);
 }

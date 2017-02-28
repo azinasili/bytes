@@ -5,14 +5,8 @@
 /// @param {string | property} $property
 ///   Property to convert value(s)
 ///
-/// @param {number (with unit)} $values
-///   Value(s) to convert from px to rem
-///
-/// @param {number (with unit)} $base [_get-setting($bytes, 'font-size')]
-///   Base context for calculation
-///
-/// @param {boolean | string} $is-important
-///   Add important flag to declaration
+/// @param {arguments} $args...
+///   Accepts the same arguments as `rem` function
 ///
 /// @example scss
 ///   .foo {
@@ -26,22 +20,7 @@
 ///     padding: .625rem;
 ///   }
 ///
-/// @require {function} _get-setting
-///
-/// @require {function} _is-important
-///
 /// @require {function} rem
-@mixin rem(
-  $property,
-  $values,
-  $base: _get-setting($bytes, 'font-size'),
-  $is-important: null
-) {
-  $_important: null;
-
-  @if _is-important($is-important) {
-    $_important: !important;
-  }
-
-  #{$property}: rem($values, $base) $_important;
+@mixin rem($property, $args...) {
+  #{$property}: rem($args...);
 }
