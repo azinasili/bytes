@@ -1,24 +1,33 @@
-/// Return key value from a map
-/// @author Azin Asili
+/// Get key value from a map
+///
 /// @access public
-/// @param {map} $map - Name of map to get key value from
-/// @param {string} $key - Value from map to get
-/// @throw If key does not exist get first key/value pair of map
-/// @return {value} Key value from map
+///
+/// @param {map} $map
+///   Name of map
+///
+/// @param {string} $keys
+///   Key(s) to map
+///
+/// @return {boolean | color | list | number | string}
+///
 /// @example scss
 ///   .foo {
 ///     font-size: get($typography, font-base);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     font-size: 14px;
 ///   }
+///
+/// @throw Warning if `$keys` does not exist in `$map`
 @function get($map, $keys...) {
   @each $key in $keys {
     @if map-has-key($map, $key) == false {
-      $wrong-value: map-values($map);
+      $_wrong-value: map-values($map);
+
       @warn '`#{$keys}` does not exit in map, using first key/value pair instead.';
-      @return nth($wrong-value, 1);
+      @return nth($_wrong-value, 1);
     }
 
     $map: map-get($map, $key);

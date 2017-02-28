@@ -1,31 +1,40 @@
 /// Iterate value(s) and convert to em
-/// @author Azin Asili
+///
 /// @access public
-/// @param {number | list} $values - px value(s) to convert
-/// @param {number} $base [get($bytes, 'font-size')] - em context
-/// @require {function} get - Return key value from a map
-/// @require {function} _convert-px - Convert px to a value for em/rem
-/// @return {number | list} Converted em value(s)
+///
+/// @param {number (with unit) | list} $values
+///   Value(s) to convert to em
+///
+/// @param {number (with unit)} $base [_get-setting($bytes, 'font-size')]
+///   Base context for calculation
+///
+/// @return {list}
+///
 /// @example scss
 ///   .foo {
 ///     padding: em(10px 20px);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     padding: .625em 1.25em;
 ///   }
-@function em($values, $base: get($bytes, 'font-size')) {
-  $em-values: ();
+///
+/// @require {function} _get-setting
+///
+/// @require {function} _convert-px
+@function em($values, $base: _get-setting($bytes, 'font-size')) {
+  $_em-values: ();
 
   // Decide how to handle each value
   @each $value in $values {
     @if type-of($value) != number or unit($value) != 'px' or index((0, 1, -1), $value) {
-      $em-values: append($em-values, $value);
+      $_em-values: append($_em-values, $value);
     } @else {
-      $em-value: _convert-px($value, $base) * 1em;
-      $em-values: append($em-values, $em-value);
+      $_em-value: _convert-px($value, $base) * 1em;
+      $_em-values: append($_em-values, $_em-value);
     }
   }
 
-  @return $em-values;
+  @return $_em-values;
 }

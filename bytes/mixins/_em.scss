@@ -1,21 +1,26 @@
 /// Convert property and px value(s) to em
-/// @author Azin Asili
+///
 /// @access public
-/// @param {property} $property - Property to convert value(s)
-/// @param {number} $values - Value(s) to convert from px to em
-/// @param {number} $base [get($bytes, 'font-size')] - em context
-/// @require {function} em - Iterate value(s) and convert to em
-/// @output Property and converted em value(s)
+///
+/// @param {string | property} $property
+///   Property to convert value(s)
+///
+/// @param {arguments} $args...
+///   Accepts the same arguments as `em` function
+///
 /// @example scss
 ///   .foo {
 ///     @include em(margin, 10px auto);
 ///     @include em(padding, 10px);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     margin: .625em auto;
 ///     padding: .625em;
 ///   }
-@mixin em($property, $values, $base: get($bytes, 'font-size')) {
-  #{$property}: em($values, $base);
+///
+/// @require {function} em
+@mixin em($property, $args...) {
+  #{$property}: em($args...);
 }

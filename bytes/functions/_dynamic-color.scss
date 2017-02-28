@@ -1,42 +1,53 @@
-/// Brightness of color getter
-/// @author Azin Asili
+/// Return brightness of color
+///
 /// @access private
-/// @param {color} $color - Color to be analyzed
-/// @return {number} Color brightness level
+///
+/// @param {color} $color
+///   Color to be analyzed
+///
+/// @return {number}
 @function _brightness($color) {
-  $red: red($color);
-  $green: green($color);
-  $blue: blue($color);
+  $_red   : red($color);
+  $_green : green($color);
+  $_blue  : blue($color);
 
-  @return ($red + $green + $blue) / (255 * 100%);
+  @return ($_red + $_green + $_blue) / (255 * 100);
 }
 
-/// Compare color brightness and return new color
-/// @author Azin Asili
+/// Return new color based on lightness of color
+///
 /// @access public
-/// @param {color} $color - Color to base output on
-/// @require {function} tint - Mixes a color with white to create a new lighter color
-/// @require {function} shade - Mixes a color with black to create a new darker color
-/// @require {function} _brightness - Brightness of color getter
-/// @return {color} New color based on inputed value
+///
+/// @param {color} $color
+///   Color to analyze
+///
+/// @return {color}
+///
 /// @example scss
 ///   .foo {
 ///     color: dynamic-color(#bada55);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     color: #4a5722;
 ///   }
+///
+/// @require {function} _brightness
+///
+/// @require {function} chroma
 @function dynamic-color($color) {
-  $color-light: tint($color, 80%);
-  $color-dark: shade($color, 60%);
-  $color-brightness: _brightness($color);
-  $light-text-brightness: _brightness($color-light);
-  $dark-text-brightness: _brightness($color-dark);
+  $_color-light           : chroma($color, 80%);
+  $_color-dark            : chroma($color, -60%);
+  $_color-brightness      : _brightness($color);
+  $_light-text-brightness : _brightness($_color-light);
+  $_dark-text-brightness  : _brightness($_color-dark);
+  $_light-bg-brightness   : abs($_color-brightness - $_light-text-brightness);
+  $_dark-bg-brightness    : abs($_color-brightness - $_dark-text-brightness);
 
-  @if abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness) {
-    @return $color-light;
-  } @else {
-    @return $color-dark;
+  @if $_light-bg-brightness > $_dark-bg-brightness {
+    @return $_color-light;
   }
+
+  @return $_color-dark;
 }

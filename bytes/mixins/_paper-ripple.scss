@@ -1,8 +1,14 @@
-/// Create a material design ripple effect
-/// @param {color} $bg-color - List of colors for effect
-/// @param {string} $hover [null] - Hover context to turn on/off effect
-/// @content Add additional :active rules for element
-/// @output Background color and size based on hover context
+/// Material design ripple effect
+///
+/// @param {color} $bg-color
+///   List of colors for effect
+///
+/// @param {string} $hover [null]
+///   Hover context to turn on/off effect
+///
+/// @content
+///   Add additional CSS declarations for `:active` selector
+///
 /// @example scss
 ///  .foo {
 ///    @include paper-ripple(#bada55 darken(#bada55, 10%)) {
@@ -16,6 +22,7 @@
 ///      @include paper-ripple(darken(#bada55, 2%), hover);
 ///    }
 ///  }
+///
 /// @example css
 ///  .foo {
 ///    background: #bada55 50%;
@@ -34,7 +41,7 @@
 ///    background-color: #b6d84d;
 ///  }
 @mixin paper-ripple($bg-color, $hover: null) {
-  @if $hover != null {
+  @if $hover {
     background-color: nth($bg-color, 1);
   } @else {
     background: nth($bg-color, 1) 50%;

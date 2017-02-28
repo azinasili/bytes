@@ -9,7 +9,9 @@
 
 // Bytes' functions
 @import 'bytes/functions/get';
-@import 'bytes/functions/strip-units';
+@import 'bytes/functions/get-setting';
+@import 'bytes/functions/is-important';
+@import 'bytes/functions/strip-unit';
 @import 'bytes/functions/convert-px';
 @import 'bytes/functions/em';
 @import 'bytes/functions/rem';
@@ -32,6 +34,7 @@
 @import 'bytes/mixins/hide-text';
 @import 'bytes/mixins/opacity';
 @import 'bytes/mixins/triangle';
+@import 'bytes/mixins/list-unstyled';
 @import 'bytes/mixins/truncate';
 @import 'bytes/mixins/word-wrap';
 @import 'bytes/mixins/hidpi';
@@ -41,3 +44,4 @@
 @import 'bytes/mixins/paper-depth';
 @import 'bytes/mixins/paper-ripple';
 @import 'bytes/mixins/z-index';
+@import 'bytes/mixins/breakpoint-check';

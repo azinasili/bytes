@@ -1,14 +1,21 @@
 /// Create circle of any size
-/// @author Azin Asili
+///
 /// @access public
-/// @param {number} $width - Width of shape
-/// @param {number} $height [$width] - Height of shape
-/// @param {number} $radius [100%] - Border-radius of shape
-/// @output CSS circle based on height and width
+///
+/// @param {number (with unit)} $width
+///   Width of circle
+///
+/// @param {number (with unit)} $height [$width]
+///   Height of circle
+///
+/// @param {number (with unit)} $radius [100%]
+///   Border-radius of circle
+///
 /// @example scss
 ///   .foo {
 ///     @include circle(50px, 20px);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     border-radius: 100%;

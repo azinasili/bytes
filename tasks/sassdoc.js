@@ -2,6 +2,6 @@
 // https://github.com/SassDoc/grunt-sassdoc
 module.exports = {
   default: {
-    src: ['<%= src %>/functions', '<%= src %>/mixins'],
+    src: ['<%= src %>'],
   },
 };

@@ -1,21 +1,26 @@
 /// Convert property and px value(s) to rem
-/// @author Azin Asili
+///
 /// @access public
-/// @param {property} $property - Property to convert value(s)
-/// @param {number} $values - Value(s) to convert from px to rem
-/// @param {number} $base [get($bytes, 'font-size')] - rem context
-/// @require {function} rem - Iterate value(s) and convert to rem
-/// @output Property and converted rem value(s)
+///
+/// @param {string | property} $property
+///   Property to convert value(s)
+///
+/// @param {arguments} $args...
+///   Accepts the same arguments as `rem` function
+///
 /// @example scss
 ///   .foo {
 ///     @include rem(margin, 10px auto);
 ///     @include rem(padding, 10px);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     margin: .625rem auto;
 ///     padding: .625rem;
 ///   }
-@mixin rem($property, $values, $base: get($bytes, 'font-size')) {
-  #{$property}: rem($values, $base);
+///
+/// @require {function} rem
+@mixin rem($property, $args...) {
+  #{$property}: rem($args...);
 }

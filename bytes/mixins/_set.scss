@@ -1,10 +1,13 @@
-/// Set key/value pair from map as CSS property and value
-/// @author Azin Asili
+/// Set map as CSS declarations
+///
 /// @access public
-/// @param {map} $map - Name of map
-/// @param {key | map} $keys... - Name of key of a nested map
-/// @require {function} get - Return key value from a map
-/// @output Key/value pair in a map set as property and value
+///
+/// @param {map} $map
+///   Name of map
+///
+/// @param {key | map} $keys...
+///   Name of key of a nested map
+///
 /// @example scss
 ///   $map: (
 ///     background: #000,
@@ -20,6 +23,7 @@
 ///       @include set($map, hover);
 ///     }
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     background: #000;
@@ -28,14 +32,16 @@
 ///   .foo:hover {
 ///     color: #eee;
 ///   }
+///
+/// @require {function} get
 @mixin set($map, $keys...) {
-  $i: 1;
-  $length: length($keys);
+  $_i: 1;
+  $_length: length($keys);
 
   // Get items from map
-  @while $length >= $i {
-    $map: get($map, nth($keys, $i));
-    $i: $i + 1;
+  @while $_length >= $_i {
+    $map: get($map, nth($keys, $_i));
+    $_i: $_i + 1;
   }
 
   // Print styles that are not a map

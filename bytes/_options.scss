@@ -2,8 +2,50 @@
 /// Bytes
 /// Options for Bytes library
 /// @author Azin Asili
+/// @group settings
 ////
-$bytes: (
-  'font-size': 16px,
-  'media-path': '../images'
-) !default;
+
+/// Bytes default settings.
+///
+/// @access private
+///
+/// @type map
+///
+/// @property {string | function} animate-easing [cubic-bezier(.4, 0, .2, 1)]
+///   Global transition easing function.
+///
+/// @property {number (with unit)} animate-timing [.4s]
+///   Global transition duration.
+///
+/// @property {color} black [rgb(0, 0, 0)]
+///   Base black hue used for shade function.
+///
+/// @property {number (with unit)} font-size [16px]
+///   Default project font-size, used for `px` conversion for `em` and `rem`.
+///
+/// @property {string} media-path ['../assets']
+///   Project path to media assets.
+///
+/// @property {color} white [rgb(255, 255, 255)]
+///   Base white hue used for shade function.
+$_bytes-default: (
+  'animate-easing' : cubic-bezier(.4, 0, .2, 1),
+  'animate-timing' : .4s,
+  'black'          : rgb(0, 0, 0),
+  'font-size'      : 16px,
+  'media-path'     : '../assets',
+  'white'          : rgb(255, 255, 255),
+);
+
+/// This variable is a sass map that overrides Bytes default settings.
+/// Use this to define your project's properties.
+///
+/// @access public
+///
+/// @type map
+///
+/// @example scss
+///   $bytes: (
+///     'font-size': 14px,
+///   );
+$bytes: () !default;

@@ -1,23 +1,36 @@
-/// Mixes color with white to create lighter color
-/// @author Azin Asili
+/// Mix color with white to create lighter color
+///
 /// @access public
-/// @param {color} $color - Color to lighten
-/// @param {number | percent} $strength - Amount of white to be mixed with `$color`
-/// @throw Warning when $strength is less than 0 or greater than 100
-/// @return {color} New color swatch
+///
+/// @param {color} $color
+///   Color to manipulate
+///
+/// @param {number | percent} $strength
+///   Amount to adjust `$color`
+///
+/// @param {color} $white [_get-setting($bytes, 'white')]
+///   Color to be mixed with `$color`
+///
+/// @return {color}
+///
 /// @example scss
 ///   .foo {
 ///     color: tint(#bada55, 20%);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     color: #c7e177;
 ///   }
-@function tint($color, $strength) {
+///
+/// @throw Warning when `$strength` is less than 0 or greater than 100
+///
+/// @require {function} _get-setting
+@function tint($color, $strength, $white: _get-setting($bytes, 'white')) {
   @if $strength < 0 or $strength > 100 {
     @warn '`#{$strength}` should be a number or percent between 0 and 100 in `tint()`';
     @return $color;
   }
 
-  @return mix(rgb(255, 255, 255), $color, $strength);
+  @return mix($white, $color, $strength);
 }

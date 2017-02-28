@@ -1,45 +1,61 @@
 /// Center element on X or Y axis
-/// @author Azin Asili
+///
 /// @access public
-/// @param {string} $direction - Set alignment context to element
-/// @param {string} $position [relative] - Set position value to element
-/// @throw Error when `$direction` or `$position` is not an accepted value
-/// @output Centered element based on alignment
+///
+/// @param {string} $direction
+///   Direction to align element
+///
+/// @param {string} $position ['relative']
+///   Position value to element
+///
+/// @param {boolean | string} $is-important
+///   Add important flag to declaration
+///
 /// @example scss
 ///   .foo {
-///     @include center(horz, absolute);
+///     @include center('horz', 'absolute');
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     left: 50%;
 ///     transform: translateX(-50%);
 ///     position: absolute;
 ///   }
-@mixin center($direction, $position: relative) {
-  $horizontal: ('horizontal', 'horz', 'h');
-  $vertical: ('vertical', 'vert', 'v');
-  $directions: join(($horizontal, $vertical), ('both'));
-  $positions: ('relative', 'absolute', 'fixed');
+///
+/// @throw Error when `$direction` or `$position` is not an accepted value
+///
+/// @require {function} _is-important
+@mixin center($direction, $position: 'relative', $is-important: null) {
+  $_horizontal: ('horizontal', 'horz', 'h');
+  $_vertical: ('vertical', 'vert', 'v');
+  $_directions: join(($_horizontal, $_vertical), ('both'));
+  $_positions: ('relative', 'absolute', 'fixed');
+  $_important: null;
 
-  @if not index($positions, $position) {
-    @error '`#{$direction}` is not a valid argument for `center()`, please use one of the following: #{$directions}';
+  @if not index($_directions, $direction) {
+    @error '`#{$direction}` is not a valid argument for `center()`, please use one of the following: #{$_directions}';
   }
 
-  @if not index($positions, $position) {
-    @error '`#{$position}` is not a valid argument for `center()`, please use one of the following: #{$positions}';
+  @if not index($_positions, $position) {
+    @error '`#{$position}` is not a valid argument for `center()`, please use one of the following: #{$_positions}';
   }
 
-  position: $position;
+  @if _is-important($is-important) {
+    $_important: !important;
+  }
 
-  @if index($horizontal, $direction) {
-    left: 50%;
-    transform: translate3d(-50%, 0, 0);
-  } @else if index($vertical, $direction) {
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
+  position: unquote($position) $_important;
+
+  @if index($_horizontal, $direction) {
+    left: 50% $_important;
+    transform: translate3d(-50%, 0, 0) $_important;
+  } @else if index($_vertical, $direction) {
+    top: 50% $_important;
+    transform: translate3d(0, -50%, 0) $_important;
   } @else {
-    left: 50%;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
+    left: 50% $_important;
+    top: 50% $_important;
+    transform: translate3d(-50%, -50%, 0) $_important;
   }
 }

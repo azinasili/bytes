@@ -46,6 +46,7 @@ A small mixin and function helper library for Sass projects.
 * [`hide-text`](#hide-text)
 * [`opacity`](#opacity)
 * [`triangle`](#triangle)
+* [`list-unstyled`](#list-unstyled)
 * [`truncate`](#truncate)
 * [`word-wrap`](#word-wrap)
 * [`hidpi`](#hidpi)
@@ -241,6 +242,13 @@ $map: (
 }
 ```
 
+#### `list-unstyled`
+```scss
+.test {
+  @include list-unstyled();
+}
+```
+
 #### `truncate`
 ```scss
 .test {
@@ -327,6 +335,3 @@ $map: (
 ## TODO
 
 * Added testing suite
-* Expand settings and user controlled settings
-* Have `hide-text` be less destructive
-* Add more options for some mixins

@@ -1,31 +1,34 @@
 /// HIDPI breakpoint helper
-/// @author Azin Asili
+///
 /// @access public
-/// @link http://bjango.com/articles/min-device-pixel-ratio/
-/// @param {Number} $ratio - Device DPI
-/// @content Styles to be used on hidpi devices
-/// @output Media query to target hidpi devices
+///
+/// @param {Number} $ratio
+///   Device DPI
+///
+/// @content
+///   Additional CSS declarations to be used on breakpoint
+///
 /// @example scss
 ///   .foo {
 ///     @include hidpi(1.3) {
 ///       width: 20em;
 ///     }
 ///   }
+///
 /// @example css
 ///   @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-///   only screen and (min--moz-device-pixel-ratio: 1.3),
-///   only screen and (-o-min-device-pixel-ratio: 1.3/1),
-///   only screen and (min-resolution: 120dpi),
+///   only screen and (min-resolution: 125dpi),
+///   only screen and (-webkit-min-device-pixel-ratio: 1.3),
 ///   only screen and (min-resolution: 1.3dppx) {
 ///     .foo {
 ///       width: 20em;
 ///     }
 ///   }
+///
+/// @link
+///   http://bjango.com/articles/min-device-pixel-ratio/
 @mixin hidpi($ratio: 1.3) {
-  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
-    only screen and (min--moz-device-pixel-ratio: $ratio),
-    only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
-    only screen and (min-resolution: round($ratio * 96dpi)),
+  @media only screen and (min-resolution: round($ratio * 96dpi)),
     only screen and (min-resolution: $ratio * 1dppx) {
       @content;
   }

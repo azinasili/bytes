@@ -1,22 +1,32 @@
-/// Change the tint or shade of a color
-/// @author Azin Asili
+/// Change the tint or shade to color
+///
 /// @access public
-/// @param {color} $color - Color to add tint or shade to
-/// @param {number | percent} $chroma - Amount to adjust `$color`
-/// @require {function} tint - Mixes color with white to create lighter color
-/// @require {function} shade - Mixes color with black to create darker color
-/// @throw Warning when $chroma is less than 0 or greater than 100
-/// @return {color} New color swatch
+///
+/// @param {color} $color
+///   Color to manipulate
+///
+/// @param {number | percent} $chroma
+///   Amount to adjust `$color`
+///
+/// @return {color}
+///
 /// @example scss
 ///   .foo {
-///     color: chroma(#bada55, 10%);
+///     background: chroma(#bada55, 10%);
 ///     color: chroma(#bada55, -10%);
 ///   }
+///
 /// @example css
 ///   .foo {
-///     color: #c1de66;
+///     background: #c1de66;
 ///     color: #a7c44d;
 ///   }
+///
+/// @throw Warning when `$chroma` is less than 0 or greater than 100
+///
+/// @require {function} tint
+///
+/// @require {function} shade
 @function chroma($color, $chroma) {
   @if $chroma < -100 or $chroma > 100 {
     @warn '`#{$chroma}` should be a number or percent between -100 and 100 in `chroma()`';

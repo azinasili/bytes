@@ -1,29 +1,44 @@
-/// File path short cut for embeddable media
-/// @author Azin Asili
+/// File path short cut for assets
+///
 /// @access public
-/// @param {string} $name - Name of media to append to url
-/// @param {url} $path [get($bytes, 'media-path')] - Directory of media to display
-/// @require {function} get - Return key value from a map
-/// @throw Warning when $name does not have a valid extension
-/// @return {url} url of media
+///
+/// @param {string} $name
+///   Name of asset
+///
+/// @param {url} $path [_get-setting($bytes, 'media-path')]
+///   Directory path to asset
+///
+/// @return {function}
+///
 /// @example scss
+///   $bytes: (
+///      'media-path': '../img';
+///   ):
 ///   .foo {
 ///      background: path('kitten.jpg') no-repeat 0 0;
 ///   }
+///
 /// @example css
 ///   .foo {
-///      background: url('path/to/kitten.jpg') no-repeat 0 0;
+///      background: url('../img/kitten.jpg') no-repeat 0 0;
 ///   }
-@function path($name, $path: get($bytes, 'media-path')) {
-  $ext: '.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg';
-  $warn: ();
+///
+/// @throw Error when `$name` has an invalid file extension
+///
+/// @require {function} _get-setting
+@function path($name, $path: _get-setting($bytes, 'media-path')) {
+  $_ext: ('.mp4', '.webm', '.ogg', '.ogv', '.mp3', '.wav', '.oga', '.aac', '.flv', '.swf', '.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg');
+  $_valid-ext: false;
 
-  @each $item in $ext {
-    @if str-slice($name, str-length($item) * -1) != $item {
-      $warn: 'Invalid file extension for `path()`';
+  @each $item in $_ext {
+    @if $item == str-slice($name, str-length($item) * -1) {
+      $_valid-ext: true;
     }
   }
 
-  @warn $warn;
+  @if not $valid-text {
+    @error '`#{$name}` has an invalid file extension for `path()`';
+  }
+
   @return url('#{$path}/#{$name}');
 }

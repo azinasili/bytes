@@ -1,31 +1,40 @@
 /// Iterate value(s) and convert to rem
-/// @author Azin Asili
+///
 /// @access public
-/// @param {number | list} $values - px value(s) to convert
-/// @param {number} $base [get($bytes, 'font-size')] - rem context
-/// @require {function} get - Return key value from a map
-/// @require {function} _convert-px - Convert px to a value for em/rem
-/// @return {number | list} Converted rem value(s)
+///
+/// @param {number (with unit) | list} $values
+///   Value(s) to convert to rem
+///
+/// @param {number (with unit)} $base [_get-setting($bytes, 'font-size')]
+///   Base context for calculation
+///
+/// @return {list}
+///
 /// @example scss
 ///   .foo {
 ///     padding: rem(10px 20px);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     padding: .625rem 1.25rem;
 ///   }
-@function rem($values, $base: get($bytes, 'font-size')) {
-  $rem-values: ();
+///
+/// @require {function} _get-setting
+///
+/// @require {function} _convert-px
+@function rem($values, $base: _get-setting($bytes, 'font-size')) {
+  $_rem-values: ();
 
   // Decide how to handle each value
   @each $value in $values {
     @if type-of($value) != number or unit($value) != 'px' or index((0, 1, -1), $value) {
-      $rem-values: append($rem-values, $value);
+      $_rem-values: append($_rem-values, $value);
     } @else {
-      $rem-value: _convert-px($value, $base) * 1rem;
-      $rem-values: append($rem-values, $rem-value);
+      $_rem-value: _convert-px($value, $base) * 1rem;
+      $_rem-values: append($_rem-values, $_rem-value);
     }
   }
 
-  @return $rem-values;
+  @return $_rem-values;
 }

@@ -1,19 +1,22 @@
 /// Manage z-index stacking order
-/// @author Azin Asili
+///
 /// @access public
-/// @param {list} $z-list - List of preferred stacking order
-/// @param {string} $z-layer - Element in stacking order
-/// @require {function} z-index - Manage `z-index` stacking order
-/// @output Value for `z-index`
+///
+/// @param {arguments} $args...
+///   Accepts the same arguments as `z-index` function
+///
 /// @example scss
 ///   $list: (dropdown, modal);
 ///   .foo {
 ///     @include z-index($list, modal);
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     z-index: 200;
 ///   }
+///
+/// @require {function} z-index
 @mixin z-index($args...) {
   z-index: z-index($args...);
 }

@@ -1,22 +1,23 @@
-/// Hide any text of an element
-/// @author Azin Asili
+/// Hide text of an element
+///
 /// @access public
-/// @link http://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
-/// @output Font size, overflow, text-indent, and white-space to move text outside of element
+///
 /// @example scss
 ///   .foo {
 ///     @include hide-text();
 ///   }
+///
 /// @example css
 ///   .foo {
-///     font-size: 0;
 ///     overflow: hidden;
 ///     text-indent: -101%;
 ///     white-space: nowrap;
 ///   }
+///
+/// @link
+///   http://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
 @mixin hide-text() {
-  font-size: 0;
   overflow: hidden;
-  text-indent: -101%;
+  text-indent: -100%;
   white-space: nowrap;
 }

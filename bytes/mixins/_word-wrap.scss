@@ -1,18 +1,21 @@
 /// Text wrapping for long words
-/// @author Azin Asili
+///
 /// @access public
-/// @link https://justmarkup.com/log/2015/07/31/dealing-with-long-words-in-css/
-/// @output Text wrapping using hypens, word-wrap, and word-break
+///
 /// @example scss
 ///   .foo {
 ///     @include word-wrap();
 ///   }
+///
 /// @example css
 ///   .foo {
 ///     hyphens: auto;
 ///     overflow-wrap: break-word;
 ///     word-wrap: break-word;
 ///   }
+///
+/// @link
+///   https://justmarkup.com/log/2015/07/31/dealing-with-long-words-in-css/
 @mixin word-wrap() {
   hyphens: auto;
   overflow-wrap: break-word;

@@ -1,0 +1,110 @@
+/// Add breakpoint indicator to document for easier debugging
+///
+/// @access public
+///
+/// @param {map} $breakpoints
+///   Map of breakpoint names and widths
+///
+/// @param {string} $position ['top-right']
+///   Corner of viewport breakpoint indicator is displayed
+///
+/// @param {map} $css [()]
+///   Map of custom CSS to overwrite or extend styles for breakpoint indicator
+///
+/// @example scss
+///   $breakpoints: (
+///     'mobile': 320px,
+///     'tablet': 740px,
+///     'laptop': 980px,
+///   );
+///   @include breakpoint-check($breakpoints);
+///
+/// @example css
+///   body::after {
+///     right: 0;
+///     top: 0;
+///     background: rgba(0, 0, 0, 0.7);
+///     color: rgba(225, 225, 225, 0.94);
+///     padding: 1em 1.3em;
+///     position: absolute;
+///     z-index: 9999;
+///   }
+///   @media (min-width: 20em) {
+///     body::after {
+///       content: "mobile: 320px | 20em";
+///     }
+///   }
+///   @media (min-width: 46.25em) {
+///     body::after {
+///       content: "tablet: 740px | 46.25em";
+///     }
+///   }
+///   @media (min-width: 61.25em) {
+///     body::after {
+///       content: "laptop: 980px | 61.25em";
+///     }
+///   }
+///
+/// @throw Error if `$position` is not a valid value
+///
+/// @require {function} _get-setting
+///
+/// @require {function} get
+///
+/// @require {function} dynamic-color
+///
+/// @require {function} transparent
+///
+/// @require {function} em
+///
+/// @require {mixin} set
+@mixin breakpoint-check(
+  $breakpoints,
+  $position: 'top-right',
+  $css: ()
+) {
+  $_styles: (
+    'background': transparent(_get-setting($bytes, 'black'), 70%),
+    'color': dynamic-color(transparent(_get-setting($bytes, 'black'), 70%)),
+    'padding': 1em 1.3em,
+    'position': absolute,
+    'z-index': 9999,
+  );
+  $_positions: (
+    'top-left': (
+      'left': 0,
+      'top': 0,
+    ),
+    'top-right': (
+      'right': 0,
+      'top': 0,
+    ),
+    'bottom-right': (
+      'bottom': 0,
+      'right': 0,
+    ),
+    'bottom-left': (
+      'bottom': 0,
+      'left': 0,
+    ),
+  );
+
+  @if not map-has-key($_positions, $position) {
+    @error '`#{$position}` is not a valid argument for `breakpoint-check()`, please use one of the following: #{map-keys($_positions)}';
+  }
+
+  $_styles: map-merge($_styles, $css);
+  $_styles: map-merge($_styles, get($_positions, $position));
+
+  body::after {
+    @include set($_styles);
+
+    @each $key, $value in $breakpoints {
+      $_em-value: em($value, 16px);
+
+      @media (min-width: $_em-value) {
+        content: '#{$key}: #{$value} | #{$_em-value}';
+      }
+    }
+  }
+}
