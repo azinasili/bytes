@@ -56,6 +56,7 @@ A small mixin and function helper library for Sass projects.
 * [`paper-depth`](#paper-depth)
 * [`paper-ripple`](#paper-ripple)
 * [`z-index`](#z-index)
+* [`breakpoint-check`](#breakpoint-check)
 
 ### Docs
 Bytes uses [Sassdoc](http://sassdoc.com/) for documentation. Docs can be generated via the command line using [Grunt](http://gruntjs.com/).
@@ -330,6 +331,17 @@ $map: (
 
   @include z-index($list, 'modal');
 }
+```
+
+#### `breakpoint-check`
+```scss
+$map: (
+  'mobile': 320px,
+  'tablet': 740px,
+  'laptop': 980px,
+);
+
+@include breakpoint-check($map);
 ```
 
 ## TODO
