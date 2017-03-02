@@ -5,7 +5,7 @@
 /// @param {color} $color
 ///   Color to manipulate
 ///
-/// @param {number | percent} $opacity [100%]
+/// @param {number | percent} $opacity [null]
 ///   Opacity of color
 ///
 /// @param {number | percent} $chroma [0]
@@ -26,6 +26,10 @@
 /// @require {function} transparent
 ///
 /// @require {function} chroma
-@function color($color, $opacity: 100%, $chroma: 0) {
-  @return transparent(chroma($color, $chroma), $opacity);
+@function color($color, $opacity: null, $chroma: 0) {
+  @if $opacity {
+    @return transparent(chroma($color, $chroma), $opacity);
+  }
+
+  @return chroma($color, $chroma);
 }
