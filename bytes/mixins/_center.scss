@@ -29,7 +29,7 @@
 @mixin center($direction, $position: 'relative', $is-important: null) {
   $_horizontal: ('horizontal', 'horz', 'h');
   $_vertical: ('vertical', 'vert', 'v');
-  $_directions: join(($_horizontal, $_vertical), ('both'));
+  $_directions: join(join($_horizontal, $_vertical), ('both'));
   $_positions: ('relative', 'absolute', 'fixed');
   $_important: null;
 

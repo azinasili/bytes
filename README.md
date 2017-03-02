@@ -3,7 +3,7 @@ A small mixin and function helper library for Sass projects.
 
 ## Installation
 
-1. Install the Bytes with [Bower](http://bower.io) package manager:
+1. Install Bytes with [Bower](http://bower.io) package manager:
 
   ```bash
   bower install bytes
@@ -17,6 +17,27 @@ A small mixin and function helper library for Sass projects.
 
   It’s not recommended to add or modify the Neat files so that you can update
   them easily.
+
+## Documentation
+Bytes uses [Sassdoc](http://sassdoc.com/) for documentation. Docs can be generated via the command line using [Grunt](http://gruntjs.com/).
+
+1. Install dependencies:
+
+  ```bash
+  npm install
+  ```
+
+1. Generate and open docs in your browser:
+
+  ```bash
+  grunt
+  ```
+
+1. Generate docs:
+
+  ```bash
+  grunt docs
+  ```
 
 ## What's included with Bytes?
 
@@ -32,7 +53,7 @@ A small mixin and function helper library for Sass projects.
 * [`chroma`](#chroma)
 * [`color`](#color)
 * [`dynamic-color`](#dynamic-color)
-* [`z-index`](#z-index)
+* [`z-index`](#z-index-function)
 * [`path`](#path)
 * [`animate`](#animate)
 
@@ -55,28 +76,31 @@ A small mixin and function helper library for Sass projects.
 * [`width`](#width)
 * [`paper-depth`](#paper-depth)
 * [`paper-ripple`](#paper-ripple)
-* [`z-index`](#z-index)
+* [`z-index`](#z-index-mixin)
+* [`breakpoint-check`](#breakpoint-check)
 
-### Docs
-Bytes uses [Sassdoc](http://sassdoc.com/) for documentation. Docs can be generated via the command line using [Grunt](http://gruntjs.com/).
+### Global settings
+Here are all of Bytes global settings with their default value:
 
-1. Install documentation dependencies:
+```scss
+$bytes: (
+  'animate-easing' : cubic-bezier(.4, 0, .2, 1),
+  'animate-timing' : .4s,
+  'black'          : rgb(0, 0, 0),
+  'font-size'      : 16px,
+  'media-path'     : '../assets',
+  'white'          : rgb(255, 255, 255),
+);
+```
 
-  ```bash
-  npm install
-  ```
+You can set your own global defaults. Create a `$bytes` variable containing any key/value you need.
 
-1. Generate and open docs in a browser:
-
-  ```bash
-  grunt
-  ```
-
-1. Generate docs:
-
-  ```bash
-  grunt docs
-  ```
+```scss
+$bytes: (
+  'font-size'      : 14px,
+  'media-path'     : '../../img',
+);
+```
 
 ### Functions
 
@@ -154,14 +178,11 @@ $map: (
 }
 ```
 
-#### `z-index`
+#### `z-index` function
 ```scss
-.test {
-  $list: (
-    'header',
-    'modal',
-  );
+$list: ('header', 'modal');
 
+.test {
   z-index: z-index($list, 'modal');
 }
 
@@ -320,16 +341,24 @@ $map: (
 }
 ```
 
-#### `z-index`
+#### `z-index` function
 ```scss
-.test {
-  $list: (
-    'header',
-    'modal',
-  );
+$list: ('header', 'modal');
 
+.test {
   @include z-index($list, 'modal');
 }
+```
+
+#### `breakpoint-check`
+```scss
+$map: (
+  'mobile': 320px,
+  'tablet': 740px,
+  'laptop': 980px,
+);
+
+@include breakpoint-check($map);
 ```
 
 ## TODO
