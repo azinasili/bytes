@@ -32,7 +32,7 @@ A small mixin and function helper library for Sass projects.
 * [`chroma`](#chroma)
 * [`color`](#color)
 * [`dynamic-color`](#dynamic-color)
-* [`z-index`](#z-index)
+* [`z-index`](#z-index-function)
 * [`path`](#path)
 * [`animate`](#animate)
 
@@ -55,7 +55,7 @@ A small mixin and function helper library for Sass projects.
 * [`width`](#width)
 * [`paper-depth`](#paper-depth)
 * [`paper-ripple`](#paper-ripple)
-* [`z-index`](#z-index)
+* [`z-index`](#z-index-mixin)
 * [`breakpoint-check`](#breakpoint-check)
 
 ### Docs
@@ -155,14 +155,11 @@ $map: (
 }
 ```
 
-#### `z-index`
+#### `z-index` function
 ```scss
-.test {
-  $list: (
-    'header',
-    'modal',
-  );
+$list: ('header', 'modal');
 
+.test {
   z-index: z-index($list, 'modal');
 }
 
@@ -321,14 +318,11 @@ $map: (
 }
 ```
 
-#### `z-index`
+#### `z-index` function
 ```scss
-.test {
-  $list: (
-    'header',
-    'modal',
-  );
+$list: ('header', 'modal');
 
+.test {
   @include z-index($list, 'modal');
 }
 ```
