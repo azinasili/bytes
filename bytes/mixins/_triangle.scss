@@ -31,27 +31,28 @@
 ///
 /// @require {function} set
 @mixin triangle($width, $height: $width, $color: #000, $direction: 'bottom') {
-  $_size: ($width / 2);
+  $_height: ($height / 2);
+  $_width: ($width / 2);
   $_sides: (
     'top': (
       'border-bottom': $height solid $color,
-      'border-left': $_size solid transparent,
-      'border-right': $_size solid transparent,
+      'border-left': $_width solid transparent,
+      'border-right': $_width solid transparent,
     ),
     'right': (
-      'border-left': $height solid $color,
-      'border-top': $_size solid transparent,
-      'border-bottom': $_size solid transparent,
+      'border-left': $width solid $color,
+      'border-top': $_height solid transparent,
+      'border-bottom': $_height solid transparent,
     ),
     'bottom': (
       'border-top': $height solid $color,
-      'border-left': $_size solid transparent,
-      'border-right': $_size solid transparent,
+      'border-left': $_width solid transparent,
+      'border-right': $_width solid transparent,
     ),
     'left': (
-      'border-right': $height solid $color,
-      'border-top': $_size solid transparent,
-      'border-bottom': $_size solid transparent,
+      'border-right': $width solid $color,
+      'border-top': $_width solid transparent,
+      'border-bottom': $_width solid transparent,
     ),
   );
   $_angles: (
@@ -82,7 +83,7 @@
   display: inline-block;
 
   @if $width == $height and $_angle-check {
-    border: $_size solid transparent;
+    border: $_width solid transparent;
     @include set(get($_angles, $direction));
   } @else {
     @if $_angle-check {
