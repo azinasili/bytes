@@ -51,8 +51,8 @@
     ),
     'left': (
       'border-right': $width solid $color,
-      'border-top': $_width solid transparent,
-      'border-bottom': $_width solid transparent,
+      'border-top': $_height solid transparent,
+      'border-bottom': $_height solid transparent,
     ),
   );
   $_angles: (
