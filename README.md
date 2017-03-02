@@ -341,7 +341,7 @@ $map: (
 }
 ```
 
-#### `z-index` function
+#### `z-index` mixin
 ```scss
 $list: ('header', 'modal');
 
