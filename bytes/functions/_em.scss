@@ -36,5 +36,9 @@
     }
   }
 
+  @if length($values) == 1 {
+    @return nth($_em-values, 1);
+  }
+
   @return $_em-values;
 }

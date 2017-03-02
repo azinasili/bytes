@@ -36,5 +36,9 @@
     }
   }
 
+  @if length($values) == 1 {
+    @return nth($_rem-values, 1);
+  }
+
   @return $_rem-values;
 }
