@@ -23,5 +23,9 @@
 @function _get-setting($override, $setting) {
   $_config: map-merge($_bytes-default, $override);
 
-  @return unquote(map-get($_config, $setting));
+  @if map-get($_config, $setting) == string {
+    @return unquote(map-get($_config, $setting));
+  }
+  
+  @return map-get($_config, $setting);
 }
