@@ -8,7 +8,7 @@
 /// @param {number (with unit)} $height [$width]
 ///   Height of circle
 ///
-/// @param {number (with unit)} $radius [100%]
+/// @param {number (with unit)} $radius [50%]
 ///   Border-radius of circle
 ///
 /// @example scss
@@ -18,11 +18,11 @@
 ///
 /// @example css
 ///   .foo {
-///     border-radius: 100%;
+///     border-radius: 50%;
 ///     height: 20px;
 ///     width: 50px;
 ///   }
-@mixin circle($width, $height: $width, $radius: 100%) {
+@mixin circle($width, $height: $width, $radius: 50%) {
   border-radius: $radius;
   height: $height;
   width: $width;
