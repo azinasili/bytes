@@ -3,41 +3,41 @@ A small mixin and function helper library for Sass projects.
 
 ## Installation
 
-1. Install Bytes with [Bower](http://bower.io) package manager:
+Install Bytes with [Bower](http://bower.io) package manager:
 
-  ```bash
-  bower install bytes
-  ```
+```bash
+bower install bytes
+```
 
-1. Import Bytes into your stylesheet:
+Import Bytes into your stylesheet:
 
-  ```scss
-  @import "path/to/bytes/bytes";
-  ```
+```scss
+@import "path/to/bytes/bytes";
+```
 
-  It’s not recommended to add or modify the Neat files so that you can update
-  them easily.
+It’s not recommended to add or modify files so that you can update
+them easily.
 
 ## Documentation
 Bytes uses [Sassdoc](http://sassdoc.com/) for documentation. Docs can be generated via the command line using [Grunt](http://gruntjs.com/).
 
-1. Install dependencies:
+Install dependencies:
 
-  ```bash
-  npm install
-  ```
+```bash
+npm install
+```
 
-1. Generate and open docs in your browser:
+Generate and open docs in your browser:
 
-  ```bash
-  grunt
-  ```
+```bash
+grunt
+```
 
-1. Generate docs:
+Generate docs:
 
-  ```bash
-  grunt docs
-  ```
+```bash
+grunt docs
+```
 
 ## What's included with Bytes?
 
@@ -363,4 +363,4 @@ $map: (
 
 ## TODO
 
-* Added testing suite
+* Add testing suite
