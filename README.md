@@ -2,6 +2,11 @@
 A small mixin and function helper library for Sass projects.
 
 ## Installation
+With [NPM](https://www.npmjs.com/package/@azinasili/bytes):
+
+```bash
+npm install @azinasili/bytes --save
+```
 
 Install Bytes with [Bower](http://bower.io) package manager:
 
