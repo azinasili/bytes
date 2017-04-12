@@ -11,7 +11,7 @@ npm install @azinasili/bytes --save
 Install Bytes with [Bower](http://bower.io) package manager:
 
 ```bash
-bower install bytes
+bower install bytes --save
 ```
 
 Import Bytes into your stylesheet:
